@@ -240,9 +240,10 @@
     <div id="vcomments" class="card-content"></div>
 </div>
 
-<script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
-<!-- <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script> -->
+<!-- <script src="/libs/valine/av-min.js"></script> -->
+<!-- <script src="/libs/valine/Valine.min.js"></script> -->
+<!-- <script src="//code.bdstatic.com/npm/leancloud-storage@4.12.0/dist/av-min.js"></script> -->
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
 
 <script>
     new Valine({
@@ -255,6 +256,7 @@
         avatar: '<%- theme.valine.avatar %>',
         pageSize: '<%- theme.valine.pageSize %>',
         lang: '<% if (config.language == "zh-CN") {  %>zh-cn<% } else { %>en<% } %>',
-        placeholder: '<%= theme.valine.placeholder %>'
+        placeholder: '<%= theme.valine.placeholder %>',
+        serverURLs: '<%= theme.valine.serverURLs %>'
     });
 </script>

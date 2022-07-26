@@ -4,8 +4,8 @@
 
 # Site
 title: 行码棋的博客
-subtitle: 行码棋
-description: 郑州大学 | 物联网工程
+subtitle: 行稳致远
+description: 金牌选手不会从天而降，你必须用热爱、刻苦和投入来浇灌他们。
 keywords: "ZZU 行码棋"
 author: 行码棋
 language: zh-CN
@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://blogs.wangyaqii.top
+url: http://wangyaqii.top
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -140,6 +140,6 @@ live2d:
 
 baidu_url_submit:
   count: 100
-  host: godweiyang.com
-  token: jp7MKvOw74Yh3F09
+  host: wangyaqii.top
+  token: 48Vq3c6WJnufaIkT
   path: baidu_urls.txt

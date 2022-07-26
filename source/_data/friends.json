@@ -3,7 +3,37 @@
         "name": "行码棋",
         "url": "https://blog.csdn.net/qq_50285142",
         "title": "访问主页",
-        "introduction": "算法写手",
+        "introduction": "做题家",
         "avatar": "/medias/avatars/avatar.jpg"
+    },
+    {
+        "name": "WAWA鱼",
+        "url": "https://blog.csdn.net/qq_51282224",
+        "title": "访问主页",
+        "introduction": "算法大佬",
+        "avatar": "/medias/avatars/wawayu.jpg"
+    },
+
+    {
+        "name": "猿知",
+        "url": "https://blog.csdn.net/Magic_Zsir",
+        "title": "访问主页",
+        "introduction": "物联网开发玩家",
+        "avatar": "/medias/avatars/yuanzhi.jpg"
+    },
+    {
+        "name": "小极客",
+        "url": "http://blog.tkcraft.cn/",
+        "title": "访问主页",
+        "introduction": "爱玩的小极客，有许多有意思的想法。",
+        "avatar": "/medias/avatars/xiaojike.jpg"
+    },
+    {
+        "name": "M3thy1",
+        "url": "http://zzuctf.fun:8090/",
+        "title": "访问主页",
+        "introduction": "网安菜鸡。",
+        "avatar": "/medias/avatars/m3thy1.jpg"
     }
+
 ]

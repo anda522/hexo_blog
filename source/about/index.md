@@ -1,6 +1,6 @@
 ---
 title: about
-date: 2019-07-19 16:41:10
+date: 2022-06-19 16:41:10
 type: "about"
 layout: "about"
 mathjax: true
@@ -14,7 +14,7 @@ mathjax: true
 
 ## 教育背景
 * <b>本科 郑州大学 物联网工程</b>
-2020/09 - 至今
+2020/09 - 2021/09, 4 / 240
 
 
 ## 研究方向
@@ -32,13 +32,13 @@ mathjax: true
 
 
 
-
 ## 联系方式
 * <b>电子邮箱</b>
 wyq522208@qq.com
 
-* <b>微信</b>
-xingmaqi
+* <b>QQ</b>
+2579272746
+
 * <b>QQ 技术交流群</b>
 231756780
 
