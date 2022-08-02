@@ -167,7 +167,7 @@ text:
 profile:
   avatar: /medias/avatars/avatar.jpg
   career: 郑州大学 | 物联网工程
-  introduction: 我是郑州大学物联网工程2020级本科生。欢迎关注我的微信公众号「行码棋」，干货每天不错过！
+  introduction: 我是郑州大学物联网工程2020级本科生，现役ACMer，蒟蒻一个。
 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
@@ -312,7 +312,7 @@ busuanziStatistics:
 # 添加 Google Analytics 配置
 googleAnalytics:
   enable: true
-  id: 查教程获取
+  id: G-JPXWHNDBQ5
 
 # The used front-end library can be replaced with the corresponding CDN address as needed,
 # If the specific version is not specified below, you can use the latest version.
@@ -412,3 +412,4 @@ snow:
   enable: false
 
 baidu_push: true
+

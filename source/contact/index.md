@@ -25,6 +25,6 @@ layout: "contact"
 例如我的博客友链，大家可以加到自己博客里哦：
 * **名称：**行码棋
 * **地址：**http://wangyaqii.top
-* **简介：**一个学习算法的蒟蒻儿。
+* **简介：**算法蒟蒻
 * **头像**：http://wangyaqii.top/medias/logo.png
 

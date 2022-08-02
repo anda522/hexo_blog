@@ -1,7 +1,7 @@
 ---
 title: C++ STL超全总结
 top: false
-cover: false
+cover: true
 toc: true
 mathjax: true
 date: 2022-06-22 15:54:47
@@ -18,12 +18,14 @@ categories:
 
 
 
-#  C++ STL常用内容总结:
+#  C++ STL常用内容总结
 
-注：我是以打算法竞赛的角度整理的STL知识点，**强调使用方法**，并不强调原理。
+我是以打算法竞赛的角度整理的STL知识点，**强调使用方法**，并不强调原理。
 
 下面会介绍很多C++ STL库里面的模板，在编程中STL犹如神器，实用简洁好用。
-STL绝对让你受益无穷!
+STL绝对让你受益无穷！
+
+
 
 
 ## 👉[1.vector动态数组](https://blog.csdn.net/qq_50285142/article/details/122303529)👈
