@@ -10,6 +10,10 @@
 
             <br>
             <span id="sitetime"></span>
+            <br>
+            <!-- 备案号添加 -->
+            <img src="/medias/img/beian.png">
+            <a href="http://beian.miit.gov.cn/" style="color:#f72b07" target="_blank">豫ICP备2021035313号-1</a>
 
             <% let socialClass = '' %>
             <% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
@@ -30,6 +34,7 @@
         <div class="col s12 m4 l4 social-link <%- socialClass %>"><%- partial('_partial/social-link') %></div>
     </div>
 </footer>
+
 
 <div class="progress-bar"></div>
 
@@ -89,3 +94,4 @@
     }
     siteTime();
 </script>
+
