@@ -80,14 +80,14 @@ recommend:
 
 # Configure website favicon and LOGO
 # 配置网站favicon和网站LOGO
-favicon: /favicon.png
+favicon: /medias/logo.png
 logo: /medias/logo.png
 
 # The configuration of the second button in the home banner,
 # including the display name of the button, the font awesome icon, and the hyperlink to the button.
 # 首页 banner 中的第二个按钮的配置，包括按钮的显示名称、font awesome图标和按钮的超链接.
 indexbtn:
-  enable: false
+  enable: true
   name: Github
   icon: fa-github-alt
   url: https://github.com/anda522
@@ -286,8 +286,8 @@ valine:
 # Whether to display fork me on github icon and link, default true, You can change it to your repo address
 # 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.(右上角)
 githubLink:
-  enable: false
-  url: 
+  enable: true
+  url: "https://github.com/anda522/anda522.github.io"
   title: Fork Me
 
 # The password verification feature of read post. To use this feature,

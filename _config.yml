@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 前后端技术学习
+title: 行码棋
 subtitle: 行稳致远
 description: 金牌选手不会从天而降，你必须用热爱、刻苦和投入来浇灌他们。
 keywords: "ZZU 行码棋"
@@ -15,7 +15,7 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://wangyaqii.top
 root: /
-permalink: :year/:month/:day/:title/
+# permalink: :year/:month/:day/:title/
 permalink_defaults:
 
 # Directory
@@ -54,9 +54,11 @@ search:
   path: search.xml
   field: post
 
-permalink_pinyin:
-  enable: true
-  separator: '-' # default: '-'
+# permalink: :year/:month/:day/:title/
+permalink: p/:abbrlink.html  # p 是自定义的前缀
+abbrlink:
+    alg: crc32   #算法： crc16(default) and crc32
+    rep: dec     #进制： dec(default) and hex
 
 feed:
   type: atom

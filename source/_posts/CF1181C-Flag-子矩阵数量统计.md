@@ -4,14 +4,15 @@ top: false
 cover: false
 toc: true
 mathjax: true
-date: 2022-06-29 16:03:02
-password:
-summary: 
-tags: 
+tags:
   - CF
   - DP
-categories: 
+categories:
   - DP
+abbrlink: 2396599521
+date: 2022-06-29 16:03:02
+password:
+summary:
 ---
 
 
@@ -24,7 +25,7 @@ categories:
 
 [https://codeforces.com/problemset/problem/1181/C](https://codeforces.com/problemset/problem/1181/C)
 
-![题目描述](image-20220629160509729.png)
+![题目描述](2396599521/image-20220629160509729.png)
 
 ## 思路
 
