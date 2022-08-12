@@ -2,6 +2,8 @@
 
 <main class="content">
 
+
+    <!-- 显示日历表 -->
     <% if (theme.postCalendar) { %>
     <%- partial('_widget/post-calendar') %>
     <% } %>
@@ -35,7 +37,24 @@
     var featureImages = theme.featureImages;
     %>
 
+<!-- 站点历史卡片, markdown显示未实现 -->
+    <!-- <div id="history" class="container archives-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-content article-card-content">
+                    <div class="title center-align" data-aos="zoom-in-up">
+                        <i class="fa fa-history"></i>&nbsp;&nbsp;<%- __('history') %>
+                    </div>
+                    <div id="articleContent" data-aos="fade-up">
+                        <%- page.content %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    
     <div id="cd-timeline" class="container">
+
         <% page.posts.each(function(post) { %>
         <div class="cd-timeline-block">
 

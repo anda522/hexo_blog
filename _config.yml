@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://wangyaqii.top
+url: http://wyqz.top
 root: /
 # permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -116,6 +116,7 @@ deploy:
 - type: git
   repository:
     github: git@github.com:anda522/anda522.github.io.git
+    gitee: git@gitee.com:wyqz/wyqz.git
 #    coding: git@e.coding.net:anda522/anda522.git
   branch: master
 - type: baidu_url_submitter
@@ -142,6 +143,6 @@ live2d:
 
 baidu_url_submit:
   count: 100
-  host: wangyaqii.top
+  host: wyqz.top
   token: 48Vq3c6WJnufaIkT
   path: baidu_urls.txt

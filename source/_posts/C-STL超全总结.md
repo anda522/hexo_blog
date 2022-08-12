@@ -1,7 +1,7 @@
 ---
 title: C++ STL超全总结
 top: false
-cover: true
+cover: false
 toc: true
 mathjax: true
 tags:

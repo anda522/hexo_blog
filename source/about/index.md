@@ -12,7 +12,10 @@ mathjax: true
 [中文版](/medias/files/cv-zh.pdf)
 [English Version](/medias/files/cv-en.pdf) -->
 
+# 太菜了，无法展示
+
 ## 教育背景
+
 * <b>本科 郑州大学 物联网工程</b>
 2020/09 - 2021/09, 4 / 240
 
@@ -29,8 +32,6 @@ mathjax: true
 ## 获奖情况
 ### 2020
 * <b>国家励志奖学金</b>
-
-
 
 ## 联系方式
 * <b>电子邮箱</b>

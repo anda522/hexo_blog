@@ -97,3 +97,41 @@ docker attach my_docker_server  # 进入创建的docker容器
 
 
 
+# 常用操作
+
+## 查询
+
+```bash
+docker images # 列出本地所有镜像
+docker ps -a # 列出本地所有容器
+docker ps # 列出运行中的容器
+```
+
+## 镜像操作
+
+```bash
+docker pull ubuntu:20.04 # 拉取一个镜像
+docker image rm ubuntu:20.04 # 删除一个镜像
+
+```
+
+
+
+## 容器操作
+
+```bash
+docker container start CONTAINER #启动容器
+docker container stop CONTAINER #停止容器
+docker container attach CONTAINER #进入容器，先按Ctrl-p，再按Ctrl-q可以挂起容器(容器必须启动才可进入)
+```
+
+
+
+## 镜像与容器操作
+
+```bash
+docker container create -it ubuntu:20.04 name # 利用镜像ubuntu:20.04创建一个名为name的容器
+docker container commit CONTAINER IMAGE_NAME:TAG #创建某个container的镜像
+docker run -p 20000:22 --name NAME -itd docker:1.0  # 利用docker:1.0镜像创建一个名为NAME的容器并运行容器, 并将主机20000端口映射到容器22
+```
+

@@ -13,7 +13,7 @@
             <br>
             <!-- 备案号添加 -->
             <img src="/medias/img/beian.png">
-            <a href="http://beian.miit.gov.cn/" style="color:#f72b07" target="_blank">豫ICP备2021035313号-1</a>
+            <a href="http://beian.miit.gov.cn/" style="color:#f72b07" target="_blank">豫ICP备2021035313号-2</a>
 
             <% let socialClass = '' %>
             <% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
@@ -43,8 +43,8 @@
     $(document).ready(function () {
 
         var int = setInterval(fixCount, 50);
-        var pvcountOffset = 0;
-        var uvcountOffset = 0;
+        var pvcountOffset = 80000;
+        var uvcountOffset = 80000;
 
         function fixCount() {
             if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {

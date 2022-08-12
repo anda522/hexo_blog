@@ -192,6 +192,14 @@
             </div>
             <% } %>
         </article>
+
+        <!-- 添加评论模块 -->
+        <div class="card">
+            <% if (theme.valine && theme.valine.enable) { %>
+            <%- partial('_partial/valine') %>
+            <% } %>
+        </div> 
+               
     </div>
 </main>
 
@@ -201,4 +209,5 @@
             itemSelector: '.friend-div'
         });
     });
+
 </script>
