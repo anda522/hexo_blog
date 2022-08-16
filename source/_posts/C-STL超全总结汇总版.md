@@ -28,6 +28,8 @@ summary:
 
 > 实践才是检验真理的唯一标准！
 
+CSDN版本：[https://wyq666.blog.csdn.net/article/details/114026148](https://wyq666.blog.csdn.net/article/details/114026148)
+
 ## 1 vector
 
 ###  1.1 介绍
