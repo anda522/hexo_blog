@@ -1,5 +1,5 @@
 ---
-title: C++ STL超全总结-基于算法竞赛（悠享版）
+title: C++ STL总结
 top: true
 cover: true
 toc: true
@@ -18,7 +18,7 @@ summary:
 
 
 
-# C++ STL 超全总结-基于算法竞赛（悠享版）
+# C++ STL 总结-基于算法竞赛（悠享版）
 
 本文介绍常用STL知识，注重应用，强调用法，不强调原理和繁杂的记忆。看过之后请多运用，多敲代码试。
 
@@ -956,6 +956,20 @@ for(auto i : s)
 // 10 9 8 7 6 5 4 3 2 1
 ```
 
+方式三：初始化时使用匿名函数定义比较规则
+
+```cpp
+set<int, function<bool(int, int)>> s([&](int i, int j){
+    return i > j; // 从大到小
+});
+for(int i = 1; i <= 10; i++)
+    s.insert(i);
+for(auto x : s)
+    cout << x << " ";
+```
+
+
+
 - **高级数据类型（结构体）**
 
 直接重载结构体运算符即可，让结构体可以比较。
@@ -1375,6 +1389,8 @@ bitset 在 bitset 头文件中，它类似数组，并且每一个元素只能�
 | `bitset < n >a(b)`       | a是unsigned long型u的一个副本    |
 | `bitset < n >a(s)`       | a是string对象s中含有的位串的副本 |
 | `bitset < n >a(s,pos,n)` | a是s中从位置pos开始的n个位的副本 |
+
+> 注意：`n`必须为常量表达式
 
 演示代码：
 
