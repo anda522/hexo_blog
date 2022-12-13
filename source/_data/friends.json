@@ -3,7 +3,7 @@
         "name": "行码棋",
         "url": "http://wyqz.top",
         "title": "访问主页",
-        "introduction": "做题家",
+        "introduction": "蒟蒻一个",
         "avatar": "/medias/avatars/me.png"
     },
     {
@@ -27,13 +27,6 @@
         "title": "访问主页",
         "introduction": "爱玩的小极客，有许多有意思的想法。",
         "avatar": "/medias/avatars/xiaojike.jpg"
-    },
-    {
-        "name": "M3thy1",
-        "url": "http://zzuctf.fun:8090/",
-        "title": "访问主页",
-        "introduction": "网安菜鸡。",
-        "avatar": "/medias/avatars/m3thy1.jpg"
     }
 
 ]

@@ -64,45 +64,44 @@ CSDN版本：[https://wyq666.blog.csdn.net/article/details/114026148](https://wy
     vector<int> v(n);//定义一个长度为n的数组，初始值默认为0，下标范围[0, n - 1]
     vector<int> v(n, 1);//v[0]到v[n-1]所有的元素初始值均为1
     //注意：指定数组长度之后（指定长度后的数组就相当于正常的数组了）
-    //就无法使用push_back()操作了
     ```
-
+    
     初始化中有多个元素
-
+    
     ```cpp
     vector<int> a{1, 2, 3, 4, 5};//数组a中有五个元素，数组长度就为5
     ```
-
+    
     拷贝初始化
-
+    
     ```cpp
     vector<int> a(n + 1, 0);
     vector<int> b(a);//两个数组中的类型必须相同,a和b都是长度为n+1，初始值都为0的数组
     ```
-
+    
   - 二维初始化
     定义第一维固定长度为`5`，第二维可变化的二维数组
-
+  
     ```cpp
     vector<int> v[5];//定义可变长二维数组
     //注意：行不可变（只有5行）, 而列可变,可以在指定行添加元素
     //第一维固定长度为5，第二维长度可以改变
     ```
-
+  
     > `vector<int> v[5]`可以这样理解：长度为5的v数组，数组中存储的是`vector<int> `数据类型，而该类型就是数组形式，故`v`为二维数组。其中每个数组元素均为空，因为没有指定长度，所以第二维可变长。可以进行下述操作：
     >
     > ```cpp
     > v[1].push_back(2);
     > v[2].push_back(3);
     > ```
-
+  
     行列均可变
-
+  
     ```cpp
     //初始化二维均可变长数组
     vector<vectot<int>> v;//定义一个行和列均可变的二维数组
     ```
-
+  
     > 应用：可以在`v`数组里面装多个数组
     >
     > ```cpp
@@ -112,15 +111,15 @@ CSDN版本：[https://wyq666.blog.csdn.net/article/details/114026148](https://wy
     > v.push_back(t2);
     > v.push_back({3, 4, 5, 6}) // {3, 4, 5, 6}可以作为vector的初始化,相当于一个无名vector
     > ```
-
+  
     行列长度均固定 `n + 1`行 `m + 1`列初始值为0
-
+  
     ```cpp
     vector<vector<int> > a(n + 1, vector<int>(m + 1, 0));
     ```
-
+  
     c++17或者c++20支持的形式（不常用），与上面相同的初始化
-
+  
     ```cpp
     vector a(n + 1, vector(m + 1, 0));
     ```
@@ -235,7 +234,7 @@ for(auto val : v)
 >
 > - `vi[i]`  和  `*(vi.begin() + i)` 等价
 >
-> - 只有`vector`和`string`的`stl`容器支持`*(it + i)`的元素访问
+> - `vector`和`string`的`STL`容器支持`*(it + i)`的元素访问，其它容器可能也可以支持这种方式访问，但用的不多，可自行尝试。
 
 ---
 
@@ -550,7 +549,7 @@ struct node
 priority_queue<Point> q;
 ```
 
-**注意：** 优先对列自定义排序规则和`sort()`函数定义`cmp`函数很相似，但是最后返回的情况是**相反**的。即相同的符号，最后定义的排列顺序是完全相反的。
+**注意：** 优先队列自定义排序规则和`sort()`函数定义`cmp`函数很相似，但是最后返回的情况是**相反**的。即相同的符号，最后定义的排列顺序是完全相反的。
 所以只需要记住`sort`的排序规则和优先队列的排序规则是相反的就可以了。
 
 ---
@@ -870,7 +869,7 @@ set<int> s;
 | 代码                   | 含义                                                         |
 | ---------------------- | ------------------------------------------------------------ |
 | `s.begin()`            | 返回set容器的第一个元素的地址（迭代器）$O(1)$                |
-| `s.end()`              | 返回set容器的最后一个元素的地址（迭代器）$O(1)$              |
+| `s.end()`              | 返回set容器的最后一个元素的下一个地址（迭代器）$O(1)$        |
 | `s.rbegin()`           | 返回逆序迭代器，指向容器元素最后一个位置$O(1)$               |
 | `s.rend()`             | 返回逆序迭代器，指向容器第一个元素前面的位置$O(1)$           |
 | `s.clear()`            | 删除set容器中的所有的元素,返回unsigned int类型$O(N)$         |
@@ -1926,6 +1925,35 @@ mx = max({a, b, c, d});
 mn = min({a, b, c, d});
 ```
 
+## `minmax(a, b)`
+
+**复杂度：** $O(1)$
+
+> 返回一个`pair`类型，第一个元素是`min(a, b)`， 第二个元素是`max(a, b)`
+
+```cpp
+pair<int, int> t = minmax(4, 2);
+// t.first = 2, t.second = 4
+```
+
+
+
+## `minmax_element(beg, end)`
+
+**复杂度：** $O(N)$
+
+> 返回序列中的最小和最大值，返回类型为`pair`
+
+```cpp
+int n = 10;
+vector<int> a(n);
+iota(a.begin(), a.end(), 1);
+pair<int, int> t = minmax_element(a.begin(), a.end());
+// t.first = 1, t.second = 10
+```
+
+
+
 ## `nth_element(beg,nth,end)`
 
 **复杂度：** 平均$O(N)$
@@ -2018,11 +2046,16 @@ for(int i = 0; i < 10; i++)
 
 **复杂度：** $O(N)$
 
-> 对序列随机重排
+> 1. 随机打乱序列的顺序
+> 2. 在 `C++14` 中被弃用，在 `C++17` 中被废除，C++11之后应尽量使用`shuffle`来代替。
 
 ```cpp
+vector<int> b(n);
+iota(b.begin(), b.end(), 1);// 序列b递增赋值 1, 2, 3, 4,...
 //对a数组随机重排
 random_shuffle(a, a + n);
+// C++11之后尽量使用shuffle
+shuffle(b.begin(), b.end());
 ```
 
 ##  `reverse(beg,end)`
@@ -2171,7 +2204,9 @@ for(int i = 0; i < n; i++)
 
 ## `__lg(a)`
 
-> 求一个数二进制下最高位位于第几位（从**第0位**开始）（或二进制数下有几位）
+> 1. 求一个数二进制下最高位位于第几位（从**第0位**开始）（或二进制数下有几位）
+> 2. `__lg(x)`相当于返回$\lfloor log_2 x \rfloor$
+> 3. 复杂度$O(1)$
 
 `__lg(8) = 3`
 
@@ -2208,3 +2243,12 @@ cout << __builtin_clz(32); // 26
 
 > `x`中1的个数的奇偶性， 奇数输出`1`，偶数输出`0`
 
+
+
+> 可参考链接：
+>
+> 1. [C++语法糖](https://www.luogu.com.cn/blog/AccRobin/grammar-candies) https://www.luogu.com.cn/blog/AccRobin/grammar-candies
+
+可能有些人需要PDF文件，公众号【行码棋】回复 STL 获取，抱歉😭
+
+![](https://wyqz.top/medias/gzh.jpg)
