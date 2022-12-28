@@ -169,29 +169,25 @@ text:
 profile:
   avatar: /medias/avatars/me.png
   career: 郑州大学 | 物联网工程
-  introduction: 我是郑州大学物联网工程2020级本科生，现役ACMer，蒟蒻一个。
+  introduction: 郑州大学物联网工程2020级本科 | 现役ACMer | 蒟蒻一个
 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
 # 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 myProjects:
-  enable: false
+  enable: true
   data:
-    hexo-matery-modified:
+    CIFAR10:
       icon: fa-meetup
       iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
-      url: https://github.com/godweiyang/hexo-matery-modified
-      desc: 我的个性化配置过的博客源码，即下即用。
-    Span-Linearization-Parser:
-        icon: fa-database
-        iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
-        url: https://github.com/AntNLP/span-linearization-parser
-        desc: 基于PyTorch的成分句法分析模型，ACL2020论文源码。
-    ECNU-BeamerTemplate:
-        icon: fa-file-text-o
-        iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
-        url: https://github.com/godweiyang/ECNU_BeamerTemplate
-        desc: 基于Latex Beamer的华东师范大学PPT模板。
+      url: https://github.com/anda522/CIFAR10
+      desc: Pytorch之CIFAR10图像分类
+    calendar:
+      icon: fa-database
+      iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
+      url: https://github.com/anda522/calendar
+      desc: 简单的日历备忘APP(Calendar Memo)
+
 
 # config my skills informations in about page.
 # If you don't want to display this `My Skills` content, you can deactivate or delete this configuration.
