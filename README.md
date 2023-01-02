@@ -42,5 +42,8 @@ hexo g
 hexo d
 ```
 
+# 评论
 
+Valine评论系统官方API：https://valine.js.org/configuration.html
 
+评论邮箱通知参考：https://aeneag.xyz/articles/2021/11/14/1636875468621.html

@@ -257,6 +257,7 @@
         pageSize: '<%- theme.valine.pageSize %>',
         lang: '<% if (config.language == "zh-CN") {  %>zh-cn<% } else { %>en<% } %>',
         placeholder: '<%= theme.valine.placeholder %>',
-        serverURLs: '<%= theme.valine.serverURLs %>'
+        serverURLs: '<%= theme.valine.serverURLs %>',
+        requiredFields: ['mail']
     });
 </script>

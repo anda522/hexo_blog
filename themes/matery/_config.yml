@@ -279,7 +279,7 @@ valine:
   visitor: true
   avatar: 'wavatar' # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
   pageSize: 10
-  placeholder: '如果你没有GitHub账号，还可以在这里评论啦！' # Comment Box placeholder
+  placeholder: '欢迎提问与质疑，你可以在这里评论啦！' # Comment Box placeholder
 
 # Whether to display fork me on github icon and link, default true, You can change it to your repo address
 # 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.(右上角)
