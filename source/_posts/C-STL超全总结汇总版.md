@@ -1764,7 +1764,11 @@ cout << one << two << three << "\n"; // 1hahaha3
 
 # STL函数
 
-## `accumulate(beg,end,init)`
+## accumulate
+
+```
+accumulate(beg, end, init)
+```
 
 **复杂度：** $O(N)$
 
@@ -1807,7 +1811,12 @@ ll res = accumulate(st + 1, st + 4, 1ll, [](ll a,node b){
     
 ```
 
-## `atoi(const char *)`
+## atoi
+
+```
+atoi(const char *)
+```
+
 > 将字符串转换为`int`类型
 
 注意参数为`char`型数组，如果需要将string类型转换为int类型，可以使用`stoi`函数（参考下文），或者将`string`类型转换为`const char *`类型。
@@ -1828,9 +1837,11 @@ int a = atoi(s);
 cout << a << "\n";
 ```
 
+## fill
 
-
-## `fill(beg,end,num)`
+```
+fill(beg,end,num)
+```
 
 **复杂度：** $O(N)$
 
@@ -1853,7 +1864,11 @@ for(int i=0;i<5;i++)
 
 
 
-## `is_sorted(beg,end)`
+## is_sorted
+
+```
+is_sorted(beg,end)
+```
 
 **复杂度：** $O(N)$
 
@@ -1865,7 +1880,11 @@ if(is_sorted(a,a+n))
     cout<<"YES\n";
 ```
 
-## `iota(beg, end)`
+## iota
+
+```
+iota(beg, end)
+```
 
 > 让序列递增赋值
 
@@ -1877,8 +1896,7 @@ for(auto i : a)
 // 0 1 2 3 4 5 6 7 8 9
 ```
 
-
-## `lower_bound() upper_bound()`
+## lower_bound + upper_bound
 
 **复杂度：** $O(logN)$
 
@@ -1893,7 +1911,7 @@ upper_bound(a, a + n, x);
 //如果未找到，返回尾地址的下一个位置的地址
 ```
 
-##  `max_element() min_element()`
+##  max_element+min_element
 
 **复杂度：** $O(N)$
 
@@ -1905,9 +1923,7 @@ int mx = *max_element(a, a + n);
 int mn = *min_element(a, a + n);
 ```
 
-
-
-##  `max() min()`
+##  max+min
 
 **复杂度：** $O(1)$
 
@@ -1925,7 +1941,11 @@ mx = max({a, b, c, d});
 mn = min({a, b, c, d});
 ```
 
-## `minmax(a, b)`
+## minmax
+
+```
+minmax(a, b)
+```
 
 **复杂度：** $O(1)$
 
@@ -1936,25 +1956,31 @@ pair<int, int> t = minmax(4, 2);
 // t.first = 2, t.second = 4
 ```
 
+## minmax_element
 
-
-## `minmax_element(beg, end)`
+```
+minmax_element(beg, end)
+```
 
 **复杂度：** $O(N)$
 
-> 返回序列中的最小和最大值，返回类型为`pair`
+> 返回序列中的最小和最大值组成pair的对应的地址，返回类型为`pair<vector<int>::iterator, vector<int>::iterator>`
 
 ```cpp
 int n = 10;
 vector<int> a(n);
 iota(a.begin(), a.end(), 1);
-pair<int, int> t = minmax_element(a.begin(), a.end());
-// t.first = 1, t.second = 10
+auto t = minmax_element(a.begin(), a.end()); // 返回的是最小值和最大值对应的地址
+// *t.first = 1, *t.second = 10 输出对应最小最大值时需要使用指针
 ```
 
 
 
-## `nth_element(beg,nth,end)`
+## nth_element
+
+```
+nth_element(beg, nth, end)
+```
 
 **复杂度：** 平均$O(N)$
 
@@ -1973,7 +1999,11 @@ cout << a[2] << '\n';
 
 
 
-## `next_permutation(beg,end)`
+## next_permutation
+
+```
+next_permutation(beg, end)
+```
 
 **复杂度：** $O(N)$
 
@@ -2008,7 +2038,11 @@ do
 
 > 求出前一个排列，如果序列为最小的排列，将其重排为最大的排列，返回false
 
-## `partial_sort(beg,mid,end)`
+## partial_sort
+
+```
+partial_sort(beg, mid, end)
+```
 
 **复杂度：** 大概$O(N logM)$ `M`为距离
 
@@ -2042,7 +2076,7 @@ for(int i = 0; i < 10; i++)
 //前五个元素降序有序
 ```
 
-## `random_shuffle()`
+## random_shuffle
 
 **复杂度：** $O(N)$
 
@@ -2058,7 +2092,11 @@ random_shuffle(a, a + n);
 shuffle(b.begin(), b.end());
 ```
 
-##  `reverse(beg,end)`
+##  reverse
+
+```
+reverse(beg,end)
+```
 
 **复杂度：** $O(N)$
 
@@ -2075,7 +2113,7 @@ reverse(a, a + 4);
 cout << a[0] << a[1] << a[2] << a[3];//4321
 ```
 
-##  `sort()`
+##  sort
 
 **复杂度：** $O(N logN)$
 
@@ -2105,7 +2143,7 @@ bool cmp(node a,node b)
 sort(node, node + n, cmp); // 只能接受 以函数为形式的自定义排序规则，无法接受以结构体为形式的自定义排序规则
 ```
 
-##  `stable_sort()`
+##  stable_sort
 
 **复杂度：** $O(N logN)$
 
@@ -2115,7 +2153,12 @@ sort(node, node + n, cmp); // 只能接受 以函数为形式的自定义排序�
 
 使用用法和`sort()`一样,见上
 
-## `stoi(const string*)`
+## stoi
+
+```
+stoi(const string*)
+```
+
 > 将对应string类型字符串转换为数字
 
 注意参数为`string`字符串类型。
@@ -2131,7 +2174,7 @@ int a = atoi(s);
 cout << a << "\n"; // 1234
 ```
 
-## `transform()`
+## transform
 
 **复杂度：** $O(N)$
 
@@ -2152,7 +2195,7 @@ transform(beg, end, dest, ::toupper);
 
 
 
-##  `to_string()`
+##  to_string
 
 > 将数字转化为字符串,支持小数（double）
 
@@ -2163,7 +2206,13 @@ cout << to_string(a) << '\n';
 
 
 
-## `unique(beg,end)`
+## unique
+
+```
+unique(beg, end)
+```
+
+
 
 **复杂度：** $O(N)$
 
@@ -2193,8 +2242,11 @@ for(int i = 0; i < n; i++)
 }
 ```
 
+##  __gcd
 
-##  `__gcd(a,b)`
+```
+__gcd(a,b)
+```
 
 > 求a和b的最大公约数
 
@@ -2202,7 +2254,13 @@ for(int i = 0; i < n; i++)
 
 `__gcd(21,0) = 21`
 
-## `__lg(a)`
+## __lg
+
+```
+__lg(a)
+```
+
+
 
 > 1. 求一个数二进制下最高位位于第几位（从**第0位**开始）（或二进制数下有几位）
 > 2. `__lg(x)`相当于返回$\lfloor log_2 x \rfloor$
@@ -2214,23 +2272,39 @@ for(int i = 0; i < n; i++)
 
 
 
-## `__builtin_` 内置位运算函数
+## __builtin_ 内置位运算函数
 
 内置函数有相应的`unsigned lnt`和`unsigned long long`版本，`unsigned long long`只需要在函数名后面加上`ll`就可以了，比如`__builtin_clzll(x)`,默认是32位`unsigned int`
 
-### `__builtin_ffs(x)`
+### __builtin_ffs
+
+```
+__builtin_ffs(x)
+```
 
 >二进制中对应最后一位`1`的位数，比如`4`会返回`3`（100）
 
-### `__builtin_popcount(x)`
+### __builtin_popcount
+
+```
+__builtin_ffs(x)
+```
 
 >`x`中`1`的个数
 
-### `__builtin_ctz(x)`
+### __builtin_ctz
+
+```
+__builtin_ctz(x)
+```
 
 > `x`末尾`0`的个数（`count tail zero`）
 
-### `__builtin_clz(x)`
+### __builtin_clz
+
+```
+__builtin_clz(x)
+```
 
 > `x`前导`0`的个数（`count leading zero`）
 
@@ -2239,7 +2313,11 @@ cout << __builtin_clz(32); // 26
 //因为共有6位,默认数据范围为32位，32 - 6 = 26
 ```
 
-### `__builtin_parity(x)`
+### __builtin_parity
+
+```
+__builtin_parity(x)
+```
 
 > `x`中1的个数的奇偶性， 奇数输出`1`，偶数输出`0`
 
