@@ -286,7 +286,7 @@ valine:
 githubLink:
   enable: true
   url: "https://github.com/anda522/anda522.github.io"
-  title: Fork Me
+  title: Github Page
 
 # The password verification feature of read post. To use this feature,
 # activate the configuration item and write the 'password' key and Cipher in the post's Front-matter.

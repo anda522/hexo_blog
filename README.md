@@ -47,3 +47,9 @@ hexo d
 Valine评论系统官方API：https://valine.js.org/configuration.html
 
 评论邮箱通知参考：https://aeneag.xyz/articles/2021/11/14/1636875468621.html
+
+leancloud评论唤醒：
+
+https://www.pudn.com/news/62810fc09b6e2b6d558f96c7.html
+
+https://www.aimtao.net/slef-wake-leancloud/
