@@ -6,11 +6,6 @@ layout: "about"
 mathjax: true
 ---
 
-<!-- ## CV
-
-[中文版](/medias/files/cv-zh.pdf)
-[English Version](/medias/files/cv-en.pdf) -->
-
 # 太菜了，无法展示
 
 ## 教育背景

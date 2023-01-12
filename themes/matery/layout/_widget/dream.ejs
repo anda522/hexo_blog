@@ -1,17 +1,20 @@
 <div class="dream">
     <% if (theme.dream.showTitle) { %>
     <div class="title center-align">
-        <i class="fa fa-lightbulb-o"></i>&nbsp;&nbsp;<%- theme.dream.title %>
+        <i class="fa fa-comments-o"></i>&nbsp;&nbsp;<%- theme.dream.title %>
     </div>
     <% } %>
     <div class="row">
         <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
             <%- theme.dream.text %>
         </div>
-        <!-- <div align="middle">
-            <img src="/medias/contact.jpg" width="80%" >
-        </div> -->
-        
+        <br>
+        <!-- 首页 Life & Dream 展示图片 -->
+        <% if (theme.dream.showImg) { %>
+        <div class="front-img" align="middle" style="width: 100%; margin-top: 35px;">
+            <img src= "<%- theme.dream.img %>" width="95%" height="100%">
+        </div>
+        <% } %>
     </div>
     
 </div>

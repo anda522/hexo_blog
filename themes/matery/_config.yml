@@ -34,14 +34,15 @@ cover:
   duration: 120 # 切换延迟时间. Switching delay time.
   intervalTime: 5000 # 自动切换下一张的间隔时间. Automatically switch the interval of the next one.
 
-# index page dream text,
+# index page dream text
 # 配置首页显示"梦想"的语句.
 dream:
   enable: true
   showTitle: true
-  title: Dream
-  text: 我搬到谁的隔壁，谁成了我的邻居。鸣谢生命有你参与，笑纳我的邀请。
-  img: http://static01.imgkr.com/temp/36f4a4670a4043e2b6ca0416d84b0ddb.png
+  showImg: true
+  title: Life & Dream
+  text: 自语遍布前进之途，不解漫灌想思之池。尽力完善和呈现，并期待与你相遇。
+  img: /medias/img/front.jpg
 
 # Whether to display the musics.
 # 是否在首页显示音乐.
