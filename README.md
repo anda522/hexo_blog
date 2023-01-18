@@ -42,6 +42,8 @@ hexo g
 hexo d
 ```
 
+根目录下的`watermark.py`文件是给文章图片添加水印的程序。每写完一篇文章，可以运行`python watermark.py postname`添加水印，如果要一次性给所有文章添加水印，直接运行`python watermark.py all`。
+
 # 评论
 
 Valine评论系统官方API：https://valine.js.org/configuration.html
