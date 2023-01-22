@@ -2287,7 +2287,7 @@ __builtin_ffs(x)
 ### __builtin_popcount
 
 ```
-__builtin_ffs(x)
+__builtin_popcount(x)
 ```
 
 >`x`中`1`的个数

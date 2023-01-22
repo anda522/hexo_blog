@@ -114,6 +114,15 @@ toc:
   heading: h1, h2, h3, h4
   showToggleBtn: true # 是否显示切换TOC目录展开收缩的按钮
 
+inject:
+  head:
+  # 自定义CSS
+    - <link rel="stylesheet" href="/css/my.css">
+  bottom:
+  # 自定义JS
+    - <script src="/js/my.js"></script>
+  
+
 # Whether the code is broken.
 # 代码是否折行
 code:
@@ -366,7 +375,7 @@ featureImages:
 - /medias/featureimages/6.jpg
 - /medias/featureimages/7.jpg
 - /medias/featureimages/8.jpg
-- /medias/featureimages/9.jpg
+- /medias/featureimages/9.png
 - /medias/featureimages/10.jpg
 - /medias/featureimages/11.jpg
 - /medias/featureimages/12.jpg
@@ -377,6 +386,7 @@ featureImages:
 - /medias/featureimages/17.jpg
 - /medias/featureimages/18.jpg
 - /medias/featureimages/19.jpg
+- /medias/featureimages/20.jpg
 
 
   # default configs that the default policy for every articles/posts

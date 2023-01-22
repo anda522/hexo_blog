@@ -27,6 +27,12 @@
         "title": "访问主页",
         "introduction": "爱玩的小极客，有许多有意思的想法。",
         "avatar": "/medias/avatars/xiaojike.jpg"
+    },
+    {
+        "name": "幼稚园园长",
+        "url": "https://yzyyz.top",
+        "title": "访问主页",
+        "introduction": "学无止境 知行合一",
+        "avatar": "https://cdn.staticaly.com/gh/yzyyz1387/blogimages/master/img/bloger.jpeg"
     }
-
 ]
