@@ -197,11 +197,11 @@ myProjects:
       iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
       url: https://github.com/anda522/calendar
       desc: 简单的日历备忘APP(Calendar Memo)
-    Hexo-blog:
-      icon: fa-archive
-      iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
-      url: https://github.com/anda522/hexo_blog
-      desc: 修改自Hexo Butterfly主题的博客
+    # Hexo-blog:
+    #   icon: fa-archive
+    #   iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
+    #   url: https://github.com/anda522/hexo_blog
+    #   desc: 修改自Hexo Butterfly主题的博客
 
 
 # config my skills informations in about page.
