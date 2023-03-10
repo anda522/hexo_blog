@@ -1792,7 +1792,7 @@ int res2 = accumulate(a, a + 4, 5);
 
 - **自定义二元对象求和：**
 
-使用**lamda表达式**
+使用lambda表达式
 
 ```cpp
 typedef long long ll;
