@@ -331,63 +331,66 @@ googleAnalytics:
 # The used front-end library can be replaced with the corresponding CDN address as needed,
 # If the specific version is not specified below, you can use the latest version.
 # 使用到的前端库，可按需替换成对应的CDN地址，如果下面未指定具体的版本号，使用最新的版本即可.
+# CDN加速规则：https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径
+# https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source
+
 libs:
   css:
-    fontAwesome: /libs/awesome/css/font-awesome.min.css # V4.7.0
-    materialize: /libs/materialize/materialize.min.css # 1.0.0
-    aos: /libs/aos/aos.css
-    animate: /libs/animate/animate.min.css # V3.5.1
-    lightgallery: /libs/lightGallery/css/lightgallery.min.css # V1.6.11
-    aplayer: /libs/aplayer/APlayer.min.css
-    dplayer: /libs/dplayer/DPlayer.min.css
-    gitalk: /libs/gitalk/gitalk.css
-    jqcloud: /libs/jqcloud/jqcloud.css
-    tocbot: /libs/tocbot/tocbot.css
+    fontAwesome: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/awesome/css/font-awesome.min.css # V4.7.0
+    materialize: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/materialize/materialize.min.css # 1.0.0
+    aos: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/aos/aos.css
+    animate: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/animate/animate.min.css # V3.5.1
+    lightgallery: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/lightGallery/css/lightgallery.min.css # V1.6.11
+    aplayer: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/aplayer/APlayer.min.css
+    dplayer: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/dplayer/DPlayer.min.css
+    gitalk: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/gitalk/gitalk.css
+    jqcloud: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/jqcloud/jqcloud.css
+    tocbot: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/tocbot/tocbot.css
   js:
-    jquery: /libs/jquery/jquery-2.2.0.min.js
-    materialize: /libs/materialize/materialize.min.js # 1.0.0
-    masonry: /libs/masonry/masonry.pkgd.min.js # v4.0.0
-    aos: /libs/aos/aos.js
-    scrollProgress: /libs/scrollprogress/scrollProgress.min.js
-    lightgallery: /libs/lightGallery/js/lightgallery-all.min.js # V1.6.11
-    clicklove: /libs/others/clicklove.js
-    explosion: /libs/others/explosion.min.js
-    firework: /libs/others/firework.js
-    text: /libs/others/text.js
-    busuanzi: /libs/others/busuanzi.pure.mini.js
-    aplayer: /libs/aplayer/APlayer.min.js
-    dplayer: /libs/dplayer/DPlayer.min.js
-    crypto: /libs/cryptojs/crypto-js.min.js
-    echarts: /libs/echarts/echarts.min.js
-    gitalk: /libs/gitalk/gitalk.min.js
-    jqcloud: /libs/jqcloud/jqcloud-1.0.4.min.js
-    tocbot: /libs/tocbot/tocbot.min.js
-    snow: /libs/others/snow.js
+    jquery: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/jquery/jquery-2.2.0.min.js
+    materialize: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/materialize/materialize.min.js # 1.0.0
+    masonry: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/masonry/masonry.pkgd.min.js # v4.0.0
+    aos: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/aos/aos.js
+    scrollProgress: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/scrollprogress/scrollProgress.min.js
+    lightgallery: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/lightGallery/js/lightgallery-all.min.js # V1.6.11
+    clicklove: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/clicklove.js
+    explosion: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/explosion.min.js
+    firework: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/firework.js
+    text: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/text.js
+    busuanzi: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/busuanzi.pure.mini.js
+    aplayer: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/aplayer/APlayer.min.js
+    dplayer: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/dplayer/DPlayer.min.js
+    crypto: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/cryptojs/crypto-js.min.js
+    echarts: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/echarts/echarts.min.js
+    gitalk: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/gitalk/gitalk.min.js
+    jqcloud: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/jqcloud/jqcloud-1.0.4.min.js
+    tocbot: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/tocbot/tocbot.min.js
+    snow: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/snow.js
 
 # The post featured images that needs to be displayed when there is no image.
 # 无文章特色图片时需要显示的文章特色图片.
 featureImages: 
-- /medias/featureimages/0.jpg
-- /medias/featureimages/1.jpg
-- /medias/featureimages/2.jpg
-- /medias/featureimages/3.jpg
-- /medias/featureimages/4.jpg
-- /medias/featureimages/5.jpg
-- /medias/featureimages/6.jpg
-- /medias/featureimages/7.jpg
-- /medias/featureimages/8.jpg
-- /medias/featureimages/9.png
-- /medias/featureimages/10.jpg
-- /medias/featureimages/11.jpg
-- /medias/featureimages/12.jpg
-- /medias/featureimages/13.jpg
-- /medias/featureimages/14.jpg
-- /medias/featureimages/15.jpg
-- /medias/featureimages/16.jpg
-- /medias/featureimages/17.jpg
-- /medias/featureimages/18.jpg
-- /medias/featureimages/19.jpg
-- /medias/featureimages/20.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/0.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/1.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/2.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/3.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/4.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/5.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/6.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/7.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/8.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/9.png
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/10.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/11.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/12.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/13.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/14.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/15.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/16.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/17.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/18.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/19.jpg
+- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/20.jpg
 
 
   # default configs that the default policy for every articles/posts
