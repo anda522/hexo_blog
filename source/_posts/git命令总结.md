@@ -14,7 +14,7 @@ password:
 summary:
 ---
 
-# Git | 详解 | 命令
+# Git命令 | 详解
 
 # 概念
 
@@ -62,6 +62,8 @@ Git是基于树进行维护的，每一个节点都是一个历史版本，可�
 
 Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
 
+`git init`：将当前目录配置成git仓库，信息记录在隐藏的`.git`文件夹中
+
 `git config --list` : 显示当前的Git配置
 
 `git config -e [--global]` : 编辑Git配置文件
@@ -70,7 +72,7 @@ Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配�
 
 `git config [--global] user.email xxx@xxx.com`：设置全局邮箱地址，信息记录在`~/.gitconfig`文件中
 
-`git init`：将当前目录配置成git仓库，信息记录在隐藏的`.git`文件夹中
+`git config --global init.defaultBranch <defaultBranch>`：配置初始默认的分支名
 
 # 工作区
 
@@ -105,6 +107,26 @@ Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配�
 > 更多撤销操作见下文 【撤销回退】
 
 # 分支
+
+- 查看分支
+
+`git branch `: 查看本地分支
+
+`git branch -r` : 列出所有远程分支
+
+`git branch -a` ： 列出所有本地分支和远程分支
+
+- 删除分支
+
+`git branch -d branch_name`：删除本地的branch_name分支
+
+`git push origin --delete [branch-name]` ： 删除远程分支
+
+- 切换分支
+
+`git checkout branch_name`：切换到branch_name这个分支
+
+`git checkout -b branch_name`：创建并切换到branch_name这个分支
 
 ## 本地分支
 
@@ -249,4 +271,131 @@ Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配�
 `git revert [commit]` : 新建一个commit，用来撤销指定commit，后者的所有变化都将被前者抵消，并且应用到当前分支
 
 
+
+# 序列化操作
+
+## 1 基础上传操作
+
+```bash
+git add .
+git commit -m "备注信息"
+git push
+```
+
+## 2 新建仓库的初始化操作
+
+1. 远程新建仓库，默认不添加`README.md`文件
+2. 此时请注意远程仓库的主分支名为`main`还是`master`
+3. 本地新建一个文件夹用来作为上传该远程仓库的文件（或者用已存在的文件夹也行），在该目录下使用`git init`命令初始化仓库
+4. 将本地仓库主分支名字设为和远端一样，例如`git branch -M main`
+5. 关联远程仓库，例如`git remote add origin https://github.com/anda522/bot.git`
+6. 上传的操作：`git add .`，`git commit -m "提交代码的备注信息"`，`git push`
+
+## 3 新建dev分支并上传
+
+```bash
+git checkout -b dev # 本地新建一个dev分支，并且切换到dev分支
+git push --set-upstream origin dev # 本地在dev分支；需要上传在dev分支的操作；默认远端没有dev分支，远端将创建一个dev分支并进行push操作
+```
+
+## 4 删除久远的未被追踪的分支
+
+有时候分支已经从远程分支中删除，但是本地分支并不知道当前这几个远程分支是否被删除，可以使用`git remote show origin`命令查看
+
+```bash
+git remote show origin #  会出现stale (use 'git remote prune' to remove)字样
+# git branch -a 这个可以看到远程不存在的分支还能显示出来
+git remote prune origin # 删除未被追踪的分支
+```
+
+## 5 打tag
+
+- 以本地最后一个`commit`创建tag
+
+```bash
+git tag <tagName> # 基于本地最后一个commit创建一个tag
+git push origin <tagName> # 将tag推送到远程仓库
+git push origin --tags # 将所有tag推送到远程仓库
+```
+
+- 以特定的提交为tag
+
+```bash
+git log --pretty=oneline # 查看当前分支的提交历史 里面包含 commit id
+git tag -a <tagName> <commitId>
+```
+
+- 查看信息
+
+```bash
+git show <tagName> # 查看tag的详细信息
+git tag # 查看本地所有tag
+git ls-remote --tag origin # 查看远程tag
+```
+
+- 删除tag
+
+```bash
+git tag -d <tagName> # 删除本地tag
+git push origin :refs/tags/<tagName> # 删除远程tag
+```
+
+- 其他
+
+```bash
+git tag -a <tagname> -m "XXX..." # 指定标签信息
+git tag -a v1.0 -m "release 0.1.0 version"  # 创建附注标签
+git checkout [tagname] # 切换标签
+```
+
+## 6 git fetch和git pull
+
+- `git fetch`：将远程更新信息全部取回本地
+
+```bash
+git fetch <远程主机名> //这个命令将某个远程主机的更新全部取回本地
+```
+
+如果只想取回特定分支，可以指定分支名
+
+```bash
+git fetch <远程主机名> <分支名> //注意之间有空格
+```
+
+常见命令：
+
+取回`origin` 主机的`master` 分支：
+
+```bash
+git fetch origin master
+```
+
+取回更新后会返回一个`FETCH_HEAD` ，指的是某个branch在服务器上的最新状态，我们可以在本地通过它查看刚取回的更新信息：
+
+```bash
+git log -p FETCH_HEAD
+```
+
+可以看到返回的信息包括更新的文件名，更新的作者和时间，以及更新的代码。我们可以通过这些信息来判断是否产生冲突，以确定是否将更新merge到当前分支。 
+
+- `git pull`：拉取并合并
+
+可以理解为两个过程：
+
+```bash
+git fetch origin master //从远程主机的master分支拉取最新内容 
+git merge FETCH_HEAD    //将拉取下来的最新内容合并到当前所在的分支中
+```
+
+完整命令：将远程主机的某个分支的更新取回，并与本地指定的分支合并
+
+```bash
+git pull <远程主机名> <远程分支名>:<本地分支名>
+```
+
+如果是与当前分支合并，则冒号后面的可以省略，例如：
+
+```bash
+git pull origin master
+```
 
