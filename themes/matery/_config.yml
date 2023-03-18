@@ -83,7 +83,7 @@ recommend:
 
 # Configure website favicon and LOGO
 # 配置网站favicon和网站LOGO
-favicon: /medias/logo.png
+favicon: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/logo.png
 logo: /medias/logo.png
 
 # The configuration of the second button in the home banner,
@@ -104,7 +104,7 @@ socialLink:
   weibo: 
   email: wyq522208@qq.com
   zhihu: 
-  csdn: https://blog.csdn.net/qq_50285142 || icon-csdn
+  csdn: https://blog.csdn.net/qq_50285142
 
 # Whether to activate the Post TOC, and Configure which title types are supported by TOC support.
 # You can add `toc: false` to the Front-matter of a post to turn off the TOC.
@@ -370,27 +370,27 @@ libs:
 # The post featured images that needs to be displayed when there is no image.
 # 无文章特色图片时需要显示的文章特色图片.
 featureImages: 
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/0.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/1.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/2.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/3.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/4.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/5.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/6.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/7.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/8.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/9.png
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/10.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/11.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/12.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/13.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/14.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/15.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/16.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/17.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/18.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/19.jpg
-- https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/medias/featureimages/20.jpg
+- /medias/featureimages/0.jpg
+- /medias/featureimages/1.jpg
+- /medias/featureimages/2.jpg
+- /medias/featureimages/3.jpg
+- /medias/featureimages/4.jpg
+- /medias/featureimages/5.jpg
+- /medias/featureimages/6.jpg
+- /medias/featureimages/7.jpg
+- /medias/featureimages/8.jpg
+- /medias/featureimages/9.png
+- /medias/featureimages/10.jpg
+- /medias/featureimages/11.jpg
+- /medias/featureimages/12.jpg
+- /medias/featureimages/13.jpg
+- /medias/featureimages/14.jpg
+- /medias/featureimages/15.jpg
+- /medias/featureimages/16.jpg
+- /medias/featureimages/17.jpg
+- /medias/featureimages/18.jpg
+- /medias/featureimages/19.jpg
+- /medias/featureimages/20.jpg
 
 
   # default configs that the default policy for every articles/posts
