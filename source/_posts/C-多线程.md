@@ -9,7 +9,10 @@ date: 2023-03-18 09:57:44
 password:
 summary:
 tags:
+  - C++
+  - 多线程
 categories:
+  - C++
 ---
 
 # C++多线程
@@ -42,7 +45,7 @@ categories:
 
 |               函数                |                             作用                             |
 | :-------------------------------: | :----------------------------------------------------------: |
-|           `void join()`           |               等待线程结束并清理资源（会阻塞）               |
+|           `void join()`           |              等待子线程结束并清理资源（会阻塞）              |
 |         `bool joinable()`         |                 返回线程是否可以执行join函数                 |
 |          `void detach()`          | 将线程与调用其的线程分离，彼此独立执行（此函数必须在线程创建时立即调用，且调用此函数会使其不能被join） |
 |    `std::thread::id get_id()`     |                          获取线程id                          |
@@ -135,14 +138,194 @@ int main() {
 ## 3 注意
 
 - 线程是在thread对象被定义的时候开始执行的，而不是在调用join函数时才执行的，调用join函数只是阻塞等待线程结束并回收资源。
+
+> `join`函数是等待子线程完成，然后主线程再继续执行
+
 - 分离的线程（执行过detach的线程）会在调用它的线程结束或自己结束时释放资源。
 - 线程会在函数运行完毕后自动释放，不推荐利用其他方法强制结束线程，可能会因资源未释放而导致内存泄漏。
-
 - **没有执行`join`或`detach`的线程在程序结束时会引发异常**
 
-# C++11 std::mutex
+# C++11 std::mutex与std::atomic
+
+## 1 std::mutex
 
 多线程操作同一变量
 
+```cpp
+#include<iostream>
+#include<thread>
 
+int val = 0;
+void increase() {
+	for(int i = 1; i <= 100000; i++) {
+		val++;
+	}
+}
+
+int main() {
+	std::thread t[20];
+
+	for(int i = 0; i < 20; i++) {
+		t[i] = std::thread(increase);
+	}
+	for(int i = 0; i < 20; i++) {
+		t[i].join();
+	}
+	std::cout << val << "\n";	
+	return 0;
+}
+```
+
+可以发现此代码输出并不是正常情况下的`2000000`，原因就是多线程访问并修改一个变量时造成了冲突，所以mutex派上用场
+
+|       函数        |                             作用                             |
+| :---------------: | :----------------------------------------------------------: |
+|   `void lock()`   | 将mutex上锁。 <br />如果mutex已经被其它线程上锁， 那么会阻塞，直到解锁；<br /> 如果mutex已经被同一个线程锁住， 那么会产生死锁。 |
+|  `void unlock()`  | 解锁mutex，释放其所有权。 如果有线程因为调用lock()不能上锁而被阻塞，则调用此函数会将mutex的主动权随机交给其中一个线程； 如果mutex不是被此线程上锁，那么会引发未定义的异常。 |
+| `bool try_lock()` | 尝试将mutex上锁。 如果mutex未被上锁，则将其上锁并返回true； <br />如果mutex已被锁则返回false。 |
+
+可以利用mutex进行改进：
+
+```cpp
+#include<iostream>
+#include<thread>
+#include<mutex>
+
+std::mutex mtx;
+int val = 0;
+
+void increase() {
+	for(int i = 1; i <= 100000; i++) {
+		mtx.lock();
+		val++;
+		mtx.unlock();
+	}
+}
+
+int main() {
+	std::thread t[20];
+
+	for(int i = 0; i < 20; i++) {
+		t[i] = std::thread(increase);
+	}
+	for(int i = 0; i < 20; i++) {
+		t[i].join();
+	}
+	std::cout << val << "\n";
+	return 0;
+}
+```
+
+## 2 std::atomic
+
+mutex每次循环都要加锁解锁，比较慢，而atomic比较快。将上述代码改成下面代码同样也可。
+
+```cpp
+#include<iostream>
+#include<thread>
+#include<atomic>
+
+std::atomic_int val = 0;
+
+void increase() {
+	for(int i = 1; i <= 100000; i++) {
+		val++;
+	}
+}
+
+int main() {
+	std::thread t[20];
+
+	for(int i = 0; i < 20; i++) {
+		t[i] = std::thread(increase);
+	}
+	for(int i = 0; i < 20; i++) {
+		t[i].join();
+	}
+	std::cout << val << "\n";
+	return 0;
+}
+```
+
+`std::atomic_int`只是`std::atomic<int>`的别名。
+
+即使是多线程，也要像同步进行一样**同步操作**atomic对象，从而省去了mutex上锁、解锁的时间消耗。
+
+|              构造函数              |      类型      |                            作用                             |
+| :--------------------------------: | :------------: | :---------------------------------------------------------: |
+|   `atomic() noexcept = default`    |  默认构造函数  | 构造一个atomic对象（未初始化，可通过atomic_init进行初始化） |
+| `constexpr atomic(T val) noexcept` | 初始化构造函数 |           构造一个atomic对象，用`val`的值来初始化           |
+
+# C++11 std::async
+
+## 1 async
+
+> 头文件`<future>`
+
+**大多数情况下使用async而不用thread**
+
+- thread可以快速、方便地创建线程，但在async面前，就是小巫见大巫了。
+- async可以根据情况选择同步执行或创建新线程来异步执行，当然也可以手动选择。对于async的返回值操作也比thread更加方便。
+
+**std::async参数：**
+
+不同于thread，async是一个函数，所以没有成员函数。
+
+| 重载版本                                                     | 作用                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| template <class Fn, class… Args> <br />future<typename result_of<Fn(Args…)>::type>  <br />`async (Fn&& fn, Args&&… args)` | 异步或同步（根据操作系统而定）以args为参数执行fn<br/>同样地，传递引用参数需要`std::ref`或`std::cref` |
+| template <class Fn, class… Args><br/> future<typename result_of<Fn(Args…)>::type><br/>  `async (launch policy, Fn&& fn, Args&&… args);` | 异步或同步（根据`policy`参数而定（见下文））以args为参数执行fn，引用参数同上 |
+
+## 2 std::launch强枚举类（enum class）
+
+std::launch有2个枚举值和1个特殊值：
+
+| 标识符                                    | 实际值   | 作用                                                         |
+| ----------------------------------------- | -------- | ------------------------------------------------------------ |
+| 枚举值：launch::async                     | 0x1（1） | 异步启动                                                     |
+| 枚举值：launch::deferred                  | 0x2（2） | 在调用`future::get`、`future::wait`时同步启动（std::future见后文） |
+| 特殊值：launch::async \| launch::deferred | 0x3（3） | 同步或异步，根据操作系统而定                                 |
+
+```cpp
+#include<iostream>
+#include<thread>
+#include<future>
+
+int main() {
+	std::async(std::launch::async, [](const char* message) {
+		std::cout << message;
+	}, "Hello, ");
+	std::cout << "World\n";
+	return 0;
+}
+```
+
+编译器可能会有警告，因为编译器不想让你丢弃async的返回值std::future，不过在这个例子中不需要它，忽略这个警告就行了。
+
+## 3 std::future
+
+使用它获取函数返回值
+
+```cpp
+#include<iostream>
+#include<thread>
+#include<future>
+
+template<class... Args>
+decltype(auto) sum(Args&&... args) {
+	return (0 + ... + args);
+}
+
+int main() {
+	std::future<int> val = std::async(std::launch::async, sum<int, int, int>, 1, 2, 3);
+	std::cout << val.get() << "\n";
+	return 0;
+}
+```
+
+输出
+
+```cpp
+6
+```
 
