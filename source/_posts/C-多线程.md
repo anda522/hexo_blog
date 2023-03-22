@@ -1,5 +1,5 @@
 ---
-title: C++多线程
+title: C++11 多线程
 top: false
 cover: false
 toc: true
@@ -15,7 +15,7 @@ categories:
   - C++
 ---
 
-# C++多线程
+# C++11 多线程
 
 > 参考：
 >

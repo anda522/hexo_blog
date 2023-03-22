@@ -503,9 +503,10 @@ a^2 + b^2 = c^2
 ```latex
 % 代码块基础设置
 \lstset{
-numbers=left,                          	% 在左侧显示行号
-showstringspaces=false,        			% 不显示字符串中的空格
-frame=single,                         	% 设置代码块边框
+breaklines, % 代码自动换行
+numbers=left,  	% 在左侧显示行号
+showstringspaces=false,  % 不显示字符串中的空格
+frame=single,  	% 设置代码块边框
 }
 ```
 
