@@ -7,7 +7,7 @@ mathjax: true
 tags:
   - nginx
 categories:
-  - nginx
+  - 开发工具
 abbrlink: 386249329
 date: 2022-08-06 15:55:55
 password:

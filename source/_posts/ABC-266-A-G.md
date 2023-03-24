@@ -4,8 +4,10 @@ top: false
 cover: false
 toc: true
 mathjax: true
-tags: AT
-categories: AT
+tags:
+  - Atcoder
+categories: 
+  - Atcoder
 abbrlink: 2022907814
 date: 2022-08-30 09:07:31
 password:

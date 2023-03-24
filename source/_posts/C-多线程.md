@@ -329,3 +329,10 @@ int main() {
 6
 ```
 
+
+
+# 项目练习
+
+附上我以此为基的学习项目：
+
+基于C++17的线程池：https://github.com/anda522/ThreadPool

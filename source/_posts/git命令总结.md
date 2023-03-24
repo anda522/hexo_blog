@@ -5,9 +5,9 @@ cover: false
 toc: true
 mathjax: true
 tags:
-  - git
+  - Git
 categories:
-  - 知识总结
+  - 开发工具
 abbrlink: 1843856130
 date: 2022-06-30 10:14:41
 password:
@@ -289,7 +289,15 @@ git push
 3. 本地新建一个文件夹用来作为上传该远程仓库的文件（或者用已存在的文件夹也行），在该目录下使用`git init`命令初始化仓库
 4. 将本地仓库主分支名字设为和远端一样，例如`git branch -M main`
 5. 关联远程仓库，例如`git remote add origin https://github.com/anda522/bot.git`
-6. 上传的操作：`git add .`，`git commit -m "提交代码的备注信息"`，`git push`
+6. 上传的操作：
+
+- `git add .`
+- ``git commit -m "提交代码的备注信息"`
+- `git push`（此代码一般会报错）
+
+> 原因：新建仓库时默认仓库为空，此时没有任何分支，如果本地有分支需要上传到远程的相同的分支上，需要将远程新建一个分支进行push操作。
+>
+> 故代码可更新为：`git push --set-upstream origin main`
 
 ## 3 新建dev分支并上传
 

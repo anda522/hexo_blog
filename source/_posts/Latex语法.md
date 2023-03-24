@@ -8,7 +8,7 @@ tags:
   - 学习总结
   - Latex
 categories:
-  - 知识总结
+  - 文档编写
 abbrlink: 917541138
 date: 2023-03-09 17:48:41
 password:

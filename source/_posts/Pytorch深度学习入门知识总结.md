@@ -5,9 +5,9 @@ cover: false
 toc: true
 mathjax: true
 tags:
-  - 学习总结
+  - Pytorch
 categories:
-  - 知识总结
+  - 人工智能
 abbrlink: 1888017128
 date: 2022-12-14 21:53:28
 password:
