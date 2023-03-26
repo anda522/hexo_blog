@@ -13,6 +13,7 @@ tags:
   - 画图
 categories:
   - 人工智能
+  - Python
 ---
 
 # matplotlib.pyplot
