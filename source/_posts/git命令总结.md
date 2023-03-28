@@ -291,11 +291,13 @@ git push
 5. 关联远程仓库，例如`git remote add origin https://github.com/anda522/bot.git`
 6. 上传的操作：
 
-- `git add .`
-- ``git commit -m "提交代码的备注信息"`
-- `git push`（此代码一般会报错）
+```bash
+git add .
+git commit -m "提交代码的备注信息"
+git push #（此代码一般会报错）
+```
 
-> 原因：新建仓库时默认仓库为空，此时没有任何分支，如果本地有分支需要上传到远程的相同的分支上，需要将远程新建一个分支进行push操作。
+> 报错原因：新建仓库时默认仓库为空，此时没有任何分支，如果本地有分支需要上传到远程的相同的分支上，需要将远程新建一个分支进行push操作。
 >
 > 故代码可更新为：`git push --set-upstream origin main`
 

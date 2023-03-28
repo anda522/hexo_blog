@@ -24,11 +24,15 @@ summary:
 
 > 费尽心思重新梳理了一下，注意了些美观性，修改了部分错误，添加了部分解释，编写过程非常难。
 
-另外C++版本一定要对，C++11即可，C++17或20更好。
+另外C++版本一定要对（可能要加编译参数`-std=c++11`），C++11即可，C++17或20更好。
+
+> 使DEV支持C++20 ： https://blog.csdn.net/qq_50285142/article/details/122930647
+
+
 
 > 实践才是检验真理的唯一标准！
-
-CSDN版本：[https://wyq666.blog.csdn.net/article/details/114026148](https://wyq666.blog.csdn.net/article/details/114026148)
+>
+> 本文章CSDN的版本：[https://wyq666.blog.csdn.net/article/details/114026148](https://wyq666.blog.csdn.net/article/details/114026148) （CSDN更新可能不及时，毕竟多平台维护麻烦，最新版以本网站为主）
 
 ## 1 vector
 
@@ -613,6 +617,8 @@ map<int,node> mp;//node是结构体类型
 
 ### 6.2 函数方法
 
+#### 6.2.1 函数方法
+
 | 代码                   | 含义                                                         |
 | ---------------------- | ------------------------------------------------------------ |
 | `mp.find(key)`         | 返回键为key的映射的迭代器 $O(logN) $  注意：用find函数来定位数据出现位置，它返回一个迭代器。当数据存在时，返回数据所在位置的迭代器，数据不存在时，返回$mp.end()$ |
@@ -631,6 +637,8 @@ map<int,node> mp;//node是结构体类型
 | `mp.lower_bound()`     | 返回一个迭代器，指向键值>= **key**的第一个元素               |
 | `mp.upper_bound()`     | 返回一个迭代器，指向键值> key的第一个元素                    |
 
+#### 6.2.2 注意点
+
 **下面说明部分函数方法的注意点**
 
 >注意：
@@ -641,9 +649,10 @@ map<int,node> mp;//node是结构体类型
 
 ---
 
-**使用迭代器进行正反向遍历：**
+#### 6.2.3 迭代器进行正反向遍历
 
- `mp.begin()`和`mp.end()`用法：
+- `mp.begin()`和`mp.end()`用法：
+
 **用于正向遍历map**
 
 ```cpp
@@ -669,7 +678,8 @@ while(it != mp.end())
 
 
 
-`mp.rbegin()`和`mp.rend()`
+- `mp.rbegin()`和`mp.rend()`
+
 **用于逆向遍历map**
 
 ```cpp
@@ -694,6 +704,8 @@ while(it != mp.rend())
 ```
 
 ---
+
+#### 6.2.4 二分查找
 
 二分查找`lower_bound() upper_bound()`
 
@@ -725,26 +737,26 @@ int main()
 map<string,string> mp;
 ```
 
-**方式一：**
+- **方式一：**
 
 ```cpp
 mp["学习"] = "看书";
 mp["玩耍"] = "打游戏";
 ```
 
-**方式二：插入元素构造键值对**
+- **方式二：插入元素构造键值对**
 
 ```cpp
 mp.insert(make_pair("vegetable","蔬菜"));
 ```
 
-**方式三：**
+- **方式三：**
 
 ```cpp
 mp.insert(pair<string,string>("fruit","水果"));
 ```
 
-**方式四:**
+- **方式四:**
 
 ```cpp
 mp.insert({"hahaha","wawawa"});
@@ -754,16 +766,18 @@ mp.insert({"hahaha","wawawa"});
 
 ### 6.4 访问元素
 
-**6.4.1 下标访问：**(大部分情况用于访问单个元素)
+#### 6.4.1 下标访问
+
+(大部分情况用于访问单个元素)
 
 ```cpp
 mp["菜哇菜"] = "强哇强";
 cout << mp["菜哇菜"] << "\n";//只是简写的一个例子，程序并不完整
 ```
 
-**6.4.2 遍历访问：**
+#### 6.4.2 遍历访问
 
-**方式一：迭代器访问**
+- 方式一：迭代器访问
 
 ```cpp
 map<string,string>::iterator it;
@@ -777,21 +791,21 @@ for(it = mp.begin(); it != mp.end(); it++)
 }
 ```
 
-**方式二：智能指针访问**
+- 方式二：智能指针访问
 
 ```cpp
 for(auto i : mp)
 cout << i.first << " " << i.second << endl;//键，值
 ```
 
-**方式三：对指定单个元素访问**
+- 方式三：对指定单个元素访问
 
 ```cpp
 map<char,int>::iterator it = mp.find('a');
 cout << it -> first << " " <<  it->second << "\n";
 ```
 
-**方式四：c++17特性才具有**
+- 方式四：c++17特性才具有
 
 ```cpp
 for(auto [x, y] : mp)
@@ -840,12 +854,11 @@ for(auto [x, y] : mp)
 >       cout << mp[x] << "\n";   // 只有存在才会索引对应的值，避免不存在x时多余空元素的创建
 >   ```
 
+另外：
 
-
-还有一种映射：
-
-[multimap]()
-键可以重复，即一个键对应多个值，如要了解，可以自行搜索。
+> 还有一种映射：`multimap`
+>
+> 键可以重复，即一个键对应多个值，如要了解，可以自行搜索。
 
 ---
 
@@ -889,21 +902,21 @@ set<int> s;
 
 ### 7.3 访问
 
-**迭代器访问**
+- **迭代器访问**
 
 ```cpp
 for(set<int>::iterator it = s.begin(); it != s.end(); it++)
 	cout << *it << " ";
 ```
 
-**智能指针**
+- **智能指针**
 
 ```cpp
 for(auto i : s)
 	cout << i << endl;
 ```
 
-**访问最后一个元素**
+- **访问最后一个元素**
 
 ```cpp
 //第一种
@@ -1017,7 +1030,9 @@ for(auto i : s)
 ### 7.5 其它set
 
 `multiset`:元素可以重复，且元素有序
+
 `unordered_set`  ：元素无序且只能出现一次
+
 `unordered_multiset` ：  元素无序可以出现多次
 
 ---
@@ -1027,6 +1042,7 @@ for(auto i : s)
 ### 8.1 介绍
 
 pair只含有两个元素，可以看作是只有两个元素的结构体。
+
 **应用：**
 
 - 代替二元结构体
@@ -1293,7 +1309,7 @@ char s2[] = s.c_str();
 
 法二：
 
-通过stl的transform算法配合tolower 和toupper 实现。
+通过stl的`transform`算法配合`tolower` 和`toupper` 实现。
 有4个参数，前2个指定要转换的容器的起止范围，第3个参数是结果存放容器的起始位置，第4个参数是一元运算。
 
 ```cpp
