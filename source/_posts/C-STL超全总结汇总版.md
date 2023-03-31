@@ -2345,4 +2345,6 @@ __builtin_parity(x)
 
 可能有些人需要PDF文件，公众号【行码棋】回复 STL 获取，抱歉😭
 
+> 2023.03.28 已更新PDF文件（除去了水印，内容进行了部分排版调整和更新）
+
 ![](https://wyqz.top/medias/gzh.jpg)
