@@ -1052,6 +1052,8 @@ pair只含有两个元素，可以看作是只有两个元素的结构体。
 ```cpp
 map<string,int>mp;
 mp.insert(pair<string,int>("xingmaqi",1));
+// mp.insert(make_pair("xingmaqi", 1));
+// mp.insert({"xingmaqi", 1});
 ```
 
 ```cpp
@@ -1063,14 +1065,16 @@ pair<string,int> p("wangyaqi",1);//带初始值的
 pair<string,int> p;//不带初始值的
 
 //2.赋值
-p = {"wang",18};
+p = {"wang", 18};
+p = make_pair("wang", 18);
+p = pair<string, int>("wang", 18);
 ```
 
 ### 8.2 访问
 
 ```cpp
 //定义结构体数组
-pair<int,int>p[20];
+pair<int,int> p[20];
 for(int i = 0; i < 20; i++)
 {
 	//和结构体类似，first代表第一个元素，second代表第二个元素
