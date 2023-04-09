@@ -287,8 +287,7 @@ stack<node> s;//node是结构体类型
 int s[100]; // 栈 从左至右为栈底到栈顶
 int tt = -1; // tt 代表栈顶指针,初始栈内无元素，tt为-1
 
-for(int i = 0; i <= 5; i++)
-{
+for(int i = 0; i <= 5; i++) {
 	//入栈 
 	s[++tt] = i;
 }
@@ -341,15 +340,13 @@ using namespace std;
 const int N = 1e5+5;
 int q[N];
 
-int main()
-{
+int main() {
 	int hh = 0,tt = -1;
 //	入队 
 	q[++tt] = 1;
 	q[++tt] = 2; 
 //	将所有元素出队 
-	while(hh <= tt)
-	{
+	while(hh <= tt) {
 		int t = q[hh++];
 		printf("%d ",t);
 	}
@@ -464,17 +461,13 @@ priority_queue<int, vector<int>, greater<int> > q3; // 小根堆, 每次取出�
 下面的代码比较长，基础类型优先级写着太麻烦，用第一种即可。
 
 ```cpp
-struct cmp1
-{
-	bool operator()(int x,int y)
-	{
+struct cmp1 {
+	bool operator()(int x,int y) {
 		return x > y;
 	}
 };
-struct cmp2
-{
-	bool operator()(const int x,const int y)
-	{
+struct cmp2 {
+	bool operator()(const int x,const int y) {
 		return x < y;
 	}
 };
@@ -503,10 +496,8 @@ struct Point
 ```cpp
 //定义的比较结构体
 //注意：cmp是个结构体 
-struct cmp
-{//自定义堆的排序规则 
-	bool operator()(const Point& a,const Point& b)
-	{
+struct cmp {//自定义堆的排序规则 
+	bool operator()(const Point& a,const Point& b) {
 		return a.x < b.x;
 	}
 };
@@ -525,11 +516,9 @@ priority_queue<Point, vector<Point>, cmp> q; // x大的在堆顶
 **方式一**
 
 ```cpp
-struct node
-{
+struct node {
 	int x, y;
-	friend bool operator < (Point a, Point b)
-	{//为两个结构体参数，结构体调用一定要写上friend
+	friend bool operator < (Point a, Point b) {//为两个结构体参数，结构体调用一定要写上friend
 		return a.x < b.x;//按x从小到大排，x大的在堆顶
 	}
 };
@@ -538,11 +527,9 @@ struct node
 **方式二**
 
 ```cpp
-struct node
-{
+struct node {
     int x, y;
-    bool operator < (const Point &a) const
-    {//直接传入一个参数，不必要写friend
+    bool operator < (const Point &a) const {//直接传入一个参数，不必要写friend
         return x < a.x;//按x升序排列，x大的在堆顶
     }
 };
@@ -572,14 +559,12 @@ priority_queue<Point> q;
 ```cpp
 #include<bits/stdc++.h>
 using namespace std;
-int main()
-{
+int main() {
     priority_queue<pair<int, int> >q;
 	q.push({7, 8});
 	q.push({7, 9});
 	q.push(make_pair(8, 7));
-    while(!q.empty())
-    {
+    while(!q.empty()) {
         cout << q.top().first << " " << q.top().second << "\n";
         q.pop();
     }
@@ -662,8 +647,7 @@ mp[1] = 2;
 mp[2] = 3;
 mp[3] = 4;
 auto it = mp.begin();
-while(it != mp.end())
-{
+while(it != mp.end()) {
 	cout << it->first << " " << it->second << "\n";
 	it ++;
 }
@@ -689,8 +673,7 @@ mp[1] = 2;
 mp[2] = 3;
 mp[3] = 4;
 auto it = mp.rbegin();
-while(it != mp.rend())
-{
+while(it != mp.rend()) {
 	cout << it->first << " " << it->second << "\n";
 	it ++;
 }
@@ -717,8 +700,7 @@ while(it != mp.rend())
 #include<bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
 	map<int, int> m{{1, 2}, {2, 2}, {1, 2}, {8, 2}, {6, 2}};//有序
 	map<int, int>::iterator it1 = m.lower_bound(2);
 	cout << it1->first << "\n";//it1->first=2
@@ -782,8 +764,7 @@ cout << mp["菜哇菜"] << "\n";//只是简写的一个例子，程序并不完�
 
 ```cpp
 map<string,string>::iterator it;
-for(it = mp.begin(); it != mp.end(); it++)
-{
+for(it = mp.begin(); it != mp.end(); it++) {
 	//      键                 值 
 	// it是结构体指针访问所以要用 -> 访问
 	cout << it->first << " " << it->second << "\n";
@@ -954,8 +935,7 @@ set<int, greater<int> > s2; // 从大到小排序
 ```cpp
 //重载 < 运算符
 struct cmp {
-    bool operator () (const int& u, const int& v) const
-    {
+    bool operator () (const int& u, const int& v) const {
        // return + 返回条件
        return u > v;
     }
@@ -988,11 +968,9 @@ for(auto x : s)
 直接重载结构体运算符即可，让结构体可以比较。
 
 ```cpp
-struct Point
-{
+struct Point {
 	int x, y;
-	bool operator < (const Point &p) const
-	{
+	bool operator < (const Point &p) const {
 		// 按照点的横坐标从小到大排序,如果横坐标相同,纵坐标从小到大
 		if(x == p.x)
 			return y < p.y;
@@ -1001,8 +979,7 @@ struct Point
 };
 
 set<Point> s;
-for(int i = 1; i <= 5; i++)
-{
+for(int i = 1; i <= 5; i++) {
     int x, y;
     cin >> x >> y;
     s.insert({x, y});
@@ -1075,8 +1052,7 @@ p = pair<string, int>("wang", 18);
 ```cpp
 //定义结构体数组
 pair<int,int> p[20];
-for(int i = 0; i < 20; i++)
-{
+for(int i = 0; i < 20; i++) {
 	//和结构体类似，first代表第一个元素，second代表第二个元素
 	cout << p[i].first << " " << p[i].second;
 }
@@ -1127,8 +1103,7 @@ string str6(str2, 2); //结果为"3456789"，截取第三个元素（2对应第�
 #include<iostream>
 #include<string>
 using namespace std;
-int main()
-{
+int main() {
 	string s = "xing ma qi!!!";
 	for(int i = 0; i < s.size(); i++)
 		cout << s[i] << " ";
@@ -1142,11 +1117,9 @@ int main()
 #include<iostream>
 #include<string>
 using namespace std;
-int main()
-{
+int main() {
 	string s[10];
-	for(int i = 1; i < 10; i++)
-	{
+	for(int i = 1; i < 10; i++) {
 		s[i] = "loading...  " ;
 		cout << s[i] << i << "\n";
 	} 
@@ -1349,8 +1322,7 @@ transform(s.begin(),s.end(),s.begin(),::toupper);//转换大写
 ```cpp
 #include<string>
 #include<iostream>
-int main()
-{
+int main() {
     string s("dog bird chicken bird cat");
 //字符串查找-----找到后返回首字母在字符串中的下标
 // 1. 查找一个字符串
@@ -1417,8 +1389,7 @@ bitset 在 bitset 头文件中，它类似数组，并且每一个元素只能�
 ```cpp
 #include<bits/stdc++.h>
 using namespace std;
-int main()
-{
+int main() {
 	bitset<4> bitset1;　　  //无参构造，长度为４，默认每一位为０
 	
 	bitset<9> bitset2(12);　//长度为9，二进制保存，前面用０补充
@@ -1447,31 +1418,31 @@ int main()
 bitset<4> foo (string("1001"));
 bitset<4> bar (string("0011"));
 
-cout << (foo ^= bar) << endl;// 1010 (foo对bar按位异或后赋值给foo)
+cout << (foo^=bar) << endl;// 1010 (foo对bar按位异或后赋值给foo)
 
-cout << (foo &= bar) << endl;// 0010 (按位与后赋值给foo)
+cout << (foo&=bar) << endl;// 0001 (按位与后赋值给foo)
 
-cout << (foo |= bar) << endl;// 0011 (按位或后赋值给foo)
+cout << (foo|=bar) << endl;// 1011 (按位或后赋值给foo)
 
-cout << (foo <<= 2) << endl;// 1100 (左移２位，低位补０，有自身赋值)
+cout << (foo<<=2) << endl;// 0100 (左移2位，低位补0，有自身赋值)
 
-cout << (foo >>= 1) << endl;// 0110 (右移１位，高位补０，有自身赋值)
+cout << (foo>>=1) << endl;// 0100 (右移1位，高位补0，有自身赋值)
 
 cout << (~bar) << endl;// 1100 (按位取反)
 
-cout << (bar << 1) << endl;// 0110 (左移，不赋值)
+cout << (bar<<1) << endl;// 0110 (左移，不赋值)
 
-cout << (bar >> 1) << endl;// 0001 (右移，不赋值)
+cout << (bar>>1) << endl;// 0001 (右移，不赋值)
 
-cout << (foo == bar) << endl;// false (0110==0011为false)
+cout << (foo==bar) << endl;// false (1001==0011为false)
 
-cout << (foo != bar) << endl;// true  (0110!=0011为true)
+cout << (foo!=bar) << endl;// true  (1001!=0011为true)
 
-cout << (foo & bar) << endl;// 0010 (按位与，不赋值)
+cout << (foo&bar) << endl;// 0001 (按位与，不赋值)
 
-cout << (foo | bar) << endl;// 0111 (按位或，不赋值)
+cout << (foo|bar) << endl;// 1011 (按位或，不赋值)
 
-cout << (foo ^ bar) << endl;// 0101 (按位异或，不赋值)
+cout << (foo^bar) << endl;// 1010 (按位异或，不赋值)
 ```
 
 **访问**
@@ -1481,8 +1452,8 @@ cout << (foo ^ bar) << endl;// 0101 (按位异或，不赋值)
 bitset<4> foo ("1011"); 
 
 cout << foo[0] << endl;　　//1
-cout << foo[1] << endl;　　//1
-cout << foo[2] << endl;　　//0
+cout << foo[1] << endl;　　//0
+cout << foo[2] << endl;　　//1
 ```
 
 ---
@@ -1817,8 +1788,7 @@ int res2 = accumulate(a, a + 4, 5);
 
 ```cpp
 typedef long long ll;
-struct node
-{
+struct node {
     ll num;
 }st[10];
 
@@ -1826,7 +1796,7 @@ for(int i = 1; i <= n; i++)
     st[i].num = i + 10000000000;
 //返回值类型与init一致，同时注意参数类型（a）也要一样
 //初始值为1，累加1+10000000001+10000000002+10000000003=30000000007
-ll res = accumulate(st + 1, st + 4, 1ll, [](ll a,node b){
+ll res = accumulate(st + 1, st + 4, 1ll, [](ll a,node b) {
     return a + b.num;
 });
     
@@ -2156,8 +2126,7 @@ sort(a, a + n, greater<int>());
 sort(a, a + n, less<int>());
 
 //自定义排序，定义比较函数
-bool cmp(node a,node b)
-{
+bool cmp(node a,node b) {
     //按结构体里面的x值降序排列
     return a.x > b.x;
 }
@@ -2239,27 +2208,27 @@ unique(beg, end)
 
 > 消除重复元素，返回消除完重复元素的下一个位置的地址
 >
-> 如：`a[] = {1,2,3,3,4 }`;
+> 如：`a[] = {1, 3, 2, 3, 6}`;
 >
-> unique之后a数组为`{1,2,3,4,3}`前面为无重复元素的数组，后面则是重复元素移到后面，返回`a[4]`位置的地址（不重复元素的尾后地址）
+> unique之后a数组为`{1, 2, 3, 6, 3}`前面为无重复元素的数组，后面则是重复元素移到后面，返回`a[4]`位置的地址（不重复元素的尾后地址）
 
 消除重复元素一般需要原序列是**有序序列**
 
 **运用：离散化**
 
 ```cpp
-for(int i = 0; i < n; i++)
-{
+for(int i = 0; i < n; i++) {
     cin >> a[i];
     b[i] = a[i];//将a数组复制到b数组
 }
+// 排序后 b：{1, 2, 3, 3, 6}
 sort(b, b + n);//对b数组排序
-unique(b, b + n);//消除b重复元素
-for(int i = 0; i < n; i++)
-{
+// 消除重复元素b：{1, 2, 3, 6, 3} 返回的地址为最后一个元素3的地址 
+int len = unique(b, b + n) - b;//消除 b 的重复元素，并获取长度
+for(int i = 0; i < n; i++) {
     //因为b有序，查找到的下标就是对应的 相对大小（离散化后的值）
-    int pos = lower_bound(b, b + n, a[i]) - b;//在b数组中二分查找第一个大于等于a[i]的下标
-    a[i] = pos;//赋值
+    int pos = lower_bound(b, b + len, a[i]) - b;//在b数组中二分查找第一个大于等于a[i]的下标
+    a[i] = pos; // 离散化赋值
 }
 ```
 
