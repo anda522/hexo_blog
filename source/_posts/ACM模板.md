@@ -1039,7 +1039,33 @@ bool spfa()
 }
 ```
 
-## 4.2 最小生成树prim+kruskal
+## 4.2 最小生成树
+
+```cpp
+struct DSU
+{
+	vector<int> f, sz;
+	DSU(int n): f(n), sz(n, 1) { iota(f.begin(), f.end(), 0); }
+	int find(int x)
+	{
+		if(x == f[x]) return x;
+		return f[x] = find(f[x]);
+	}
+    bool same(int x, int y) { return find(x) == find(y); }
+	void merge(int x, int y)
+	{
+		x = find(x);
+		y = find(y);
+		if(x == y) return;
+		if(sz[x] < sz[y]) swap(x, y);
+		f[y] = x;
+		sz[x] += sz[y];
+		sz[y] = 0;
+	}
+};
+```
+
+
 
 ```cpp
 #include<bits/stdc++.h>
