@@ -311,41 +311,68 @@ googleAnalytics:
 
 
 # 使用到的前端库，可按需替换成对应的CDN地址，如果下面未指定具体的版本号，使用最新的版本即可.
+# 括号中是本地对应的版本
 # CDN加速规则：https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径
 # https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source
+# https://cdn.baomitu.com/ 前端静态资源库
+# https://unpkg.com/ 内容分发网络
 
 libs:
   css:
-    fontAwesome: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/awesome/css/font-awesome.min.css # V4.7.0
-    materialize: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/materialize/materialize.min.css # 1.0.0
-    aos: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/aos/aos.css
-    animate: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/animate/animate.min.css # V3.5.1
-    lightgallery: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/lightGallery/css/lightgallery.min.css # V1.6.11
-    aplayer: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/aplayer/APlayer.min.css
-    dplayer: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/dplayer/DPlayer.min.css
-    gitalk: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/gitalk/gitalk.css
-    jqcloud: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/jqcloud/jqcloud.css
-    tocbot: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/tocbot/tocbot.css
+    # fontAwesome: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/awesome/css/font-awesome.min.css # V4.7.0
+    fontAwesome: https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css
+    # materialize: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/materialize/materialize.min.css # 1.0.0
+    materialize: https://lib.baomitu.com/materialize/1.0.0/css/materialize.min.css
+    aos: https://lib.baomitu.com/aos/2.3.4/aos.css
+    # aos: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/aos/aos.css (2.1.0)
+    animate: https://lib.baomitu.com/animate.css/3.5.1/animate.min.css
+    # animate: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/animate/animate.min.css # V3.5.1
+    lightgallery: https://lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css
+    # lightgallery: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/lightGallery/css/lightgallery.min.css # V1.6.11
+    aplayer: https://lib.baomitu.com/aplayer/latest/APlayer.min.css
+    # aplayer: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/aplayer/APlayer.min.css
+    dplayer: https://lib.baomitu.com/dplayer/1.25.0/DPlayer.min.css
+    # dplayer: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/dplayer/DPlayer.min.css
+    gitalk: https://lib.baomitu.com/gitalk/latest/gitalk.css
+    # gitalk: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/gitalk/gitalk.css
+    jqcloud: https://lib.baomitu.com/jqcloud/1.0.2/jqcloud.css
+    # jqcloud: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/jqcloud/jqcloud.css
+    tocbot: https://lib.baomitu.com/tocbot/4.21.0/tocbot.css
+    # tocbot: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/tocbot/tocbot.css
   js:
-    jquery: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/jquery/jquery-2.2.0.min.js
-    materialize: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/materialize/materialize.min.js # 1.0.0
-    masonry: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/masonry/masonry.pkgd.min.js # v4.0.0
-    aos: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/aos/aos.js
-    scrollProgress: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/scrollprogress/scrollProgress.min.js
-    lightgallery: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/lightGallery/js/lightgallery-all.min.js # V1.6.11
-    clicklove: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/clicklove.js
-    explosion: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/explosion.min.js
-    firework: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/firework.js
-    text: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/text.js
-    busuanzi: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/busuanzi.pure.mini.js
-    aplayer: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/aplayer/APlayer.min.js
-    dplayer: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/dplayer/DPlayer.min.js
-    crypto: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/cryptojs/crypto-js.min.js
-    echarts: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/echarts/echarts.min.js
-    gitalk: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/gitalk/gitalk.min.js
-    jqcloud: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/jqcloud/jqcloud-1.0.4.min.js
-    tocbot: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/tocbot/tocbot.min.js
-    snow: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/snow.js
+    # jquery: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/jquery/jquery-2.2.0.min.js
+    jquery: https://lib.baomitu.com/jquery/2.2.0/jquery.min.js
+    # materialize: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/materialize/materialize.min.js # 1.0.0
+    materialize: https://lib.baomitu.com/materialize/1.0.0/js/materialize.min.js
+    # masonry: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/masonry/masonry.pkgd.min.js # v4.0.0
+    masonry: https://lib.baomitu.com/masonry/4.0.0/masonry.pkgd.min.js
+    # aos: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/aos/aos.js
+    aos: https://lib.baomitu.com/aos/2.3.4/aos.js
+    # scrollProgress: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/scrollprogress/scrollProgress.min.js
+    scrollProgress: https://lib.baomitu.com/scrollprogress/3.0.2/scrollProgress.min.js
+    # lightgallery: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/lightGallery/js/lightgallery-all.min.js # V1.6.11
+    lightgallery: https://lib.baomitu.com/lightgallery/1.6.11/js/lightgallery-all.min.js
+    # clicklove: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/clicklove.js
+    # explosion: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/explosion.min.js
+    # firework: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/firework.js
+    # text: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/text.js
+    # busuanzi: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/busuanzi.pure.mini.js
+    busuanzi: https://lib.baomitu.com/busuanzi/latest/bsz.pure.mini.js
+    # aplayer: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/aplayer/APlayer.min.js
+    aplayer: https://lib.baomitu.com/aplayer/latest/APlayer.min.js
+    # dplayer: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/dplayer/DPlayer.min.js
+    dplayer: https://lib.baomitu.com/dplayer/1.25.0/DPlayer.min.js
+    # crypto: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/cryptojs/crypto-js.min.js
+    crypto: https://lib.baomitu.com/crypto-js/4.1.1/crypto-js.min.js
+    # echarts: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/echarts/echarts.min.js
+    echarts: https://lib.baomitu.com/echarts/5.4.2/echarts.min.js
+    # gitalk: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/gitalk/gitalk.min.js
+    gitalk: https://lib.baomitu.com/gitalk/latest/gitalk.min.js
+    # jqcloud: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/jqcloud/jqcloud-1.0.4.min.js
+    jqcloud: https://lib.baomitu.com/jqcloud/1.0.4/jqcloud.min.js
+    # tocbot: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/tocbot/tocbot.min.js
+    tocbot: https://lib.baomitu.com/tocbot/4.21.0/tocbot.min.js
+    # snow: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/snow.js
 
 
 # 无文章特色图片时需要显示的文章特色图片.
