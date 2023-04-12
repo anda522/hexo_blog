@@ -319,8 +319,8 @@ googleAnalytics:
 
 libs:
   css:
-    # fontAwesome: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/awesome/css/font-awesome.min.css # V4.7.0
-    fontAwesome: https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css
+    fontAwesome: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/awesome/css/font-awesome.min.css # V4.7.0
+    # fontAwesome: https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css 可能用不了，因为数据传输有问题，字体文件无法使用
     # materialize: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/materialize/materialize.min.css # 1.0.0
     materialize: https://lib.baomitu.com/materialize/1.0.0/css/materialize.min.css
     aos: https://lib.baomitu.com/aos/2.3.4/aos.css
