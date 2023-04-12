@@ -337,7 +337,7 @@ libs:
     # gitalk: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/gitalk/gitalk.css
     jqcloud: https://lib.baomitu.com/jqcloud/1.0.2/jqcloud.css
     # jqcloud: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/jqcloud/jqcloud.css
-    tocbot: https://lib.baomitu.com/tocbot/4.21.0/tocbot.css
+    tocbot: https://lib.baomitu.com/tocbot/latest/tocbot.css
     # tocbot: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/tocbot/tocbot.css
   js:
     # jquery: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/jquery/jquery-2.2.0.min.js
@@ -365,13 +365,13 @@ libs:
     # crypto: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/cryptojs/crypto-js.min.js
     crypto: https://lib.baomitu.com/crypto-js/4.1.1/crypto-js.min.js
     # echarts: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/echarts/echarts.min.js
-    echarts: https://lib.baomitu.com/echarts/5.4.2/echarts.min.js
+    echarts: https://lib.baomitu.com/echarts/latest/echarts.min.js
     # gitalk: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/gitalk/gitalk.min.js
     gitalk: https://lib.baomitu.com/gitalk/latest/gitalk.min.js
     # jqcloud: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/jqcloud/jqcloud-1.0.4.min.js
     jqcloud: https://lib.baomitu.com/jqcloud/1.0.4/jqcloud.min.js
     # tocbot: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/tocbot/tocbot.min.js
-    tocbot: https://lib.baomitu.com/tocbot/4.21.0/tocbot.min.js
+    tocbot: https://lib.baomitu.com/tocbot/latest/tocbot.min.js
     # snow: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/snow.js
 
 
