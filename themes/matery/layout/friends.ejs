@@ -193,8 +193,12 @@
             <% } %>
         </article>
 
-        <!-- 添加评论模块 -->
+        <!-- 友链页面添加评论模块 -->
         <div class="card">
+            <% if (theme.gitalk && theme.gitalk.enable) { %>
+            <%- partial('_partial/gitalk') %>
+            <% } %>
+
             <% if (theme.valine && theme.valine.enable) { %>
             <%- partial('_partial/valine') %>
             <% } %>
