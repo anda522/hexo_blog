@@ -157,3 +157,20 @@ ndf = df.pop('age’) # 删除age列，操作后，df都丢掉了age列,age列�
 
 # 数据分析
 
+# 与numpy的转换
+
+- `dataframe`转化为`array`：
+
+`df.to_numpy()`返回的是一个 array 类型：
+
+```python
+df.to_numpy()
+```
+
+- `array`转换为`dataframe` ：
+
+```python
+import pandas as pd
+df = pd.DataFrame(array)
+```
+
