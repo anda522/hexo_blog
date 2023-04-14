@@ -41,5 +41,12 @@
         "title": "访问主页",
         "introduction": "一个愚蠢的ACMer",
         "avatar": "http://kazemae-blog-01.oss-cn-beijing.aliyuncs.com/aurora/avatar/43fe1698e67caa0f634efe999d70cd2c.jpg"
+    },
+    {
+        "name": "邱宇",
+        "url": "https://www.cnblogs.com/qywyt/",
+        "title": "访问主页",
+        "introduction": "ACM算法大大佬",
+        "avatar": "/medias/avatars/qiuyu.jpg"
     }
 ]
