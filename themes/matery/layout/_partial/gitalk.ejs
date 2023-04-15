@@ -5,7 +5,7 @@
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/gangdong/gangdong.github.io@dev/assets/js/md5.min.js"></script> -->
+
 <script src="<%- theme.libs.js.gitalk %>"></script>
 <script>
     let gitalk = new Gitalk({
@@ -14,8 +14,8 @@
         repo: '<%- theme.gitalk.repo %>',
         owner: '<%- theme.gitalk.owner %>',
         admin: <%- JSON.stringify(theme.gitalk.admin) %>,
-        id: '<%- page.path %>',
-        // id: md5(location.pathname), // 使用MD5生成gitalk id
+        id: '<%- page.path %>',  // 使用页面路径生成gitalk id
+        
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
