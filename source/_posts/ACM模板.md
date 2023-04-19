@@ -182,6 +182,35 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 ll rnd(ll l, ll r) { return uniform_int_distribution<ll>(l, r)(rng); }
 ```
 
+## 1.5 Hash
+
+```cpp
+struct hash_map {
+	struct data {
+		long long u;
+		int v, nxt;
+	};
+	data e[SZ << 1];
+	int cnt, h[SZ]; // SZ 为const int的大小
+	hash_map() {
+		cnt = 0;
+		memset(h, -1, sizeof(h));
+	}
+	int hash (long long u) {
+		return (u % SZ + SZ) % SZ;
+	}
+	int& operator[] (long long u) {
+		int a = hash(u);
+		for (int i = h[a]; ~i; i = e[i].nxt) {
+			if (e[i].u == u) return e[i].v;
+		}
+		e[cnt] = (data){u, 0, h[a]};
+		h[a] = cnt++;
+		return e[cnt - 1].v;
+	}
+};
+```
+
 # 2 数据结构
 
 ## 2.1 线段树

@@ -45,11 +45,12 @@
     <script src="<%- theme.libs.js.text %>"></script>    
     <% } %>
 
+    <!-- 不蒜子统计修改网页请求头 -->
     <% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
     <script async src="<%- theme.libs.js.busuanzi %>"></script>
     <% } %>
     
-    <!-- 不蒜子统计修改网页请求头 -->
+    
     <% if (theme.snow.enable) { %>
     <script type="text/javascript" src="<%- theme.libs.js.snow %>"></script>
     <meta name="referrer" content="no-referrer-when-downgrade">
