@@ -291,7 +291,7 @@ void init(int n)
 		f[i][0] = a[i];
 	}
 	for(int j = 1; j <= lg[n]; j++)
-		for(int i = 0; i + (1 << j) - 1 <= n; i++)
+		for(int i = 1; i + (1 << j) - 1 <= n; i++)
 			f[i][j] = max(f[i][j - 1], f[i + (1 << (j - 1))][j - 1]);
 }
 int query(int l, int r)
@@ -1528,7 +1528,14 @@ void tarjan(int u)
 
 # 5 字符串
 
-## 5.1 KMP
+## 5.1 hash
+
+$$
+f[i] = f[i - 1] * 131 + (s[i] - 'a'); \\
+hash(l,r) = f[r] - f[l - 1] * 131^{r - l + 1};
+$$
+
+## 5.2 KMP
 
 ```cpp
 char s[N], p[N];
@@ -1561,7 +1568,7 @@ for(int i = 1, j = 0; i <= n; i++)
  */
 ```
 
-## 5.2 Trie
+## 5.3 Trie
 
 ```cpp
 struct Trie
@@ -1601,7 +1608,7 @@ struct Trie
 
 
 
-## 5.3 Manacher
+## 5.4 Manacher
 
 ```cpp
 char Ma[N<<1];
@@ -1633,7 +1640,7 @@ void Manacher(char s[]){
  */
 ```
 
-## 5.4 SAM后缀自动机
+## 5.5 SAM后缀自动机
 
 ```cpp
 struct SuffixAutomaton {
