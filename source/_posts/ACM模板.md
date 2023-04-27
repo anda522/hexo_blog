@@ -1097,67 +1097,41 @@ struct DSU
 
 
 ```cpp
-#include<bits/stdc++.h>
-using namespace std;
-typedef long long ll;
-const int N = 105;
-const int inf = 0x3f3f3f3f;
-int g[N][N],dis[N],res;
-ll c,n,m;
-bool vis[N];
-struct edge{int u,v,w;}e[200005];
-int find(int x) {return f[x]==x ? x: (f[x] = find(f[x]));}
-bool cmp(edge a,edge b){return a.w<b.w;}
 void kruskal()
 {
-    for(int i=1;i<=n;i++) f[i] = i;
-    sort(e+1,e+1+m,cmp);
-    for(int i=1;i<=m;i++)
+    sort(e + 1, e + 1 + m, cmp);
+    for(int i = 1; i <= m; i++)
     {
-        int a = find(e[i].u);
-        int b = find(e[i].v);
-        if(a==b) continue;
-        ++cnt;//边数加一
-        f[b] = a;//合并点的集合
+        int a = dsu.find(e[i].u);
+        int b = dsu.find(e[i].v);
+        if(a == b) continue;
+        ++cnt; //边数加一
+        dsu.merge(a, b); //合并点的集合
         ans += e[i].w;
     }
 }
 void prim()
 {
-    res = 0;
-    memset(g,inf,sizeof(g));//初始化数组为inf
-    for(int i=1;i<=n;i++) g[i][i] = 0;
-    for(int i=1;i<=n;i++) dis[i] = inf,vis[i] = false;
-    for(int i=0;i<n;i++)
-    {
-        int t = -1; //找距离最小生成树集合的距离最近的点
-        for(int j=1;j<=n;j++)
-        {
-            if(!vis[j] && (t==-1 || dis[t] > dis[j])) t = j;
-        }
-        if(i && dis[t]==inf)
-        {
-            res = inf;
-            return;
-        }
-        if(i) res += dis[t];
-        vis[t] = true;//将该点加到最小生成树的集合
-        for(int j=1;j<=n;j++) dis[j] = min(dis[j],g[t][j]);
-    }
-}
-int main()
-{
-    while(cin>>n>>m)
-    {
-        for(int i=1;i<=m;i++)
-        {
-            int u,v,w;
-            cin>>u>>v>>w;
-            g[u][v] = g[v][u] = min(w,g[u][v]);
-        }
-        prim();
-    }
-    return 0;
+    priority_queue<pii, vector<pii>, greater<pii>> q;  // dis, node
+	vector<int> vis(m + 1);
+	q.push({0, 1});
+	while (!q.empty() && cnt <= m) {
+		auto tmp = q.top();
+		q.pop();
+
+		int u = tmp.second;
+		if (vis[u]) continue;
+		vis[u] = 1;
+
+		cnt++;
+		ans += tmp.first; // 处理
+        
+		for (auto v : g[u]) {
+			if (!vis[v]) {
+				q.push({dis(u, v), v});
+			}
+		}
+	}
 }
 ```
 
