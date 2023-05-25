@@ -5,3 +5,4 @@ public/
 .deploy*/
 .vscode/
 db.json
+*.exe
