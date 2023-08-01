@@ -214,6 +214,10 @@ Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配�
 
 # 远程同步
 
+`git remote -v` ： 查看与远程仓库的关联
+
+`git remote remove origin` ：删除与远程仓库的关联
+
 `git remote add origin git@github.com:xxx/XXX.git`：将本地仓库关联到远程仓库
 
 `git push -u ` （第一次需要-u以后不需要）：将当前分支推送到远程仓库
@@ -408,4 +412,18 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 ```bash
 git pull origin master
 ```
+
+## 7 仓库名改动
+
+需要进行仓库名改动，先改动了远程仓库名，本地直接目录名就行。
+
+之后就要进行重新关联远程仓库，因为远程仓库名发生变化，仓库地址也就发生了变化。
+
+```bash
+git remote -v // 可以先查看与远程仓库的关联
+git remote remove origin // 然后删除与远程仓库的关联
+git remote add origin git@github.com:xxx/XXX.git // 将本地仓库关联到远程仓库
+```
+
+
 
