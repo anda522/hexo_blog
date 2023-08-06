@@ -427,3 +427,6 @@ git remote add origin git@github.com:xxx/XXX.git // 将本地仓库关联到远�
 
 
 
+# 参考
+
+[1] 如何设置git代理：https://ericclose.github.io/git-proxy-config.html
