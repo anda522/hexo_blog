@@ -103,7 +103,7 @@ summary:
   
     ```cpp
     //初始化二维均可变长数组
-    vector<vectot<int>> v;//定义一个行和列均可变的二维数组
+    vector<vector<int>> v;//定义一个行和列均可变的二维数组
     ```
   
     > 应用：可以在`v`数组里面装多个数组
@@ -119,7 +119,7 @@ summary:
     行列长度均固定 `n + 1`行 `m + 1`列初始值为0
   
     ```cpp
-    vector<vector<int> > a(n + 1, vector<int>(m + 1, 0));
+    vector<vector<int>> a(n + 1, vector<int>(m + 1, 0));
     ```
   
     c++17或者c++20支持的形式（不常用），与上面相同的初始化
