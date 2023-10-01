@@ -23,7 +23,7 @@ layout: "contact"
 
 ⭐ 我的Github：https://github.com/anda522 
 
-# 相关联系方式
+# 联系方式
 
 🔥 邮箱：wyq522208@qq.com
 

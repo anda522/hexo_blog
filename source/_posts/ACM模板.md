@@ -808,118 +808,70 @@ ll excrt()
 链式前向星：
 
 ```cpp
-int h[N],ne[N],e[N],idx;
-//注意初始化 h 为 -1 
-void add(int a,int b)
-{
-	e[idx]=b,ne[idx]=h[a],h[a]=idx++;
+int h[N], ne[N], e[N], idx;
+void add(int a, int b) {
+	e[++idx] = b, ne[idx] = h[a], h[a] = idx;
 }
-
 ```
 
 ## 4.1 最短路
 
-### 4.1.1 floyd
+### floyd
 
 ```cpp
 int d[105][105];
-int n,m;
-memset(d,0x3f,sizeof d);
-
-for(int k=1;k<=n;k++)//k在最外层，
-    for(int i=1;i<=n;i++)
-        if(d[i][k]!=0x3f3f3f3f)
-            for(int j=1;j<=n;j++)
-            {
+memset(d, 0x3f, sizeof d);
+for(int k = 1; k <= n; k++)//k在最外层，
+    for(int i = 1; i <= n; i++)
+        if(d[i][k] != 0x3f3f3f3f)
+            for(int j = 1; j <= n; j++) {
                 if(d[i][j] > d[i][k] + d[k][j])
                     d[i][j] = d[i][k] + d[k][j];
             }
 ```
 
-### 4.1.2 dijkstra
+### dijkstra
 
 ```cpp
-vector<pii>e[N];
-ll dis[N],n,m;  
-bool vis[N]; 
-void dijkstra()
-{
-    int x = 1;
-    priority_queue<pii>q;
-    dis[x] = 0;
-    q.push({-dis[x],x});
-    while(!q.empty())
-    {
-        pii t = q.top();
-        q.pop();//出队找到最小距离的点
-        if(vis[t.se]) continue;
-        vis[t.se] = 1;
-        for(int i=0;i<e[t.se].size();i++)
-        {
-            int v = e[t.se][i].fi;
-            if(dis[v] > dis[t.se] + e[t.se][i].se)
-            {
-                dis[v] = dis[t.se] + e[t.se][i].se;
-                q.push({-dis[v],v});
+int dijkstra(int s, int t) {
+    priority_queue<pair<int, int>> q;
+    dis[s] = 0;
+    q.push({-dis[s], s});
+    while(!q.empty()) {
+        auto t = q.top(); q.pop();
+ 		int u = t.second;
+        if(vis[u]) continue;
+        vis[u] = 1;
+        for(auto [v, w]: g[u]) {
+            if(dis[v] > dis[u] + w) {
+                dis[v] = dis[u] + w;
+                q.push({-dis[v], v});
             }
         }
     }
-}
-
-int main()
-{
-    cin>>n>>m;
-    for(int i=1;i<=N;i++) dis[i] = inf;
-    for(int i=1;i<=m;i++)
-    {
-        int a,b,c;
-        cin>>a>>b>>c;
-        e[a].push_back({b,c});
-        e[b].push_back({a,c});
-    }
-    dijkstra();
-    return 0;
+    return dis[t];
 }
 ```
 
-### 4.1.3 spfa
+### spfa
 
 对边不断松弛优化，如果该点被松弛就加入队列，同时标记数组记为true，标记数组代表该点是否在队列中。
 
 ```cpp
-//N为点 M为边
-int e[M],h[N],w[M],ne[M],idx;
-int dis[N], cnt[N];
-bool inq[N];
-int n,m,s,d;//s,d为起点和终点
-
-void add(int a,int b,int c)
-{
-	e[idx]=b,w[idx]=c,ne[idx]=h[a],h[a]=idx++;
-}
-bool spfa()
-{
-	queue<int>q;
-	memset(dis,0x3f,sizeof dis);
-	
+bool spfa() {
+	queue<int> q;
+	memset(dis, 0x3f, sizeof dis);
 	q.push(s);
-	inq[s] = true,dis[s] = 0;
-	while(!q.empty())
-	{
-		int u = q.front();
-		q.pop();
-		inq[u] = false;
-		
-		for(int i=h[u];~i;i=ne[i])
-		{
-			int v = e[i];
-			if(dis[v] > dis[u] + w[i])
-			{
-				dis[v] = dis[u] + w[i];
+	inq[s] = true, dis[s] = 0;
+	while(!q.empty()) {
+		int u = q.front(); q.pop();
+		inq[u] = false;		
+		for(auto [v, w]: g[u]) {
+			if(dis[v] > dis[u] + w) {
+				dis[v] = dis[u] + w;
                 cnt[v] = cnt[u] + 1;// 判负环
                 if(cnt[v] >= n) return true;//大于等于节点个数
-				if(!inq[v])
-				{
+				if(!inq[v]) {
 					inq[v] = true;
 					q.push(v);
 				}
@@ -928,259 +880,99 @@ bool spfa()
 	}
     return false;
 }
-int main()
-{
-	cin>>n>>m>>s>>d;
-	memset(h,-1,sizeof h);
-	for(int i=1;i<=m;i++)
-	{
-		int a,b,c;
-		cin>>a>>b>>c;
-		add(a,b,c),add(b,a,c);
+```
+
+## 4.2 树上问题
+
+### 树上启发式合并
+
+```cpp
+// 颜色平衡树：一个树中的每种颜色的结点个数相等，求多少个子树是颜色平衡树
+#include<bits/stdc++.h>
+using namespace std;
+using pii = pair<int, int>;
+const int N = 2e5;
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n; cin >> n;
+	vector<int> color(n + 1);
+	vector<vector<int>> g(n + 1);
+	for(int i = 1; i <= n; i++) {
+		int fa;
+		cin >> color[i] >> fa;
+		if (fa != 0) {
+			g[fa].push_back(i);
+			g[i].push_back(fa);
+		}
 	}
-	spfa();
-	cout<<dis[d]<<'\n';
+    // sum[i]:颜色出现次数为i的个数, cnt[i]:颜色i对应的个数
+	vector<int> cnt(N + 1), L(n + 1), R(n + 1), big(n + 1), sz(n + 1), node(n + 1), sum(n + 1); 
+	int dfn = 0;
+	int ans = 0, mx = 0, mn = 1e9; // 颜色出现次数的最大值和最小值
+	function<void(int, int)> dfs1 = [&](int u, int fa) {
+		sz[u] = 1;
+		L[u] = ++dfn;
+		node[dfn] = u;
+		for (auto v : g[u]) {
+			if (v != fa) {
+				dfs1(v, u);
+				sz[u] += sz[v];
+				if (!big[u] || sz[big[u]] < sz[v]) {
+					big[u] = v;
+				}
+			}
+		}
+		R[u] = dfn;
+	};
+	auto add = [&](int u) {
+		sum[cnt[color[u]]]--;
+		if(sum[cnt[color[u]]] == 0 && mn == cnt[color[u]]) {
+			mn = cnt[color[u]] + 1;
+		} else {
+			mn = min(mn, cnt[color[u]] + 1);
+		}
+		cnt[color[u]]++;
+		sum[cnt[color[u]]]++;
+		mx = max(mx, cnt[color[u]]);
+	};
+	auto del = [&](int u) {
+		mx = 0, mn = 1e9;
+		sum[cnt[color[u]]] = 0;
+		cnt[color[u]] = 0;
+	};
+	function<void(int, int, bool)> dfs2 = [&](int u, int fa, bool keep) {
+		for(auto v : g[u]) {
+			if (v != fa && v != big[u]) {
+				dfs2(v, u, false);
+			}
+		}
+		if (big[u]) {
+			dfs2(big[u], u, true);
+		}
+		for (auto v : g[u]) {
+			if (v != fa && v != big[u]) {
+				for (int i = L[v]; i <= R[v]; i++) {
+					add(node[i]);
+				}
+			}
+		}
+		add(u);
+		if (mx == mn) ans++;
+		if (keep == false) {
+			for (int i = L[u]; i <= R[u]; i++) {
+				del(node[i]);
+			}
+		}
+	};
+	dfs1(1, -1);
+	dfs2(1, -1, false);
+	cout << ans << "\n";
 	return 0;
 }
 ```
 
-### 4.1.4 差分约束
-
-$x_u + w \ge x_v$ 转化为最短路中的 $dis[u] + w \ge dis[v]$ 
-
-- 用SPFA时需要建立一个总源点代表一个值，使所有点可达，可通过这个点连边限制每个变量的最大值和最小值
-- 求最大值用最短路，求最小值用最长路
-- $x_a + c = x_b$ 加边 $(a, b, c), (b, a, -c)$
-
-```cpp
-const int N = 1e5 + 5, M = 3 * N;
-int e[M], h[N], ne[M], w[M], idx, cnt[N];
-ll dis[N];
-bool st[N];
-
-bool spfa()
-{
-	stack<int> q;
-	memset(dis, -0x3f, sizeof dis);
-
-	dis[0] = 0;
-	q.push(0);
-	st[0] = true;
-	while(!q.empty())
-	{
-		int t = q.top();
-		q.pop();
-		st[t] = false;
-		for(int i = h[t]; ~i; i = ne[i])
-		{
-			int v = e[i];
-			if(dis[t] + w[i] > dis[v])
-			{
-				dis[v] = dis[t] + w[i];
-				cnt[v] = cnt[t] + 1; // 判负环
-				if(cnt[v] >= n + 1) return false;
-				if(!st[v]) 
-				{
-					q.push(v);
-					st[v] = true;
-				}
-			}
-		}
-	}
-	return true;
-}
-```
-
-## 4.2 最小生成树
-
-```cpp
-struct DSU
-{
-	vector<int> f, sz;
-	DSU(int n): f(n), sz(n, 1) { iota(f.begin(), f.end(), 0); }
-	int find(int x)
-	{
-		if(x == f[x]) return x;
-		return f[x] = find(f[x]);
-	}
-    bool same(int x, int y) { return find(x) == find(y); }
-	void merge(int x, int y)
-	{
-		x = find(x);
-		y = find(y);
-		if(x == y) return;
-		if(sz[x] < sz[y]) swap(x, y);
-		f[y] = x;
-		sz[x] += sz[y];
-		sz[y] = 0;
-	}
-};
-```
-
-
-
-```cpp
-void kruskal()
-{
-    sort(e + 1, e + 1 + m, cmp);
-    for(int i = 1; i <= m; i++)
-    {
-        int a = dsu.find(e[i].u);
-        int b = dsu.find(e[i].v);
-        if(a == b) continue;
-        ++cnt; //边数加一
-        dsu.merge(a, b); //合并点的集合
-        ans += e[i].w;
-    }
-}
-void prim()
-{
-    priority_queue<pii, vector<pii>, greater<pii>> q;  // dis, node
-	vector<int> vis(m + 1);
-	q.push({0, 1});
-	while (!q.empty() && cnt <= m) {
-		auto tmp = q.top();
-		q.pop();
-
-		int u = tmp.second;
-		if (vis[u]) continue;
-		vis[u] = 1;
-
-		cnt++;
-		ans += tmp.first; // 处理
-        
-		for (auto v : g[u]) {
-			if (!vis[v]) {
-				q.push({dis(u, v), v});
-			}
-		}
-	}
-}
-```
-
-## 4.3 LCA
-
-**树上倍增法**
-
-```cpp
-// f[i][j]：i节点向根走2^j到达的节点
-// 初始化 f[i][0] : 父节点
-void init()
-{
-	for(int j = 1; j <= k; j++)
-		for(int i = 1; i <= n; i++)
-			f[i][j] = f[f[i][j - 1]][j - 1];
-}
-int lca(int x, int y)
-{
-	if(d[x] > d[y]) swap(x, y);//保证x深度小于等于y
-	for(int i = k; i >= 0; i--)//y走到和x同一深度
-		if(d[f[y][i]] >= d[x])
-			y = f[y][i];
-	if(x == y) return x;
-	for(int i = k; i >= 0; i--)//x,y一起向上走
-		if(f[x][i] != f[y][i])
-			x = f[x][i], y = f[y][i];
-	return f[x][0];
-}
-```
-
-**树链剖分求lca**
-
-```cpp
-namespace lca {
-    int dep[N], son[N], sz[N], top[N], fa[N];
-    void dfs1(int x) {
-        sz[x] = 1;
-        son[x] = -1;
-        for (auto p : e[x]) {
-            if (p == fa[x]) continue;
-            fa[p] = x; dep[p] = dep[x] + 1;
-            dfs1(p);
-            sz[x] += sz[p];
-            if (son[x] == -1 || sz[son[x]] < sz[p])
-                son[x] = p;
-        }
-    }
-    void dfs2(int x, int tv) {
-        top[x] = tv;
-        if (son[x] == -1) return;
-        dfs2(son[x], tv);
-        for (auto p : e[x]) {
-            if (p == fa[x] || p == son[x]) continue;
-            dfs2(p, p);
-        }
-    }
-    void init(int s) {
-        fa[s] = -1; dep[s] = 0;
-        dfs1(s);
-        dfs2(s, s);
-    }
-    int lca(int x, int y) {
-        while (top[x] != top[y])
-            if (dep[top[x]] >= dep[top[y]]) x = fa[top[x]];
-            else y = fa[top[y]];
-        return dep[x] < dep[y] ? x : y;
-    }
-}
-```
-
-```cpp
-struct Tree {
-    std::vector<int> sz, top, dep, parent, in;
-    int cur;
-    std::vector<std::vector<int>> e;
-    Tree(int n) : sz(n), top(n), dep(n), parent(n, -1), e(n), in(n), cur(0) {}
-    void addEdge(int u, int v) {
-        e[u].push_back(v);
-        e[v].push_back(u);
-    }
-    void init() {
-        dfsSz(0);
-        dfsHLD(0);
-    }
-    void dfsSz(int u) {
-        if (parent[u] != -1)
-            e[u].erase(std::find(e[u].begin(), e[u].end(), parent[u]));
-        sz[u] = 1;
-        for (int &v : e[u]) {
-            parent[v] = u;
-            dep[v] = dep[u] + 1;
-            dfsSz(v);
-            sz[u] += sz[v];
-            if (sz[v] > sz[e[u][0]])
-                std::swap(v, e[u][0]);
-        }
-    }
-    void dfsHLD(int u) {
-        in[u] = cur++;
-        for (int v : e[u]) {
-            if (v == e[u][0]) {
-                top[v] = top[u];
-            } else {
-                top[v] = v;
-            }
-            dfsHLD(v);
-        }
-    }
-    int lca(int u, int v) {
-        while (top[u] != top[v]) {
-            if (dep[top[u]] > dep[top[v]]) {
-                u = parent[top[u]];
-            } else {
-                v = parent[top[v]];
-            }
-        }
-        if (dep[u] < dep[v]) {
-            return u;
-        } else {
-            return v;
-        }
-    }
-};
-```
-
-## 4.4 树链剖分
+### 树链剖分
 
 ```cpp
 using ll = long long;
@@ -1323,8 +1115,7 @@ ll queryRange(int x, int y)
 void modifyRange(int x, int y, int d)
 {
 	d %= p;
-	while(top[x] != top[y])
-	{
+	while(top[x] != top[y]) {
 		if(dep[top[x]] < dep[top[y]])
 			swap(x, y);
 		modify(1, 1, n, id[top[x]], id[x], d);
@@ -1334,19 +1125,195 @@ void modifyRange(int x, int y, int d)
 		swap(x, y);
 	modify(1, 1, n, id[x], id[y], d);
 }
-ll querySon(int x)
-{
+ll querySon(int x) {
 	return query(1, 1, n, id[x], id[x] + sz[x] - 1);	
 }
-void modifySon(int x, int d)
-{
+void modifySon(int x, int d) {
 	modify(1, 1, n, id[x], id[x] + sz[x] - 1, d);
+}
+```
+
+### LCA最近公共祖先
+
+```cpp
+// 树上倍增法
+// f[i][j]：i节点向根走2^j到达的节点
+// 初始化 f[i][0] : 父节点
+void init() {
+	for(int j = 1; j <= k; j++)
+		for(int i = 1; i <= n; i++)
+			f[i][j] = f[f[i][j - 1]][j - 1];
+}
+int lca(int x, int y) {
+	if(d[x] > d[y]) swap(x, y);//保证x深度小于等于y
+	for(int i = k; i >= 0; i--)//y走到和x同一深度
+		if(d[f[y][i]] >= d[x])
+			y = f[y][i];
+	if(x == y) return x;
+	for(int i = k; i >= 0; i--)//x,y一起向上走
+		if(f[x][i] != f[y][i])
+			x = f[x][i], y = f[y][i];
+	return f[x][0];
+}
+// 树链剖分法
+struct Tree {
+    std::vector<int> sz, top, dep, parent, in;
+    int cur;
+    std::vector<std::vector<int>> e;
+    Tree(int n) : sz(n), top(n), dep(n), parent(n, -1), e(n), in(n), cur(0) {}
+    void addEdge(int u, int v) {
+        e[u].push_back(v);
+        e[v].push_back(u);
+    }
+    void init() {
+        dfsSz(0);
+        dfsHLD(0);
+    }
+    void dfsSz(int u) {
+        if (parent[u] != -1)
+            e[u].erase(std::find(e[u].begin(), e[u].end(), parent[u]));
+        sz[u] = 1;
+        for (int &v : e[u]) {
+            parent[v] = u;
+            dep[v] = dep[u] + 1;
+            dfsSz(v);
+            sz[u] += sz[v];
+            if (sz[v] > sz[e[u][0]])
+                std::swap(v, e[u][0]);
+        }
+    }
+    void dfsHLD(int u) {
+        in[u] = cur++;
+        for (int v : e[u]) {
+            if (v == e[u][0]) {
+                top[v] = top[u];
+            } else {
+                top[v] = v;
+            }
+            dfsHLD(v);
+        }
+    }
+    int lca(int u, int v) {
+        while (top[u] != top[v]) {
+            if (dep[top[u]] > dep[top[v]]) {
+                u = parent[top[u]];
+            } else {
+                v = parent[top[v]];
+            }
+        }
+        if (dep[u] < dep[v]) {
+            return u;
+        } else {
+            return v;
+        }
+    }
+};
+```
+
+
+
+## 4.3 差分约束
+
+$x_u + w \ge x_v$ 转化为最短路中的 $dis[u] + w \ge dis[v]$ 
+
+- 用SPFA时需要建立一个总源点代表一个值，使所有点可达，可通过这个点连边限制每个变量的最大值和最小值
+- 求最大值用最短路，求最小值用最长路
+- $x_a + c = x_b$ 加边 $(a, b, c), (b, a, -c)$
+
+```cpp
+const int N = 1e5 + 5, M = 3 * N;
+int e[M], h[N], ne[M], w[M], idx, cnt[N];
+ll dis[N];
+bool st[N];
+
+bool spfa()
+{
+	stack<int> q;
+	memset(dis, -0x3f, sizeof dis);
+
+	dis[0] = 0;
+	q.push(0);
+	st[0] = true;
+	while(!q.empty())
+	{
+		int t = q.top();
+		q.pop();
+		st[t] = false;
+		for(int i = h[t]; ~i; i = ne[i])
+		{
+			int v = e[i];
+			if(dis[t] + w[i] > dis[v])
+			{
+				dis[v] = dis[t] + w[i];
+				cnt[v] = cnt[t] + 1; // 判负环
+				if(cnt[v] >= n + 1) return false;
+				if(!st[v]) 
+				{
+					q.push(v);
+					st[v] = true;
+				}
+			}
+		}
+	}
+	return true;
+}
+```
+
+## 4.4 最小生成树
+
+```cpp
+struct DSU
+{
+	vector<int> f, sz;
+	DSU(int n): f(n), sz(n, 1) { iota(f.begin(), f.end(), 0); }
+	int find(int x)
+	{
+		if(x == f[x]) return x;
+		return f[x] = find(f[x]);
+	}
+    bool same(int x, int y) { return find(x) == find(y); }
+	void merge(int x, int y)
+	{
+		x = find(x);
+		y = find(y);
+		if(x == y) return;
+		if(sz[x] < sz[y]) swap(x, y);
+		f[y] = x;
+		sz[x] += sz[y];
+		sz[y] = 0;
+	}
+};
+```
+
+
+
+```cpp
+void prim() {
+    priority_queue<pii, vector<pii>, greater<pii>> q;  // dis, node
+	vector<int> vis(m + 1);
+	q.push({0, 1});
+	while (!q.empty() && cnt <= m) {
+		auto tmp = q.top();
+		q.pop();
+
+		int u = tmp.second;
+		if (vis[u]) continue;
+		vis[u] = 1;
+
+		cnt++;
+		ans += tmp.first; // 处理
+		for (auto v : g[u]) {
+			if (!vis[v]) {
+				q.push({dis(u, v), v});
+			}
+		}
+	}
 }
 ```
 
 ## 4.5 tarjan
 
-### 4.5.1 无向图
+### 无向图
 
 点双，求割点
 
@@ -1386,7 +1353,7 @@ void tarjan(int u)
 }
 ```
 
-### 4.5.2 有向图
+### 有向图
 
 缩点
 
@@ -1524,14 +1491,12 @@ struct Flow {
 };
 ```
 
-
-
 # 5 字符串
 
 ## 5.1 hash
 
 $$
-f[i] = f[i - 1] * 131 + (s[i] - 'a'); \\
+f[i] = f[i - 1] * 131 + (s[i] - 'a'); \\\
 hash(l,r) = f[r] - f[l - 1] * 131^{r - l + 1};
 $$
 
@@ -1542,30 +1507,21 @@ char s[N], p[N];
 int ne[N];
 cin >> s + 1 >> p + 1;
 int n = strlen(s + 1), m = strlen(p + 1);
-for(int i = 2, j = 0; i <= m; i++)
-{
-    while(j && p[i] != p[j + 1]) j = ne[j];//回退
-    if(p[i] == p[j + 1]) j++;//最长公共前后缀最多增加一
+for (int i = 2, j = 0; i <= m; i++) {
+    while (j && p[i] != p[j + 1]) j = ne[j];//回退
+    if (p[i] == p[j + 1]) j++;//最长公共前后缀最多增加一
     ne[i] = j;//对当前下标的next数组赋值为最长长度
 }
 
-for(int i = 1, j = 0; i <= n; i++)
-{
-    while(j && (j == n || s[i] != p[j + 1])) j = ne[j];
-    if(s[i] == p[j + 1]) j++;
-    if(j == m) 
-    {
+for (int i = 1, j = 0; i <= n; i++) {
+    while (j && (j == n || s[i] != p[j + 1])) j = ne[j];
+    if (s[i] == p[j + 1]) j++;
+    if (j == m) {
         j = ne[j]; //匹配成功，后面必然不能再匹配，所以回退一步 
         //匹配成功后的逻辑
         cout << i - m + 1 << "\n";
     }
 }
-
-/*
- * p:     a b a b a
- * i:     1 2 3 4 5
- * ne[i]: 0 0 1 2 3
- */
 ```
 
 ## 5.3 Trie
@@ -1605,33 +1561,28 @@ struct Trie {
 ## 5.4 Manacher
 
 ```cpp
-char Ma[N<<1];
-int Mp[N<<1];
-void Manacher(char s[]){
-    int l=0,len=strlen(s);
-    Ma[l++]='$';
-    Ma[l++]='#';
-    for(int i=0;i<len;i++){
-        Ma[l++]=s[i];
-        Ma[l++]='#';
+// #a#b#c#b# 返回对应位置最长回文串向前(后)的长度, 包括当前位置 时间复杂度：O(N)
+std::vector<int> manacher(std::string s) {
+    std::string t = "#";
+    for (auto c : s) {
+        t += c;
+        t += '#';
     }
-    Ma[l]=0;
-    int mx=0,id=0;//mx是最右端，id是中间值
-    for(int i=0;i<l;i++){
-        Mp[i]=mx>i?min(Mp[2*id-i],mx-i):1;
-        while(Ma[i+Mp[i]]==Ma[i-Mp[i]])Mp[i]++;
-        if(i+Mp[i]>mx){
-            mx=i+Mp[i];
-            id=i;
+    int n = t.size();
+    std::vector<int> r(n);
+    for (int i = 0, j = 0; i < n; i++) {
+        if (2 * j - i >= 0 && j + r[j] > i) {
+            r[i] = std::min(r[2 * j - i], j + r[j] - i);
+        }
+        while (i - r[i] >= 0 && i + r[i] < n && t[i - r[i]] == t[i + r[i]]) {
+            r[i] += 1;
+        }
+        if (i + r[i] > j + r[j]) {
+            j = i;
         }
     }
+    return r;
 }
-/*
- * abaaba
- * i:     0 1 2 3 4 5 6 7 8 9 10 11 12 13
- * Ma[i]: $ # a # b # a # a # b  #  a  #
- * Mp[i]: 1 1 2 1 4 1 2 7 2 1 4  1  2  1
- */
 ```
 
 ## 5.5 SAM后缀自动机
