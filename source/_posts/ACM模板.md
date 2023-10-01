@@ -15,27 +15,20 @@ categories:
 
 ---
 
-**目录**
 
-[TOC]
-
-----
 
 # 1 杂项
 
 ## 1.1 __int128
 
 ```cpp
-inline __int128 read()
-{
+inline __int128 read() {
 	__int128 x = 0;
 	int f = 1;
     char ch;
 	ch = getchar();
-	while(ch<'0' || ch>'9')
-	{
-		if(ch=='-')
-		{
+	while(ch<'0' || ch>'9') {
+		if(ch=='-') {
 			f = -1;
 			ch = getchar();
 		}
@@ -44,10 +37,8 @@ inline __int128 read()
 	return x*f;
 }
 
-void print(__int128 x)
-{
-	if(x<0) 
-	{
+void print(__int128 x) {
+	if(x<0) {
 		putchar('-');
 		x = -x;
 	}
@@ -180,6 +171,7 @@ struct Z {
 ```cpp
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 ll rnd(ll l, ll r) { return uniform_int_distribution<ll>(l, r)(rng); }
+// rnd(1, n) 生成[1, n]之间的随机数
 ```
 
 ## 1.5 Hash
@@ -216,13 +208,11 @@ struct hash_map {
 ## 2.1 线段树
 
 ```cpp
-struct SegmentTree
-{
+struct SegmentTree {
 	ll sum, add;
-}tr[N * 4];
+} tr[N * 4];
 
-void pushdown(int u, int l, int r)
-{
+void pushdown(int u, int l, int r) {
 	int mid = (l + r) >> 1;
 	tr[u << 1].add += tr[u].add;
 	tr[u << 1 | 1].add += tr[u].add;
@@ -230,14 +220,11 @@ void pushdown(int u, int l, int r)
 	tr[u << 1 | 1].sum += 1ll * (r - mid) * tr[u].add;
 	tr[u].add = 0;
 }
-void pushup(int u)
-{
+void pushup(int u) {
 	tr[u].sum = tr[u << 1].sum + tr[u << 1 | 1].sum;
 }
-void build(int u, int l, int r)
-{
-	if(l == r)
-	{
+void build(int u, int l, int r) {
+	if(l == r) {
 		tr[u].sum = b[l];
 		return ;
 	}
@@ -247,11 +234,9 @@ void build(int u, int l, int r)
 	pushup(u);
 }
 
-void modify(int u, int l, int r, int x, int y, int d)
-{
+void modify(int u, int l, int r, int x, int y, int d) {
 	// if(l > y || r < x) return;
-	if(l >= x and r <= y)
-	{
+	if(l >= x and r <= y) {
 		tr[u].sum += 1ll * (r - l + 1) * d;
 		tr[u].add += d;
 		return;
@@ -263,8 +248,7 @@ void modify(int u, int l, int r, int x, int y, int d)
 	pushup(u);
 }
 
-ll query(int u, int l, int r, int x, int y)
-{
+ll query(int u, int l, int r, int x, int y) {
     // if(l > y || r < x) return 0;
 	if(l >= x and r <= y)
 		return tr[u].sum;
@@ -282,11 +266,9 @@ ll query(int u, int l, int r, int x, int y)
 ```cpp
 int f[N][30], lg[N];
 int a[N];
-void init(int n)
-{
+void init(int n) {
 	lg[0] = -1;
-	for(int i = 1; i <= n; i++)
-	{
+	for(int i = 1; i <= n; i++) {
 		lg[i] = lg[i - 1] + (i & (i - 1) ? 0 : 1);
 		f[i][0] = a[i];
 	}
@@ -294,8 +276,7 @@ void init(int n)
 		for(int i = 1; i + (1 << j) - 1 <= n; i++)
 			f[i][j] = max(f[i][j - 1], f[i + (1 << (j - 1))][j - 1]);
 }
-int query(int l, int r)
-{
+int query(int l, int r) {
 	int k = lg[r - l + 1];
 	return max(f[l][k], f[r - (1 << k) + 1][k]);
 }
@@ -304,18 +285,15 @@ int query(int l, int r)
 ## 2.3 并查集
 
 ```cpp
-struct DSU
-{
+struct DSU {
 	vector<int> f, sz;
 	DSU(int n): f(n), sz(n, 1) { iota(f.begin(), f.end(), 0); }
-	int find(int x)
-	{
+	int find(int x) {
 		if(x == f[x]) return x;
 		return f[x] = find(f[x]);
 	}
     bool same(int x, int y) { return find(x) == find(y); }
-	void merge(int x, int y)
-	{
+	void merge(int x, int y) {
 		x = find(x);
 		y = find(y);
 		if(x == y) return;
@@ -331,25 +309,21 @@ struct DSU
 
 ```cpp
 template <typename T>
-struct Fenwick
-{
+struct Fenwick {
 	vector<T> tr;
 	const int n;
 	Fenwick(int n): n(n), tr(n) {}
-	void insert(int x, T d)
-	{
+	void insert(int x, T d) {
 		for(; x < n; x += x & (-x))
 			tr[x] += d;
 	}
-	T sum(int x)
-	{
+	T sum(int x) {
 		T res = 0;
 		for(; x; x -= x & (-x))
 			res += tr[x];
 		return res;
 	}
-	T RangeSum(int l, int r)
-	{
+	T RangeSum(int l, int r) {
 		return sum(r) - sum(l - 1);
 	}
 };
@@ -512,108 +486,57 @@ void solve()
 
 数组存储均为倒序存储
 
-**高精加**
-
 ```cpp
+// 高精度加法
 // C = A + B, A >= 0, B >= 0
-vector<int> add(vector<int> &A, vector<int> &B)
-{
+vector<int> add(vector<int> &A, vector<int> &B) {
     if (A.size() < B.size()) return add(B, A);
-
     vector<int> C;
     int t = 0;
-    for (int i = 0; i < A.size(); i ++ )
-    {
+    for (int i = 0; i < A.size(); i ++ ) {
         t += A[i];
         if (i < B.size()) t += B[i];
         C.push_back(t % 10);
         t /= 10;
     }
-
     if (t) C.push_back(t);
     return C;
 }
-```
-
-高精减
-
-```cpp
+// 高精度减法
 // C = A - B, 满足A >= B, A >= 0, B >= 0
-vector<int> sub(vector<int> &A, vector<int> &B)
-{
+vector<int> sub(vector<int> &A, vector<int> &B) {
     vector<int> C;
-    for (int i = 0, t = 0; i < A.size(); i ++ )
-    {
+    for (int i = 0, t = 0; i < A.size(); i++) {
         t = A[i] - t;
         if (i < B.size()) t -= B[i];
         C.push_back((t + 10) % 10);
         if (t < 0) t = 1;
         else t = 0;
     }
-
     while (C.size() > 1 && C.back() == 0) C.pop_back();
     return C;
 }
-
-```
-
-高精乘低精
-
-```cpp
+// 高精乘低精
 // C = A * b, A >= 0, b >= 0
-vector<int> mul(vector<int> &A, int b)
-{
+vector<int> mul(vector<int> &A, int b) {
     vector<int> C;
-
     int t = 0;
-    for (int i = 0; i < A.size() || t; i ++ )
-    {
+    for (int i = 0; i < A.size() || t; i ++) {
         if (i < A.size()) t += A[i] * b;
         C.push_back(t % 10);
         t /= 10;
     }
     //去除前导零
     while (C.size() > 1 && C.back() == 0) C.pop_back();
-
     return C;
 }
-
-```
-
-高精乘高精
-
-版本一
-
-```cpp
-int a[N],b[N],c[N],na,nb;
-void mul()
-{
-	//na nb 为数位长度，a[],b[]均倒序存储 
-	for(int i=1;i<=na;i++)
-		for(int j=1;j<=nb;j++)
-		{
-			c[i+j-1] += a[i]*b[j];
-			c[i+j] += c[i+j-1]/10;
-			c[i+j-1] %= 10;
-		}
-	//删除前导零 
-	int nc = na + nb;
-	while(nc>1 and !c[nc]) nc--;
-//	for(int i=nc;i>=1;i--) cout<<c[i] ;
-}
-```
-
-版本二
-
-```cpp
-vector<int> mul(vector<int> a, vector<int> b)
-{
+// 高精度乘高精度
+vector<int> mul(vector<int> a, vector<int> b) {
 	int t = 0 ;
 	int na = a.size(), nb = b.size();
 	vector<int> c(na + nb);
 	for(int i = 0; i < na; i++)
-		for(int j = 0; j < nb; j++)
-		{
+		for(int j = 0; j < nb; j++) {
 			c[i + j] += a[i] * b[j];
 			c[i + j + 1] += c[i + j] / 10;
 			c[i + j] %= 10; 
@@ -1500,6 +1423,109 @@ void tarjan(int u)
 }
 ```
 
+## 4.6 二分图
+
+二分图最大匹配：匈牙利算法
+
+```cpp
+// vis和match针对均为右部节点, u针对左部节点
+int id = 0; // 优化vis数组,用在全局,防止多样例冲突
+bool dfs(int u) {
+    for (auto v: g[u]) {
+        if (vis[v] != id) { //!vis[v]
+            vis[v] = id; // vis[v] = 1;
+            if (!match[v] || dfs(match[v])) {
+                match[v] = u;
+                return true;
+            }
+        }
+    }
+    return false;
+}
+int ans = 0; // 二分图最大匹配数
+for (int i = 1; i <= n; i++) {
+    id++; // memset(vis, 0, sizeof(vis));
+    if (dfs(i)) ans++;
+}
+```
+
+## 4.7 网络流
+
+```cpp
+template<class T>
+struct Flow {
+    const int n;
+    struct edge {
+        int to;
+        T cap;
+        edge(int to, T cap) : to(to), cap(cap) {}
+    };
+    vector<edge> e;
+    vector<vector<int>> g;
+    vector<int> c, h;
+    Flow(int n) : n(n), g(n) {}
+ 
+    bool bfs(int s, int t) {
+        h.assign(n, -1);
+        queue<int> que;
+        h[s] = 0;
+        que.push(s);
+        while (!que.empty()) {
+            const int u = que.front();
+            que.pop();
+            for (int i : g[u]) {
+                auto [v, cap] = e[i];
+                if (cap > 0 && h[v] == -1) {
+                    h[v] = h[u] + 1;
+                    if (v == t) {
+                        return true;
+                    }
+                    que.push(v);
+                }
+            }
+        }
+        return false;
+    }
+ 
+    T dfs(int u, int t, T f) {
+        if (u == t) {
+            return f;
+        }
+        auto r = f;
+        while (c[u]++ < int(g[u].size())) {
+            int j = g[u][c[u] - 1];
+            auto [v, cap] = e[j];
+            if (cap > 0 && h[v] == h[u] + 1) {
+                auto a = dfs(v, t, min(r, cap));
+                e[j].cap -= a;
+                e[j ^ 1].cap += a;
+                r -= a;
+                if (r == 0) {
+                    return f;
+                }
+            }
+        }
+        return f - r;
+    }
+    void add(int u, int v, T cap) {
+        g[u].push_back(e.size());
+        e.emplace_back(v, cap);
+        g[v].push_back(e.size());
+        e.emplace_back(u, 0);
+    }
+    T maxFlow(int s, int t, T lim = numeric_limits<T>::max()) {
+        T ans = 0;
+        while (bfs(s, t) && ans < lim) {
+            c.assign(n + 1, 0);
+            ans += dfs(s, t, lim - ans);
+        }
+        return ans;
+    }
+};
+```
+
+
+
 # 5 字符串
 
 ## 5.1 hash
@@ -1545,32 +1571,26 @@ for(int i = 1, j = 0; i <= n; i++)
 ## 5.3 Trie
 
 ```cpp
-struct Trie
-{
+struct Trie {
 	vector<vector<int>> trie;
 	vector<int> cnt;
 	int idx = 0;
-	Trie(int n)
-	{
+	Trie(int n) {
 		trie.resize(n, vector<int>(26, 0));
 		cnt.resize(n, 0);
 	}
-	void insert(string s)
-	{
+	void insert(string s) {
 		int p = 0;
-		for(int i = 0; i < (int)s.size(); i++)
-		{
+		for(int i = 0; i < (int)s.size(); i++) {
 			int x = s[i] - 'a';
 			if(!trie[p][x]) trie[p][x] = ++idx;
 			p = trie[p][x];
 		}
 		cnt[p++];
 	}
-	int find(string s)
-	{
+	int find(string s) {
 		int p = 0;
-		for(int i = 0; i < int(s.size()); i++)
-		{
+		for(int i = 0; i < int(s.size()); i++) {
 			int x = s[i] - 'a';
 			if(!trie[p][x]) return 0;
 			p = trie[p][x];
