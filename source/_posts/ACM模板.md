@@ -55,6 +55,10 @@ int read() {
 		x = x * 10 + (c & 15);
 	return x;
 }
+void out(int x) {
+	if(x > 9) out(x / 10);
+	putchar(x % 10 + '0');
+}
 ```
 
 ## 1.2 STL
@@ -71,7 +75,7 @@ void bitset_(int sz) {
 		return;
 	}
 	bitset<len + 1> dp;
-	// 相关实现
+	// 具体实现
 }
 bitset<5>b;//坐标从后往前计数，高位在前
 bitset<5>b(13);
@@ -1628,8 +1632,7 @@ for (int i = 1, j = 0; i <= n; i++) {
     if (s[i] == p[j + 1]) j++;
     if (j == m) {
         j = ne[j]; //匹配成功，后面必然不能再匹配，所以回退一步 
-        //匹配成功后的逻辑
-        cout << i - m + 1 << "\n";
+        cout << i - m + 1 << "\n";  //匹配成功后的逻辑
     }
 }
 ```
@@ -1832,5 +1835,16 @@ struct Point{
         Point k1=a-(*this),k2=b-(*this);
         return atan2l(k1.cross(k2), k1.dot(k2));
     }
+};
+struct Point { // 极角排序的点
+    ll x, y;
+    Point(ll x, ll y): x(x), y(y) { }
+    int area() const {
+        if (y > 0 || y == 0 && x > 0) return 0;
+        return 1;
+    }
+    ll cross(const Point& rhs) const { return x * rhs.y - rhs.x * y; }
+    bool operator < (const Point& rhs) const { return area() < rhs.area() || area() == rhs.area() && cross(rhs) > 0; }
+    bool operator == (const Point& rhs) const { return area() == rhs.area() && cross(rhs) == 0; }
 };
 ```
