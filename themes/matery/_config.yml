@@ -170,7 +170,7 @@ text:
 profile:
   avatar: /medias/avatars/me.png
   career: 郑州大学 | 物联网工程
-  introduction: 郑州大学物联网工程2020级本科 | 现役ACMer | 蒟蒻一个
+  introduction: 计算机相关专业学生，水平极菜。
 
 # 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 myProjects:
@@ -375,7 +375,7 @@ libs:
     # snow: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/others/snow.js
 
 
-# 无文章特色图片时需要显示的文章特色图片.
+# 无文章特色图片时需要显示的文章特色图片,会在下列图片中自动切换,无需修改代码
 featureImages: 
 - /medias/featureimages/0.jpg
 - /medias/featureimages/1.jpg
@@ -398,6 +398,13 @@ featureImages:
 - /medias/featureimages/18.jpg
 - /medias/featureimages/19.jpg
 - /medias/featureimages/20.jpg
+- /medias/featureimages/21.jpg
+- /medias/featureimages/22.jpg
+- /medias/featureimages/23.jpg
+- /medias/featureimages/24.jpg
+- /medias/featureimages/25.png
+- /medias/featureimages/26.jpg
+- /medias/featureimages/27.jpg
 
 
 
