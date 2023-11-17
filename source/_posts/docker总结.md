@@ -8,7 +8,7 @@ tags:
   - docker
   - linux
 categories:
-  - 开发工具
+  - 开发知识
 abbrlink: 1146830909
 date: 2022-07-02 11:27:31
 password:
