@@ -2335,7 +2335,7 @@ __builtin_parity(x)
 >
 > 1. [C++语法糖](https://www.luogu.com.cn/blog/AccRobin/grammar-candies) https://www.luogu.com.cn/blog/AccRobin/grammar-candies
 
-可能有些人需要PDF文件，公众号【行码棋】回复 STL 获取，抱歉😭
+可能有些人需要PDF文件，公众号【行码棋】回复 【STL】 获取（三个大写英文字母即可），抱歉😭
 
 > 2023.03.28 已更新PDF文件（除去了水印，内容进行了部分排版调整和更新）
 
