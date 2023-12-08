@@ -2122,6 +2122,29 @@ reverse(a, a + 4);
 cout << a[0] << a[1] << a[2] << a[3];//4321
 ```
 
+## set_union, set_intersection,set_difference
+
+复杂度： $O(N+M)$ 
+
+> 求两个集合的并集，交集，差集。手动实现双指针就可以搞定，嫌麻烦可以使用该函数。
+
+注意：两个集合必须为有序集合，所以下面演示代码使用了排序。vector容器可以替换成set容器，因为set自动会对元素进行排序。
+
+函数的参数有五个，前两个为第一个容器的首尾迭代器，第三四个为第二个容器的首尾迭代器，最后一个为插入位置，即将结果插入到哪个地址之后。
+
+```cpp
+vector<int> a = {4, 5, 2, 1, 8}, b = {5, 3, 8, 9, 2};
+sort(a.begin(), a.end()); // 1 2 4 5 8
+sort(b.begin(), b.end()); // 2 3 5 8 9
+vector<int> c, d, e;
+// a并b：1 2 3 4 5 8 9
+set_union(a.begin(), a.end(), b.begin(), b.end(), inserter(c, c.begin()));
+// a交b：2 5 8
+set_intersection(a.begin(), a.end(), b.begin(), b.end(), inserter(d, d.begin()));
+// a差b： 1 4
+set_difference(a.begin(), a.end(), b.begin(), b.end(), inserter(e, e.begin()));
+```
+
 ##  sort
 
 **复杂度：** $O(N logN)$
