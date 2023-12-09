@@ -4,13 +4,14 @@ top: false
 cover: false
 toc: true
 mathjax: true
-date: 2023-12-08 18:42:58
-password:
-summary:
 tags:
   - C++
 categories:
   - C++
+abbrlink: 360366309
+date: 2023-12-08 18:42:58
+password:
+summary:
 ---
 
 # C/C++指针操作整理
@@ -55,6 +56,8 @@ for (int i = 0; i < int(strlen(s)); ++i) {
 std::cout << "\n";
 std::cout << p << "\n"; // 输出整个字符串
 ```
+
+特别的：针对 `char` 类型，可以直接输出首地址，编译器会自动将地址加一往后输出，直到遇到 `\0` 字符，即字符串结尾字符。（注意 `string` 类型没有 `\0` 结尾字符）
 
 其他数据类型基本同理。
 
