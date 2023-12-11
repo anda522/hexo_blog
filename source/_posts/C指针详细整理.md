@@ -109,6 +109,13 @@ int **f = new int*[n];
 for (int i = 0; i < n; ++i) {
     f[i] = new int[m];
 }
+// 同样可以以数组形式输出
+for (int i = 0; i < n; ++i) {
+	for (int j = 0; j < m; ++j) {
+		f[i][j] = i * n + j;
+		std::cout << f[i][j] << " \n"[j == m - 1];
+	}
+}
 ```
 
 - 方法二：利用二维指针，C malloc操作
