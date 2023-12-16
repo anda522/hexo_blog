@@ -5,7 +5,7 @@ cover: false
 toc: true
 mathjax: true
 tags:
-  - Git
+  - git
 categories:
   - 开发知识
 abbrlink: 1843856130
