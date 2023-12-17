@@ -145,7 +145,9 @@ copyright:
 # 考虑到mathjax加载比较耗时，你还需要在需要渲染的文章的Front-matter中再加上`mathjax: true`才行.
 mathjax:
   enable: true
-  cdn: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  cdn: https://lib.baomitu.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  # cdn: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  
 
 
 # 文章字数统计、阅读时长、总字数统计

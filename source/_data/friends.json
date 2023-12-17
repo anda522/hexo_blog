@@ -1,10 +1,10 @@
 [
     {
-        "name": "行码棋",
-        "url": "https://wyqz.top",
+        "name": "邱宇",
+        "url": "https://www.cnblogs.com/qywyt/",
         "title": "访问主页",
-        "introduction": "蒟蒻一个",
-        "avatar": "/medias/avatars/me.png"
+        "introduction": "ACM算法大大佬",
+        "avatar": "/medias/avatars/qiuyu.jpg"
     },
     {
         "name": "WAWA鱼",
@@ -35,10 +35,10 @@
         "avatar": "https://cdn.staticaly.com/gh/yzyyz1387/blogimages/master/img/bloger.jpeg"
     },
     {
-        "name": "邱宇",
-        "url": "https://www.cnblogs.com/qywyt/",
+        "name": "逆天峰",
+        "url": "https://www.cnblogs.com/gcfer/",
         "title": "访问主页",
-        "introduction": "ACM算法大大佬",
-        "avatar": "/medias/avatars/qiuyu.jpg"
+        "introduction": "人称峰哥",
+        "avatar": "/medias/avatars/feng.jpg"
     }
 ]
