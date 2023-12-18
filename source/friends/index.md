@@ -46,6 +46,6 @@ layout: "friends"
 例如我的博客友链，大家可以加到自己博客里哦：
 * **名称：** 行码棋
 * **地址：** https://wyqz.top
-* **简介：** 算法蒟蒻
+* **简介：** Code & Self-Learn & Quest & ...
 * **头像：** https://wyqz.top/medias/logo.png
 

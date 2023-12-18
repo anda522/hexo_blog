@@ -32,7 +32,7 @@
         "url": "https://yzyyz.top",
         "title": "访问主页",
         "introduction": "学无止境 知行合一",
-        "avatar": "https://cdn.staticaly.com/gh/yzyyz1387/blogimages/master/img/bloger.jpeg"
+        "avatar": "https://yzyyz.top/bloger.png"
     },
     {
         "name": "逆天峰",
@@ -40,5 +40,12 @@
         "title": "访问主页",
         "introduction": "人称峰哥",
         "avatar": "/medias/avatars/feng.jpg"
+    },
+    {
+        "name": "天蒼人頡",
+        "url": "https://ejsoon.win",
+        "title": "访问主页",
+        "introduction": "發掘好玩事物",
+        "avatar": "https://ejsoon.win/wp-content/uploads/2022/08/alogobg.png"
     }
 ]

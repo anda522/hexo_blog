@@ -22,7 +22,7 @@ Git是基于树进行维护的，每一个节点都是一个历史版本，可�
 
 ![Git图示](1843856130/webp.webp)
 
-> 工作区（Workspace） 
+> 工作区（Workspace） ：就是会出现工作目录，即自己要编写的代码
 >
 > 暂存区（Index / Stage）  
 >
@@ -30,39 +30,9 @@ Git是基于树进行维护的，每一个节点都是一个历史版本，可�
 >
 > 远程仓库（Remote）
 
+# 配置Git命令
 
-
-# 常用命令
-
-`git config [--global] user.name xxx`：设置全局用户名，信息记录在`~/.gitconfig`文件中
-
-`git config [--global] user.email xxx@xxx.com`：设置全局邮箱地址，信息记录在`~/.gitconfig`文件中
-
-`git init`：将当前目录配置成git仓库，信息记录在隐藏的`.git`文件夹中
-
-`git status`：显示有变更的文件
-
-`git add .`：将当前工作区的所有文件的修改信息加入**暂存区**
-
-`git log`：查看当前分支的所有版本
-
-`git remote add origin git@github.com:XXX/XXX.git`：将本地仓库关联到远程仓库
-
-`git clone git@github.com:XXX/XXX.git`：将远程仓库XXX下载到当前目录下
-
-`git branch --set-upstream-to=origin/branch_name1 branch_name2`：将远程的branch_name1分支与本地的branch_name2分支对应
-
-`git push -u ` （第一次需要-u以后不需要）：将当前分支推送到远程仓库
-
-`git pull`：将远程仓库的当前分支与本地仓库的当前分支合并
-
-
-
-# 配置
-
-Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
-
-`git init`：将当前目录配置成git仓库，信息记录在隐藏的`.git`文件夹中
+> Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
 
 `git config --list` : 显示当前的Git配置
 
@@ -73,6 +43,8 @@ Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配�
 `git config [--global] user.email xxx@xxx.com`：设置全局邮箱地址，信息记录在`~/.gitconfig`文件中
 
 `git config --global init.defaultBranch <defaultBranch>`：配置初始默认的分支名
+
+`git init`：将当前目录配置成 `git` 仓库，信息记录在隐藏的`.git`文件夹中
 
 # 工作区
 
@@ -106,7 +78,7 @@ Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配�
 
 > 更多撤销操作见下文 【撤销回退】
 
-# 分支
+# 分支相关命令
 
 - 查看分支
 
@@ -128,7 +100,7 @@ Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配�
 
 `git checkout -b branch_name`：创建并切换到branch_name这个分支
 
-## 本地分支
+## 1 本地分支
 
 `git branch `: 列出所有本地分支
 
@@ -148,7 +120,7 @@ Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配�
 
 `git branch -d branch_name`：删除本地仓库的branch_name分支
 
-## 远程分支
+## 2 远程分支
 
 `git branch -r` : 列出所有远程分支
 
@@ -158,7 +130,7 @@ Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配�
 
 `git branch -dr [remote/branch]` ： 删除远程分支
 
-## 本地和远程
+## 3 本地和远程
 
 `git branch -a` ： 列出所有本地分支和远程分支
 
@@ -168,13 +140,13 @@ Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配�
 
 `git branch --set-upstream-to=origin/branch_name1 branch_name2`：将远程的branch_name1分支与本地的branch_name2分支对应
 
-# 信息查看
+# 日志信息查看
 
 `git log`：查看当前分支的所有版本
 
 `git reflog`：查看HEAD指针的移动历史（包括被回滚的版本）
 
-`git status` : 显示有变更的文件
+`git status` : 显示当前工作区有变更的文件
 
 `git log --stat` : 显示commit历史，以及每次commit发生变更的文件
 
@@ -214,27 +186,47 @@ Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配�
 
 # 远程同步
 
+## 1 仓库关联
+
 `git remote -v` ： 查看与远程仓库的关联
 
 `git remote remove origin` ：删除与远程仓库的关联
 
 `git remote add origin git@github.com:xxx/XXX.git`：将本地仓库关联到远程仓库
 
+## 2 拉取&推送&克隆
+
+### 2.1 拉取
+
+`git pull`：将远程仓库的**当前分支**与本地仓库的**当前分支**合并
+
+`git pull origin branch_name`：将远程仓库的 `branch_name` 分支与本地仓库的当前分支合并
+
+`git checkout -t origin/branch_name`: 将远程的branch_name分支拉取到本地
+
+### 2.2 推送
+
+> 注意 `push` 操作会默认推送到和本地分支名相同的远程仓库的分支，如果远程仓库没有同名分支，会推送到默认分支。优先级：同名分支>默认分支。
+>
+> 如果推送到默认分支，你可能需要在远程进行merge操作了。
+
 `git push -u ` （第一次需要-u以后不需要）：将当前分支推送到远程仓库
 
 `git push origin branch_name`：将本地的某个分支推送到远程仓库
 
-`git clone git@github.com:anda522/XXX.git`：将远程仓库XXX下载到当前目录下
+`git push --set-upstream origin branch_name`：将本地的branch_name分支推送到远程仓库的branch_name分支
 
-`git pull`：将远程仓库的当前分支与本地仓库的当前分支合并
-
-`git pull origin branch_name`：将远程仓库的branch_name分支与本地仓库的当前分支合并
-
-`git push --set-upstream origin branch_name`：设置本地的branch_name分支对应远程仓库的branch_name分支
+> 如果远程没有 `branch_name` 分支，会自动创建该分支。
+>
+> `git push origin main:branch_name`  命令类似，将 `main` 推送到 `branch_name` 分支，如果没有，便创建
 
 `git push -d origin branch_name`：删除远程仓库的branch_name分支
 
-`git checkout -t origin/branch_name`: 将远程的branch_name分支拉取到本地
+### 2.3 克隆
+
+下载下来就是一个仓库，无需进行 `git init` 操作。
+
+`git clone git@github.com:anda522/XXX.git`：将远程仓库XXX下载到当前目录下
 
 # 撤销回退
 
@@ -303,7 +295,7 @@ git push #（此代码一般会报错）
 
 > 报错原因：新建仓库时默认仓库为空，此时没有任何分支，如果本地有分支需要上传到远程的相同的分支上，需要将远程新建一个分支进行push操作。
 >
-> 故代码可更新为：`git push --set-upstream origin main`
+> 故代码可更新为：`git push --set-upstream origin main` 或 `git push origin main:main` 
 
 ## 3 新建dev分支并上传
 
@@ -362,7 +354,7 @@ git tag -a v1.0 -m "release 0.1.0 version"  # 创建附注标签
 git checkout [tagname] # 切换标签
 ```
 
-## 6 git fetch和git pull
+## 6 git fetch和git pull对比
 
 - `git fetch`：将远程更新信息全部取回本地
 
@@ -392,6 +384,8 @@ git log -p FETCH_HEAD
 
 可以看到返回的信息包括更新的文件名，更新的作者和时间，以及更新的代码。我们可以通过这些信息来判断是否产生冲突，以确定是否将更新merge到当前分支。 
 
+---
+
 - `git pull`：拉取并合并
 
 可以理解为两个过程：
@@ -413,9 +407,9 @@ git pull <远程主机名> <远程分支名>:<本地分支名>
 git pull origin master
 ```
 
-## 7 仓库名改动
+## 7 远程仓库名改动
 
-需要进行仓库名改动，先改动了远程仓库名，本地直接目录名就行。
+需要进行仓库名改动，先改动了远程仓库名，本地目录名不变就行。
 
 之后就要进行重新关联远程仓库，因为远程仓库名发生变化，仓库地址也就发生了变化。
 
@@ -423,6 +417,29 @@ git pull origin master
 git remote -v // 可以先查看与远程仓库的关联
 git remote remove origin // 然后删除与远程仓库的关联
 git remote add origin git@github.com:xxx/XXX.git // 将本地仓库关联到远程仓库
+```
+
+## 8 设置不同的fetch和push源
+
+我希望拉取公共的大项目代码，然后自己进行修改，上传到我的个人仓库中。所以fetch源需要是非个人源，push源为个人仓库的源。
+
+```shell
+git remote set-url origin  git://g.csail.mit.edu/xv6-labs-2021
+git remote set-url --add --push origin git@github.com:anda522/XV6-LAB.git
+```
+
+再用 `git remote -v` 命令可以查看已经修改完成。
+
+```shell
+origin git://g.csail.mit.edu/xv6-labs-2021 (push)
+origin git@github.com:anda522/XV6-LAB.git (fetch)
+```
+
+然后就可以用下面代码进行操作了
+
+```shell
+git fetch
+git push
 ```
 
 

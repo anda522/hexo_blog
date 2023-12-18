@@ -369,6 +369,7 @@ libs:
     # echarts: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/echarts/echarts.min.js
     echarts: https://lib.baomitu.com/echarts/latest/echarts.min.js
     # gitalk: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/gitalk/gitalk.min.js
+    # 使用的代理：https://cors-anywhere.herokuapp.com/corsdemo
     gitalk: https://lib.baomitu.com/gitalk/latest/gitalk.min.js
     # jqcloud: https://cdn.jsdelivr.net/gh/anda522/cdn@1.0/source/libs/jqcloud/jqcloud-1.0.4.min.js
     jqcloud: https://lib.baomitu.com/jqcloud/1.0.4/jqcloud.min.js
