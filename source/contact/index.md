@@ -5,7 +5,7 @@ type: "contact"
 layout: "contact"
 ---
 
-# 自语
+# 关于本站-自语
 
 - 内容纯自我记录，不专注于博客发展
 
