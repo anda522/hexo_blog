@@ -5,11 +5,11 @@ cover: false
 toc: true
 mathjax: true
 tags:
-  - C++
+  - CPP
   - STL
   - 学习总结
 categories:
-  - C++
+  - CPP
 abbrlink: 16970766
 date: 2022-06-22 15:54:47
 password:

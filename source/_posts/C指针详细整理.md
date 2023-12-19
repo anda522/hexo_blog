@@ -5,9 +5,9 @@ cover: false
 toc: true
 mathjax: true
 tags:
-  - C++
+  - CPP
 categories:
-  - C++
+  - CPP
 abbrlink: 360366309
 date: 2023-12-08 18:42:58
 password:

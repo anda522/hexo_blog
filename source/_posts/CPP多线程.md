@@ -9,10 +9,10 @@ date: 2023-03-18 09:57:44
 password:
 summary:
 tags:
-  - C++
+  - CPP
   - 多线程
 categories:
-  - C++
+  - CPP
 ---
 
 # C++11 多线程
