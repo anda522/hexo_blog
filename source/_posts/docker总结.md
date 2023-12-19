@@ -1,12 +1,12 @@
 ---
-title: docker|常用命令
+title: docker常用命令总结
 top: false
 cover: false
 toc: true
 mathjax: true
 tags:
   - docker
-  - linux
+  - Linux
 categories:
   - 开发知识
 abbrlink: 1146830909

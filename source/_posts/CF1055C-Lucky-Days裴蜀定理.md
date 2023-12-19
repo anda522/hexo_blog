@@ -1,12 +1,11 @@
 ---
-title: CF1055C Lucky Days|裴蜀定理
+title: 【裴蜀定理】CF1055C Lucky Days
 top: false
 cover: false
 toc: true
 mathjax: true
 tags:
   - 数论
-  - 裴蜀定理
 categories:
   - 数论
 abbrlink: 4188452413
