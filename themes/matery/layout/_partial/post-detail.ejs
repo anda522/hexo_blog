@@ -31,11 +31,16 @@
                     <% } %>
                 </div>
             </div>
-
+            <!-- 文章发布信息 -->
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i><%- __('publishDate') %>:&nbsp;&nbsp;
                     <%- date(page.date, 'YYYY-MM-DD') %>
+                </div>
+                <!-- 显示更新日期 -->
+                <div class="post-update-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i><%- __('updated') %>:&nbsp;&nbsp;
+                    <%- date(page.updated, 'YYYY-MM-DD') %>
                 </div>
 
                 <div class="post-author info-break-policy">

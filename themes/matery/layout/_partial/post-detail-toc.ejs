@@ -21,6 +21,9 @@
         position: fixed;
         top: 64px;
     }
+    .toc-widget.hidden {
+        display: none;
+    }
     /* 目录背景白框 */
     .toc-widget {
         padding-left: 20px;
@@ -140,6 +143,8 @@
         // Set scroll toc fixed.
         let tocHeight = parseInt($(window).height() * 0.4 - 64);
         let $tocWidget = $('.toc-widget');
+        let commentsSectionPosition = $('#gitalk-container').offset().top; 
+
         $(window).scroll(function () {
             let scroll = $(window).scrollTop();
             /* add post toc fixed. */
@@ -147,6 +152,12 @@
                 $tocWidget.addClass('toc-fixed');
             } else {
                 $tocWidget.removeClass('toc-fixed');
+            }
+            // 滚动至gitalk界面隐藏目录
+            if (scroll > commentsSectionPosition) {
+                $tocWidget.addClass('hidden');
+            } else {
+                $tocWidget.removeClass('hidden');
             }
         });
 
