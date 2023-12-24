@@ -86,7 +86,7 @@ int (*p)[3];
 
 ## 2 指针数组
 
-即数组中存储的是指针变量。
+即数组中存储的是指针变量， `*` 首先和 `int` 结合。
 
 ```cpp
 int *p[2];
@@ -98,9 +98,11 @@ int *p[2];
 
 ## 1 创建二维动态数组
 
-- 方法一：利用二维指针，C++ new操作
+- 方法一：利用**二维指针**，C++ new操作
 
 定义一个二维指针，二维指针指向的是长度为 `n` 的数组（数组中存储的是指针变量）的地址，即定义 `f` 时就指向了一个数组的首地址，而这个数组中的每个指针元素代表了二维数组每一行的首地址。
+
+> 可以这样理解：一个 `*` 代表的是地址，去掉这个 `*` 剩下的就是这个地址指向值的类型，那么 `int **f` 去掉一个 `*` 就剩下了 `int *` ，也就是这个指针指向值的类型为 `int*` 。
 
 然后利用循环，对二维指针进行操作，每维申请一个长度为 `m` 的数组，刚好 `new` 操作返回的就是一个数组的首地址，就可以赋给 `f[i]`
 
@@ -118,7 +120,7 @@ for (int i = 0; i < n; ++i) {
 }
 ```
 
-- 方法二：利用二维指针，C malloc操作
+- 方法二：利用**二维指针**，C malloc操作
 
 ```c
 int **f = (int**)malloc(sizeof(int*) * n);
@@ -127,7 +129,7 @@ for (int i = 0; i < n; ++i) {
 }
 ```
 
-- 方法三：使用数组指针
+- 方法三：使用**数组指针**
 
 直接定义个数组指针指向整个二维数组
 
@@ -150,5 +152,147 @@ for (int i = 0; i < 2; ++i) {
 
 ```cpp
 vector<vector<int>> a(n, vector<int>(m, 0));
+```
+
+## 2 数组传参
+
+> 注意：数组传参数会退化成指针，一维数组传递退化成指向数组首元素的指针。
+
+### 2.1 一维数组传参
+
+- 使用一维指针传参，传入数组首地址
+
+```c
+#include <stdio.h>
+void print(int *b, int len) {
+	for (int i = 0; i < len; ++i) {
+		printf("%d ", *(b + i));
+	}
+}
+int main() {
+	int a[3] = {1, 2, 3};
+	int length = sizeof(a) / sizeof(a[0]);
+	print(a, length);
+	return 0;
+}
+```
+
+- 使用数组指针传参，传入数组地址
+
+此时， `b` 指向了一个长度为 `3` 的数组，`*b` 先对第二维解引用，然后才是对第一维（即传入的 `a[3]` ）操作。 
+
+```cpp
+#include <stdio.h>
+void print(int (*b)[3], int len) {
+	for (int i = 0; i < len; ++i) {
+		printf("%d ", *(*b + i));
+	}
+}
+int main() {
+	int a[3] = {1, 2, 3};
+	int length = sizeof(a) / sizeof(a[0]);
+	print(&a, length); // 注意此时传入了数组的地址
+	return 0;
+}
+```
+
+- 传入数组指针，传入数组的首地址
+
+```cpp
+#include <stdio.h>
+void print(int b[], int len) {
+	for (int i = 0; i < len; ++i) {
+		printf("%d ", *(b + i));
+	}
+}
+int main() {
+	int a[3] = {1, 2, 3};
+	int length = sizeof(a) / sizeof(a[0]);
+	print(a, length);
+	return 0;
+}
+```
+
+- CPP：传引用
+
+> 可以防止数组退化成指针
+
+```cpp
+#include <iostream>
+void print(int (&b)[3], int len) {
+	for (int i = 0; i < len; ++i) {
+		printf("%d ", *(b + i));
+	}
+}
+int main() {
+	int a[3] = {1, 2, 3};
+	int length = sizeof(a) / sizeof(a[0]);
+	print(a, length);
+	return 0;
+}
+```
+
+
+
+### 2.2 二维数组传参
+
+- 使用数组指针传参，传入第二维数组的首地址
+
+> 同样会退化成指针，二维数组传递会退化成指向数组一维元素（即 `[3]` 这一维）的指针，指向的是一个长度为 3 的数组。
+>
+> 传参时，二维必须固定
+
+```cpp
+#include <iostream>
+void print(int (*b)[3]) {
+	for (int i = 0; i < 2; ++i) {
+		for (int j = 0; j < 3; ++j) {
+			printf("%d ", *(*(b + i) + j));
+		}
+	}
+}
+int main() {
+	int a[2][3] = {{1, 2, 3}, {4, 5, 6}};
+	print(a);
+	return 0;
+}
+```
+
+- 使用数组指针传参，传入第二维数组的首地址
+
+> 传参时，一维可以不固定，二维必须固定。
+
+```cpp
+#include <iostream>
+void print(int b[][3]) {
+	for (int i = 0; i < 2; ++i) {
+		for (int j = 0; j < 3; ++j) {
+			printf("%d ", *(*(b + i) + j));
+		}
+	}
+}
+int main() {
+	int a[2][3] = {{1, 2, 3}, {4, 5, 6}};
+	print(a);
+	return 0;
+}
+```
+
+- CPP：使用引用传参
+
+``` cpp
+#include <iostream>
+void print(int (&b)[2][3]) {
+	for (int i = 0; i < 2; ++i) {
+		for (int j = 0; j < 3; ++j) {
+			printf("%d ", *(*(b + i) + j));
+		}
+	}
+}
+int main() {
+	int a[2][3] = {{1, 2, 3}, {4, 5, 6}};
+	print(a);
+	return 0;
+}
 ```
 
