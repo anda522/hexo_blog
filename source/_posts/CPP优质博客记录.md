@@ -19,3 +19,5 @@ summary:
 # 结构体
 
 结构体内存对齐： https://www.cnblogs.com/hyacinthLJP/p/16041690.html
+
+静态绑定和动态绑定：https://www.cnblogs.com/lizhenghn/p/3657717.html

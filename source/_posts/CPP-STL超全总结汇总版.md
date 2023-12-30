@@ -2237,9 +2237,11 @@ sort(node, node + n, [](node a, node b) {
 stoi(const string*)
 ```
 
-> 将对应string类型字符串转换为数字，记忆：`s -> t 分别对应两个数据类型的某个字母`
+> 将对应string类型字符串转换为数字（`int` 型），记忆：`s -> t 分别对应两个数据类型的某个字母`
 
 注意参数为`string`字符串类型。
+
+如果要转换为其他类型的数字可使用 `stoll(转换为long long)` ， `stoull(转换为unsigned long long)` 等函数。
 
 关于输出数字的范围：
 
@@ -2291,8 +2293,6 @@ cout << to_string(a) << '\n';
 ```
 unique(beg, end)
 ```
-
-
 
 **复杂度：** $O(N)$
 
@@ -2369,13 +2369,13 @@ __lg(a)
 
 
 
-## __builtin_ 内置位运算函数
+## `__builtin_` 内置位运算函数
 
 > 需要注意：内置函数有相应的`unsigned lnt`和`unsigned long long`版本，`unsigned long long`只需要在函数名后面加上`ll`就可以了，比如`__builtin_clzll(x)` ，默认是32位`unsigned int`
 >
 > 很多题目和 `long long` 数据类型有关，如有需要注意添加 `ll` 
 
-### __builtin_ffs
+- `__builtin_ffs` 
 
 ```
 __builtin_ffs(x)
@@ -2383,7 +2383,7 @@ __builtin_ffs(x)
 
 >二进制中对应最后一位`1`的位数，比如`4`会返回`3`（100）
 
-### __builtin_popcount
+- `__builtin_popcount`
 
 ```
 __builtin_popcount(x)
@@ -2391,7 +2391,7 @@ __builtin_popcount(x)
 
 >`x`中`1`的个数
 
-### __builtin_ctz
+- `__builtin_ctz`
 
 ```
 __builtin_ctz(x)
@@ -2399,7 +2399,7 @@ __builtin_ctz(x)
 
 > `x`末尾`0`的个数（`count tail zero`）
 
-### __builtin_clz
+- `__builtin_clz`
 
 ```
 __builtin_clz(x)
@@ -2412,7 +2412,7 @@ cout << __builtin_clz(32); // 26
 //因为共有6位,默认数据范围为32位，32 - 6 = 26
 ```
 
-### __builtin_parity
+- `__builtin_parity`
 
 ```
 __builtin_parity(x)
