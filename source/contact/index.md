@@ -5,6 +5,8 @@ type: "contact"
 layout: "contact"
 ---
 
+![Take it now!](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fceb10357-0200-488e-8140-6eff0030736c%2FUntitled.png?table=block&id=8003c93c-ba9d-45c5-b5bc-87209968a6d0&cache=v2)
+
 # 关于本站-自语
 
 - 内容纯自我记录，不专注于博客发展
