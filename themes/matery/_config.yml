@@ -171,8 +171,8 @@ text:
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
   avatar: /medias/avatars/me.png
-  career: 郑州大学 | 物联网工程
-  introduction: 计算机相关专业学生，水平极菜。
+  career: 
+  introduction: 退役ACMer，曾落魄过，那么光亮在何时？
 
 # 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 myProjects:
@@ -213,7 +213,7 @@ mySkills:
       percent: 90%
     JavaScript:
       background: 'linear-gradient(to right, #F12F12 0%, #F6464F 100%)'
-      percent: 45%
+      percent: 65%
     MachineLearning:
       background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
       percent: 20%
