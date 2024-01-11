@@ -38,17 +38,23 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
-highlight:
-  enable: false
-  line_number: false
-  auto_detect: false
-  tab_replace:
 
-prism_plugin:
-  mode: 'preprocess'    # realtime/preprocess
-  theme: 'tomorrow'
-  line_number: true    # default false
-  custom_css:
+# _config.yml 代码高亮 https://hexo.io/zh-cn/docs/syntax-highlight#preprocess
+syntax_highlighter: prismjs
+# highlight:
+#   auto_detect: false
+#   line_number: false
+#   line_threshold: 0
+#   tab_replace: ''
+#   exclude_languages:
+#     - example
+#   wrap: true
+#   hljs: false
+prismjs:
+  preprocess: true
+  line_number: true
+  line_threshold: 0
+  tab_replace: ''
 
 search:
   path: search.xml
@@ -149,3 +155,11 @@ baidu_url_submit:
   host: wyqz.top
   token: 48Vq3c6WJnufaIkT
   path: baidu_urls.txt
+
+# 嵌入式表情支持 如 :star: 
+githubEmojis:
+  enable: true
+  className: github-emoji
+  inject: true
+  styles:
+  customEmojis:

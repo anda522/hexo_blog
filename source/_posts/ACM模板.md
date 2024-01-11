@@ -750,7 +750,17 @@ void gauss()
 }
 ```
 
-卡特兰数列 $Cat_n = \frac{C_{2n}^{n}}{n + 1}$ $,\hspace{2em} $ 错排数$d[i] = (i - 1)*(d[i - 1] + d[i - 2])$
+卡特兰数列
+$$
+Cat_n = \frac{C_{2n}^{n}}{n + 1}
+$$
+
+
+ 错排数
+$$
+d[i] = (i - 1) \times (d[i - 1] + d[i - 2])
+$$
+
 
 ## 3.8 中国剩余定理
 
@@ -773,14 +783,21 @@ ll crt() {
 ```
 
 **扩展CRT**
+$$
+x\equiv c_{1}\left( mod\ m_{1}\right) \\ x\equiv c_{2}\left( mod\ m_{2}\right)
+$$
 
-$x\equiv c_{1}\left( mod\ m_{1}\right) \\ x\equiv c_{2}\left( mod\ m_{2}\right)$
 
 得到
 
-$c=(inv(\frac{m_1}{(m_1,m_2)},\frac{m_2}{(m_1,m_2)}) \mathop{\times} \frac{(c_2-c_1)}{(m_1,m_2)})\mathop{\%}\frac{m_2}{(m_1,m_2)}*m_1+c_1$
+$$
+c=(inv(\frac{ m_1 }{ (m_1,m_2) },\frac{m_2}{(m_1,m_2)}) \mathop{ \times } \frac{ (c_2-c_1) }{ (m_1,m_2) })\mathop{ \% }\frac{ m_2 }{ (m_1,m_2) } \times m_1 + c_1
+$$
 
-$m={m_1m_2\over (m_1,m_2)}$
+$$
+m={m_1m_2\over (m_1,m_2)}
+$$
+
 
 ```cpp
 ll mul(ll a,ll b,ll mod) {

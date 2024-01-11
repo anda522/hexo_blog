@@ -47,5 +47,12 @@
         "title": "访问主页",
         "introduction": "發掘好玩事物",
         "avatar": "https://ejsoon.win/wp-content/uploads/2022/08/alogobg.png"
+    },
+    {
+        "avatar": "https://blog.17lai.site/favicon.webp",
+        "name": "夜法之书",
+        "introduction": "嵌入式，Linux Kernel&Driver, PT, Docker, Nas等等",
+        "url": "https://blog.17lai.site",
+        "title": "访问主页"
     }
 ]
