@@ -59,3 +59,7 @@ https://www.pudn.com/news/62810fc09b6e2b6d558f96c7.html
 # 一些Hexo博客搭建教程
 
 - 基于Matery主题：https://v20blog.17lai.site/posts/40300608/#%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B
+
+- markdown公式渲染：https://blog.csdn.net/subtitle_/article/details/130004464
+
+- 关于代码高亮：https://hexo.io/zh-cn/docs/syntax-highlight#preprocess
