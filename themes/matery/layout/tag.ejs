@@ -50,9 +50,14 @@
                     </a>
                     <div class="card-content article-content">
                         <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i><%= date(post.date, config.date_format) %>
-                            </span>
+                            <div class="time-section">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i><%= date(post.date, config.date_format) %>
+                                </span>
+                                <span class="update-date">
+                                    <i class="fa fa-history fa-fw icon-date"></i><%= date(post.updated, config.date_format) %>
+                                </span>
+                            </div>
                             <span class="publish-author">
                                 <% if (post.categories && post.categories.length > 0) { %>
                                 <i class="fa fa-bookmark fa-fw icon-category"></i>
