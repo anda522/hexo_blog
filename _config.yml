@@ -57,6 +57,13 @@ prismjs:
   line_threshold: 0
   tab_replace: ''
 
+lazyload:
+  enable: true  # 是否开启图片懒加载
+  onlypost: false  # 是否只对文章的图片做懒加载
+  loadingImg: # eg ./images/loading.gif
+  isSPA: false # optional. For performance considering, isSPA is added. If your theme is a SPA page, please set it as true
+  preloadRatio: 3 # optional, default is 1
+
 search:
   path: search.xml
   field: post
