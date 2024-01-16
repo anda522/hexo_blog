@@ -153,6 +153,65 @@ npm install hexo-math --save
 
 ## 8 添加Google广告
 
+## 9 主页文章卡片栏添加更新时间
+
+我想要在主页文章的整体浏览上添加文章的更新时间，而不是只显示创建时间，因此进行修改。
+
+我发现每个文章卡片在一个 `<div class='card'></div>` 标签下，而文章的创建日期和对应分类的信息在 `<div class="publish-info"></div>` 标签下，因此需要对该标签进行修改。
+
+原内容为：
+
+```html
+<span class="publish-date">
+    <i class="fa fa-clock-o fa-fw icon-date"></i><%= date(post.date, config.date_format) %>
+</span>
+```
+
+我需要再添加一个更新日期，同时还要进行一番排版。我让发布日期和更新日期纵向排列，同时日期栏和分类信息栏横向排列，所以我采用 `flex` 布局，将时间放在 `time-section` 的 `div` 标签中，同时需要对 `css` 文件进行修改。
+
+`index.ejs` 文件进行修改：
+
+```html
+<div class="time-section">
+    <span class="publish-date">
+        <i class="fa fa-clock-o fa-fw icon-date"></i><%= date(post.date, config.date_format) %>
+    </span>
+    <span class="update-date">
+        <i class="fa fa-history fa-fw icon-date"></i><%= date(post.updated, config.date_format) %>
+    </span>
+</div>
+```
+
+`matery.css` 文件修改如下：
+
+```css
+/* 日期和分类信息横向排列 */
+.publish-info {
+    display: flex;
+    justify-content: space-between; /* 空白只在子元素之间均匀分配,两端不分配 */
+}
+/* 发布日期和更新日期纵向排列 */
+.publish-info .time-section {
+    display: flex;
+    flex-direction: column;
+}
+```
+
+同时因为我加了新的图标，原来的**发布图标**有内间距描述，我仿照它添加我的新图标的间距描述，用来对齐。
+
+```css
+/* 已有的间距描述 */
+.publish-date .icon-date {
+    padding-right: 5px;
+}
+/* 新加的间距描述 */
+.update-date .icon-date {
+    padding-right: 5px;
+}
+```
+
+> 注意：由于很多页面都有文章卡片的展示，所以也要同样对相应位置进行修改，其他出现文章卡片的位置：标签页、分类页、归档页、文章底部的前一篇和后一篇。
+
 # 踩坑填坑
 
 ## 1 不蒜子计数文章阅读次数出错
@@ -226,7 +285,7 @@ npm install hexo-math --save
 
 2024-01-12：添加代码行号分隔线，添加目录滚动条，移除目录隐藏功能
 
-2024-01-13：增加异步请求，优化博客访问速度，增加图片懒加载功能，主页文章卡片添加更新时间
+2024-01-13：增加异步请求，优化博客访问速度，增加图片懒加载功能，文章卡片添加更新时间
 
 # :star: 参考博客 :star: 
 
