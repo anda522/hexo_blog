@@ -208,7 +208,17 @@ bind ':' split-window -hc "#{pane_current_path}"
 bind 'c' new-window -c "#{pane_current_path}"
 ```
 
-## 2 配置文件不生效
+## 2 下载该配置文件
+
+在用户目录运行下面命令，该文件就会下载到本目录
+
+```bash
+wget https://raw.githubusercontent.com/anda522/config/main/tmux/.tmux.conf
+```
+
+如果配置文件不生效，看下面描述。
+
+## 3 配置文件不生效
 
 在根目录下输入这个回车即可
 
