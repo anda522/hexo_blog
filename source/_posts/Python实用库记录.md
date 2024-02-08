@@ -31,3 +31,8 @@ for i in trange(1000):
         ans += 1
 ```
 
+# loguru
+
+一个日志模块，用来给程序打日志信息。
+
+参考：https://cloud.tencent.com/developer/article/2295354

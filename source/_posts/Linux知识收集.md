@@ -4,13 +4,14 @@ top: false
 cover: false
 toc: true
 mathjax: true
+tags:
+  - Linux
+categories:
+  - 开发知识
+abbrlink: 150241679
 date: 2024-01-30 08:52:06
 password:
 summary:
-tags:
-  - Linux
-categories:	
-  - 开发知识
 ---
 
 > 本文记录一些Linux相关的知识点，用来精进自己的Linux操作。
