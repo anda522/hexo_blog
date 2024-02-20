@@ -1,0 +1,4 @@
+[submodule "source/_posts"]
+	path = source/_posts
+	url = https://github.com/anda522/blogs.git
+	branch = main
