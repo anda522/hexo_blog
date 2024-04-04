@@ -6,6 +6,8 @@ layout: "about"
 mathjax: true
 ---
 
+More info：https://profile.wyqz.top
+
 ## 些许背景
 
 * 2020.09 - 2024.06 本科 | 郑州大学 | 物联网工程

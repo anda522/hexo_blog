@@ -19,11 +19,13 @@ layout: "contact"
 
 # 相关链接
 
-☀️ 我的CSDN： https://blog.csdn.net/qq_50285142
+:bread: Academic Page：https://profile.wyqz.top
 
-⚡ 我的个人博客：https://wyqz.top
+☀️ CSDN： https://blog.csdn.net/qq_50285142
 
-⭐ 我的Github：https://github.com/anda522 
+⚡ 个人博客：https://wyqz.top
+
+⭐ Github：https://github.com/anda522 
 
 # 联系方式
 
