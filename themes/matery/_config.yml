@@ -45,7 +45,7 @@ dream:
 
 # 是否在首页显示音乐.
 music:
-  enable: true
+  enable: false
   showTitle: false
   title: 听听音乐
   fixed: true # 开启吸底模式

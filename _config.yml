@@ -15,8 +15,6 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://wyqz.top
 root: /
-# permalink: :year/:month/:day/:title/
-permalink_defaults:
 
 # Directory
 source_dir: source
@@ -59,7 +57,7 @@ prismjs:
 
 lazyload:
   enable: true  # 是否开启图片懒加载
-  onlypost: false  # 是否只对文章的图片做懒加载
+  onlypost: true  # 是否只对文章的图片做懒加载
   loadingImg: # eg ./images/loading.gif
   isSPA: false # optional. For performance considering, isSPA is added. If your theme is a SPA page, please set it as true
   preloadRatio: 3 # optional, default is 1
@@ -136,27 +134,6 @@ deploy:
   repository: git@101.35.203.216:/home/git/blog.git
   branch: main
 - type: baidu_url_submitter
-
-
-
-live2d:
-  enable: false
-  scriptFrom: local
-  pluginRootPath: live2dw/
-  pluginJsPath: lib/
-  pluginModelPath: assets/
-  tagMode: false
-  log: false
-  model:
-    use: live2d-widget-model-shizuku
-  display:
-    position: left
-    width: 200
-    height: 400
-  mobile:
-    show: false
-  react:
-    opacity: 0.7
 
 baidu_url_submit:
   count: 100
