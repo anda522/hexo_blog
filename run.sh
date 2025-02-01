@@ -4,4 +4,5 @@ hexo clean
 hexo g
 # 通过git部署前端项目
 hexo d
+# 部署至个人服务器私有Git仓库
 # scp -r ./public hexo:/home/hexo

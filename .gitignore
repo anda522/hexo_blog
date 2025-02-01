@@ -6,3 +6,4 @@ public/
 .vscode/
 db.json
 *.exe
+node_modules/

@@ -6,11 +6,13 @@
 
 # 使用
 
+仓库没有上传node_modules目录，需要在项目根目录使用 `npm install` 命令根据 `package.json` 重新安装项目依赖。同时 `source/_posts` 目录为子仓库（目前不可见），用来存储博客内容，需要用户自己书写，可以使用 `hexo new post 'name'` 命令创建博客，博客文件会自动在此目录更新。
+
 修改`run.sh`脚本文件可以定义自己的一键搭建功能。
 
 # 相关命令
 
-主目录中：
+在主目录中：
 
 新建文章，name为文件名
 
@@ -46,15 +48,13 @@ hexo d
 
 # 评论
 
-Valine评论系统官方API：https://valine.js.org/configuration.html
+- Valine评论系统官方API：https://valine.js.org/configuration.html
 
-评论邮箱通知参考：https://aeneag.xyz/articles/2021/11/14/1636875468621.html
+- 评论邮箱通知参考：https://aeneag.xyz/articles/2021/11/14/1636875468621.html
 
-leancloud评论唤醒：
+- leancloud评论唤醒：https://www.pudn.com/news/62810fc09b6e2b6d558f96c7.html
 
-https://www.pudn.com/news/62810fc09b6e2b6d558f96c7.html
-
-流控问题：https://www.aimtao.net/slef-wake-leancloud/
+- 流控问题：https://www.aimtao.net/slef-wake-leancloud/
 
 # 一些Hexo博客搭建教程
 
