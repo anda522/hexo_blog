@@ -130,9 +130,9 @@ deploy:
     github: git@github.com:anda522/anda522.github.io.git
     gitee: git@gitee.com:wyqz/wyqz.git
   branch: master
-- type: git
-  repository: git@101.35.203.216:/home/git/blog.git
-  branch: main
+# - type: git
+#   repository: git@101.35.203.216:/home/git/blog.git
+#   branch: main
 - type: baidu_url_submitter
 
 baidu_url_submit:
