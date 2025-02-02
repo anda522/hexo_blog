@@ -6,7 +6,7 @@
 title: 行码棋
 subtitle: 行稳致远
 description: 金牌选手不会从天而降，你必须用热爱、刻苦和投入来浇灌他们。
-keywords: "ZZU 行码棋"
+keywords: "行码棋"
 author: 行码棋
 language: zh-CN
 timezone:
@@ -62,6 +62,16 @@ lazyload:
   isSPA: false # optional. For performance considering, isSPA is added. If your theme is a SPA page, please set it as true
   preloadRatio: 3 # optional, default is 1
 
+markdown_it_plus:
+  render:
+    breaks: true # md文档的换行符解析器换成<br>标签
+  # 加上下面的插件排版会错乱
+  # plugins:
+  #   - plugin:
+  #       name: markdown-it-katex
+  #       enable: false
+
+
 search:
   path: search.xml
   field: post
@@ -83,11 +93,8 @@ feed:
   order_by: -date
 
 Plugins:
-# - hexo-generator-baidu-sitemap
 - hexo-generator-sitemap
 
-# baidusitemap:
-#     path: baidusitemap.xml
 sitemap:
     path: sitemap.xml
   
