@@ -137,16 +137,19 @@ deploy:
     github: git@github.com:anda522/anda522.github.io.git
     gitee: git@gitee.com:wyqz/wyqz.git
   branch: master
+# 个人服务器私有Git
 # - type: git
 #   repository: git@101.35.203.216:/home/git/blog.git
 #   branch: main
-- type: baidu_url_submitter
+# 百度url提交
+# - type: baidu_url_submitter
 
-baidu_url_submit:
-  count: 100
-  host: wyqz.top
-  token: 48Vq3c6WJnufaIkT
-  path: baidu_urls.txt
+# 百度太垃圾了，一直提交不上去
+# baidu_url_submit:
+#   count: 100
+#   host: wyqz.top
+#   token: 48Vq3c6WJnufaIkT
+#   path: baidu_urls.txt
 
 # 嵌入式表情支持 如 :star: 
 githubEmojis:

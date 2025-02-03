@@ -1,6 +1,7 @@
 ---
 title: {{ title }}
 date: {{ date }}
+updated: {{ date }}
 top: false
 cover: false
 password:

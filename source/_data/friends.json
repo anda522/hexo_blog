@@ -3,14 +3,14 @@
         "name": "邱宇",
         "url": "https://www.cnblogs.com/qywyt/",
         "title": "访问主页",
-        "introduction": "ACM算法大大佬",
+        "introduction": "ACMer佬一枚，目前为信竞教练",
         "avatar": "/medias/avatars/qiuyu.jpg"
     },
     {
         "name": "WAWA鱼",
         "url": "https://blog.csdn.net/qq_51282224",
         "title": "访问主页",
-        "introduction": "算法大佬",
+        "introduction": "退役ACMer，目前在小米做浏览器内核（WebKit）开发",
         "avatar": "/medias/avatars/wawayu.jpg"
     },
     {
@@ -19,13 +19,6 @@
         "title": "访问主页",
         "introduction": "物联网开发玩家",
         "avatar": "/medias/avatars/yuanzhi.jpg"
-    },
-    {
-        "name": "小极客",
-        "url": "http://blog.tkcraft.cn/",
-        "title": "访问主页",
-        "introduction": "爱玩的小极客，有许多有意思的想法。",
-        "avatar": "/medias/avatars/xiaojike.jpg"
     },
     {
         "name": "幼稚园园长",
@@ -38,15 +31,8 @@
         "name": "逆天峰",
         "url": "https://www.cnblogs.com/gcfer/",
         "title": "访问主页",
-        "introduction": "人称峰哥",
+        "introduction": "同为ACMer佬，北航爷",
         "avatar": "/medias/avatars/feng.jpg"
-    },
-    {
-        "name": "天蒼人頡",
-        "url": "https://ejsoon.win",
-        "title": "访问主页",
-        "introduction": "發掘好玩事物",
-        "avatar": "https://ejsoon.win/wp-content/uploads/2022/08/alogobg.png"
     },
     {
         "avatar": "https://blog.17lai.site/favicon.webp",
