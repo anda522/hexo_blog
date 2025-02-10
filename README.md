@@ -1,52 +1,129 @@
-# 快速搭建属于你的博客
-博客主题修改自[hexo-theme-matery](https://github.com/blinkfox/hexo-theme-matery)，解决了一些bug，做了一些个性化定制。
+## 介绍
+本博客基于 Hexo 静态博客框架，主题修改自 [hexo-theme-matery](https://github.com/blinkfox/hexo-theme-matery)。在原主题的基础上，修复了一些已知问题，并进行了个性化定制，使其更符合个人需求。
 
-## 我的博客演示
-[https://wyqz.top](https://wyqz.top)
+### 博客演示
+你可以访问我的博客演示站点：[https://wyqz.top](https://wyqz.top)
 
-# 使用
+## 环境安装与配置
 
-仓库没有上传node_modules目录，需要在项目根目录使用 `npm install` 命令根据 `package.json` 重新安装项目依赖。同时 `source/_posts` 目录为子仓库（目前不可见），用来存储博客内容，需要用户自己书写，可以使用 `hexo new post 'name'` 命令创建博客，博客文件会自动在此目录更新。
+### 1. 安装 Node.js 和 Git
 
-修改`run.sh`脚本文件可以定义自己的一键搭建功能。
+在开始之前，确保你的系统已经安装了 Node.js 和 Git。
 
-# 相关命令
+- **Node.js**: [下载地址](https://nodejs.org/)，注意安装20.x版本，高版本可能存在不兼容问题。
+- **Git**
 
-在主目录中：
+### 2. 安装 Hexo
 
-新建文章，name为文件名
-
-```bash
-hexo new post "name"
-```
-
-将文件部署到本地服务器上，可以通过4000端口访问
+在终端中运行以下命令来全局安装 Hexo：
 
 ```bash
-hexo s
+npm install -g hexo
 ```
 
-清除public文件夹内容
+### 3. 克隆本仓库
+
+将本仓库克隆到本地：
 
 ```bash
-hexo clean
+git clone https://github.com/anda522/hexo_blog.git
+```
+然后进入该仓库目录。
+
+### 4. 安装依赖
+
+由于仓库中没有上传 `node_modules` 目录，你需要在项目根目录下运行以下命令来安装依赖：
+
+```bash
+npm install
 ```
 
-生成博客public文件夹
+### 5. 创建博客文章
 
-```
-hexo g
-```
+`source/_posts`目录为子仓库，用于存储博客内容。你需要先手动创建或使用 `hexo new post 'name'` 命令生成文章。你可以使用以下命令创建新的博客文章：
 
-将public文件夹内容上传到远程仓库
-
-```
-hexo d
+```bash
+hexo new post "文章标题"
 ```
 
-根目录下的`watermark.py`文件是给文章图片添加水印的程序。每写完一篇文章，可以运行`python watermark.py postname`添加水印，如果要一次性给所有文章添加水印，直接运行`python watermark.py all`。
+### 6. 预览网页
 
-# 评论
+创建完文章之后，使用 `hexo s` 命令预览网页，如果网页可以成功预览，基本就完成了搭建。
+
+### 7. 修改配置
+
+注意本仓库各个配置均为我的配置，如果你需要自定义博客，需要修改为你的配置。如不蒜子配置，评论系统配置，谷歌分析，网页介绍等。
+
+## 其他功能
+
+### 1. 修改 `run.sh` 脚本
+
+`run.sh` 脚本用于一键部署博客。你可以根据自己的需求修改此脚本，定义一键搭建的功能。
+
+### 2. 添加水印
+
+根目录下的 `watermark.py` 文件用于给文章中的图片添加水印。你可以使用以下命令为文章添加水印：
+
+- 为单篇文章添加水印：
+
+  ```bash
+  python watermark.py postname
+  ```
+
+- 为所有文章添加水印：
+
+  ```bash
+  python watermark.py all
+  ```
+
+### 3. 博客特性
+
+- 文章详细界面目录自定义滚动
+- 显示文章的更新日期
+- 主页随机诗词
+- ...
+
+
+## 常用命令
+
+以下是一些常用的 Hexo 命令：
+
+- **启动本地服务器**：通过 `http://localhost:4000` 访问博客。
+
+  ```bash
+  hexo s
+  ```
+
+- **清除 `public` 文件夹**：
+
+  ```bash
+  hexo clean
+  ```
+
+- **生成静态文件**：
+
+  ```bash
+  hexo g
+  ```
+
+- **部署到远程仓库**：
+
+  ```bash
+  hexo d
+  ```
+
+## 注意事项
+
+1. **`source/_posts` 目录**：此目录为子仓库，用于存储博客内容。你需要手动创建或使用 `hexo new post` 命令生成文章。
+
+2. **依赖管理**：确保在每次拉取代码后运行 `npm install` 以安装最新的依赖。
+
+3. **水印脚本**：在使用 `watermark.py` 脚本时，确保你的图片路径正确，并且已经安装了所需的 Python 依赖。
+
+
+## 参考内容
+
+### 评论
 
 - Valine评论系统官方API：https://valine.js.org/configuration.html
 
@@ -56,10 +133,16 @@ hexo d
 
 - 流控问题：https://www.aimtao.net/slef-wake-leancloud/
 
-# 一些Hexo博客搭建教程
+### 一些Hexo博客搭建教程
 
 - 基于Matery主题：https://v20blog.17lai.site/posts/40300608/#%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B
 
 - markdown公式渲染：https://blog.csdn.net/subtitle_/article/details/130004464
 
 - 关于代码高亮：https://hexo.io/zh-cn/docs/syntax-highlight#preprocess
+
+## 结语
+
+通过本指南，你应该能够成功搭建并运行你的 Hexo 博客。如果你有任何问题或建议，欢迎在 Issues 中提出。
+
+**Happy Blogging!** 🚀
