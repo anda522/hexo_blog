@@ -11,6 +11,9 @@
 在开始之前，确保你的系统已经安装了 Node.js 和 Git。
 
 - **Node.js**: [下载地址](https://nodejs.org/)，注意安装20.x版本，高版本可能存在不兼容问题。
+
+然后配置镜像地址，使用 `npm config set registry http://mirrors.cloud.tencent.com/npm/` 命令配置腾讯云镜像地址。
+
 - **Git**
 
 ### 2. 安装 Hexo
