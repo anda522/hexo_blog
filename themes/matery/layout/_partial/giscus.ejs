@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<!-- Giscus 评论容器，使用 Gitalk 样式结构 -->
+<div class="card giscus-card" data-aos="fade-up">
+  <div id="giscus-container" class="card-content">
+    <!-- Giscus 组件脚本 -->
+    <script src="https://giscus.app/client.js"
+        data-repo="<%- theme.giscus.repo %>"
+        data-repo-id="<%- theme.giscus.repo_id %>"
+        data-category="<%- theme.giscus.category %>"
+        data-category-id="<%- theme.giscus.category_id %>"
+        data-mapping="<%- theme.giscus.mapping || 'pathname' %>"
+        data-strict="0"
+        data-reactions-enabled="<%- theme.giscus.reactions_enabled || '1' %>"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-loading="lazy"
+        data-theme="<%- theme.giscus.theme || 'light' %>"
+        data-lang="<%- theme.giscus.lang || 'zh-CN' %>"
+        crossorigin="anonymous"
+        async>
+    </script>
+  </div>
+</div>

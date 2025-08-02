@@ -248,6 +248,17 @@ gitalk:
     clientSecret: 9026078c86f550ac2f804f817046f2f02aa1bf46
   admin: anda522
 
+giscus:
+  enable: true
+  repo: anda522/anda522.github.io
+  repo_id: R_kgDOHipDvg
+  category: General
+  category_id: DIC_kwDOHipDvs4Cts1a
+  mapping: title
+  reactions_enabled: 1
+  theme: light
+  lang: zh-CN
+  admin: anda522
 
 # Gitment 评论模块的配置，默认为不激活
 gitment:

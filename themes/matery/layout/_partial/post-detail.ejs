@@ -93,8 +93,12 @@
         </div>
     </div>
 
-    <% if (theme.gitalk && theme.gitalk.enable) { %>
+    <!-- <% if (theme.gitalk && theme.gitalk.enable) { %>
     <%- partial('_partial/gitalk') %>
+    <% } %> -->
+    <!-- 启用giscus -->
+    <% if (theme.giscus && theme.giscus.enable) { %>
+    <%- partial('_partial/giscus') %>
     <% } %>
 
     <% if (theme.gitment.enable) { %>
