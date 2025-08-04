@@ -178,21 +178,26 @@ profile:
 myProjects:
   enable: true
   data:
-    CIFAR10:
-      icon: fa-meetup
-      iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
-      url: https://github.com/anda522/CIFAR10
-      desc: Pytorch之CIFAR10图像分类
-    calendar:
-      icon: fa-database
+    hexo-theme-matery:
+      icon: fa-github
       iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
-      url: https://github.com/anda522/calendar
-      desc: 简单的日历备忘APP(Calendar Memo)
-    QQ-Bot:
-      icon: fa-archive
-      iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
-      url: https://github.com/anda522/bot
-      desc: 基于Nonebot2的QQ群聊机器人
+      url: https://github.com/anda522/hexo_blog
+      desc: 基于Matery的个性化博客主题
+    # CIFAR10:
+    #   icon: fa-meetup
+    #   iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
+    #   url: https://github.com/anda522/CIFAR10
+    #   desc: Pytorch之CIFAR10图像分类
+    # calendar:
+    #   icon: fa-database
+    #   iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
+    #   url: https://github.com/anda522/calendar
+    #   desc: 简单的日历备忘APP(Calendar Memo)
+    # QQ-Bot:
+    #   icon: fa-archive
+    #   iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
+    #   url: https://github.com/anda522/bot
+    #   desc: 基于Nonebot2的QQ群聊机器人
 
 
 # 在“关于”页面配置"我的技能"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
