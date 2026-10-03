@@ -7,3 +7,4 @@ public/
 db.json
 *.exe
 node_modules/
+.codebuddy
